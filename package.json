@@ -4,7 +4,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run start"
+    "start": "lerna run start --stream --scope=@bikeshop/presentation-web",
+    "test": "lerna run test --stream"
   },
   "devDependencies": {
     "lerna": "^3.20.2"
