@@ -4,7 +4,8 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run start --stream --scope=@bikeshop/presentation-web",
+    "start": "lerna run start --scope=@bikeshop/presentation-web",
+    "build": "lerna run build --stream",
     "test": "lerna run test --stream"
   },
   "devDependencies": {
