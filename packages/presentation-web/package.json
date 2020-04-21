@@ -1,0 +1,55 @@
+{
+  "name": "presentation-web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "tsc && react-scripts test",
+    "eject": "react-scripts eject",
+    "build:styles": "postcss src/Presentation/css/tailwind.src.css -o src/Presentation/css/tailwind.css",
+    "prettier": "prettier --write {**/*,*}.{ts,js,tsx,jsx}",
+    "prebuild": "NODE_ENV=production && tsc && yarn build:styles",
+    "prestart": "tsc && yarn build:styles"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "prettier": {
+    "tabWidth": 3,
+    "semi": false,
+    "singleQuote": false,
+    "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@testing-library/jest-dom": "^5.5.0",
+    "@testing-library/react": "^10.0.3",
+    "@testing-library/user-event": "^10.0.2",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "autoprefixer": "^9.7.6",
+    "npm-check-updates": "^4.1.2",
+    "postcss-cli": "^7.1.0",
+    "prettier": "^2.0.4",
+    "react-scripts": "3.4.1",
+    "tailwindcss": "^1.3.1",
+    "typescript": "^3.8.3"
+  }
+}
