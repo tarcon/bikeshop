@@ -1,4 +1,4 @@
-import { Bike } from "../entities/Bike"
+import {Bike} from "@bikeshop/shop";
 
 export interface ProvidesBikes {
    fetchPurchasableBikes(): Promise<Array<Bike>>

@@ -3,8 +3,8 @@ import { StoresCart } from "../boundaries/StoresCart"
 import { ProvidesBike } from "../boundaries/ProvidesBike"
 import { DisplaysError } from "../boundaries/DisplaysError"
 import { DisplaysCart } from "../boundaries/DisplaysCart"
-import { Bike } from "../entities/Bike"
 import { AddBikeToCartOutput, CartBikeOutput } from "./AddBikeToCartOutput"
+import {Bike} from "@bikeshop/shop";
 
 export class AddBikeToCart {
    private _cartStorage: StoresCart

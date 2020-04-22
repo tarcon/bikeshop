@@ -1,7 +1,7 @@
 import { ProvidesBikes } from "../boundaries/ProvidesBikes"
 import { DisplaysBikes } from "../boundaries/DisplaysBikes"
-import { Bike } from "../entities/Bike"
 import { SeeBikeOutput, SeeBikesOutput } from "./SeeBikesOutput"
+import {Bike} from "@bikeshop/shop";
 
 export class SeeBikes {
    private _bikeBackend: ProvidesBikes

@@ -1,10 +1,10 @@
 import { AddBikeToCart } from "./AddBikeToCart"
 import { AddBikeToCartInput } from "./AddBikeToCartInput"
 import { StoresCart } from "../boundaries/StoresCart"
-import { aBike } from "../entities/BikeProvisioning"
 import { ProvidesBike } from "../boundaries/ProvidesBike"
 import { DisplaysError } from "../boundaries/DisplaysError"
 import { DisplaysCart } from "../boundaries/DisplaysCart"
+import {aBike} from "@bikeshop/shop";
 
 describe("AddBikeToCart", () => {
    let cart: StoresCart
