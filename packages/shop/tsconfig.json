@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "outDir": "./build"
-  },
-  "include": [
-    "./src"
-  ]
+    "module": "es6",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "build"
+  }
 }
