@@ -1,12 +1,12 @@
 {
   "name": "@bikeshop/shop-e2e",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "main": "build/index.js",
   "typings": "build/index.d.ts",
   "dependencies": {
-    "@bikeshop/presentation-web": "0.2.0",
-    "@bikeshop/shop": "0.2.0"
+    "@bikeshop/presentation-web": "^0.3.0",
+    "@bikeshop/shop": "^0.3.0"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
