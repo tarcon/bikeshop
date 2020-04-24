@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "outDir": "build",
+    "rootDir": "src",
+    "declaration": true,
+    "declarationDir": "build"
+  },
+  "include": [
+    "test"
+  ],
+  "exclude": [
+    "node_modules",
+    "build"
+  ]
+}

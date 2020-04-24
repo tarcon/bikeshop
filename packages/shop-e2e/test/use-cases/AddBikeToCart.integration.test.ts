@@ -1,8 +1,6 @@
-import { AddBikeToCart } from "./AddBikeToCart"
-import { DisplaysError } from "../boundaries/DisplaysError"
-import { DisplaysCart } from "../boundaries/DisplaysCart"
-import { BikeBackendGateway } from "../../Network/BikeBackendGateway"
-import { CartStorageGateway } from "../../Storage/CartStorageGateway"
+import { AddBikeToCart, DisplaysCart, DisplaysError } from "@bikeshop/shop"
+import { BikeBackendGateway } from "@bikeshop/presentation-web/src/Network/BikeBackendGateway"
+import { CartStorageGateway } from "@bikeshop/presentation-web/src/Storage/CartStorageGateway"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
