@@ -1,5 +1,5 @@
 import { BikesViewModel } from "./BikesViewModel"
-import { DisplaysBikes, SeeBikesOutput } from "@bikeshop/shop"
+import { DisplaysBikes, SeeBikesOutput } from ".."
 
 export class BikesPresenter implements DisplaysBikes {
    private _renderFn: (viewModel: any) => void

@@ -26,3 +26,11 @@ export {SeeBikesOutput, SeeBikeOutput} from "./use-cases/SeeBikesOutput"
 
 export {SeeWelcome} from "./use-cases/SeeWelcome"
 
+
+//presenter
+export * from "./presenter/WelcomePresenter"
+export * from "./presenter/WelcomeViewModel"
+export * from "./presenter/CartPresenter"
+export * from "./presenter/CartViewModel"
+export * from "./presenter/BikesPresenter"
+export * from "./presenter/BikesViewModel"

@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react"
-import { BikesPresenter } from "../Shop/presenter/BikesPresenter"
 import { Pages, ShopContext } from "./ShopContext"
-import { WelcomePresenter } from "../Shop/presenter/WelcomePresenter"
-import { CartPresenter } from "../Shop/presenter/CartPresenter"
-import { CartViewModel } from "../Shop/presenter/CartViewModel"
-import { AddBikeToCart, SeeBikes, SeeWelcome } from "@bikeshop/shop"
+import {
+   AddBikeToCart,
+   BikesPresenter,
+   CartPresenter,
+   CartViewModel,
+   SeeBikes,
+   SeeWelcome,
+   WelcomePresenter,
+} from "@bikeshop/shop"
 
 export type AppViewModel = {
    currentPage: Pages

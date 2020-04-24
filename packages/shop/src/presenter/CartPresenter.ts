@@ -1,5 +1,5 @@
 import { CartViewModel } from "./CartViewModel"
-import { AddBikeToCartOutput, DisplaysCart, DisplaysError } from "@bikeshop/shop"
+import { AddBikeToCartOutput, DisplaysCart, DisplaysError } from ".."
 
 export class CartPresenter implements DisplaysCart, DisplaysError {
    private _renderFn: (viewModel: any) => void
