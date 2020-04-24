@@ -1,5 +1,5 @@
 {
-  "name": "@bikeshop/tslibpackagename",
+  "name": "@bikeshop/packagetemplate",
   "version": "0.0.0",
   "private": true,
   "main": "build/index.js",
@@ -12,7 +12,9 @@
     "typescript": "^3.8.3"
   },
   "scripts": {
-    "build": "shop/node_modules/.bin/tsc",
-    "test": "shop/node_modules/.bin/jest"
+    "build": "yarn clean && yarn compile",
+    "compile": "tsc --listFiles",
+    "clean": "rm -rf build && find ./src -name \"*.js\" -type f -delete",
+    "test": "jest"
   }
 }
