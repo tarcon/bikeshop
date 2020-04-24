@@ -19,10 +19,10 @@ export {StoresCart} from "./boundaries/StoresCart"
 //use cases
 export {AddBikeToCart} from "./use-cases/AddBikeToCart"
 export {AddBikeToCartInput} from "./use-cases/AddBikeToCartInput"
-export {AddBikeToCartOutput} from "./use-cases/AddBikeToCartOutput"
+export {AddBikeToCartOutput, CartBikeOutput} from "./use-cases/AddBikeToCartOutput"
 
 export {SeeBikes} from "./use-cases/SeeBikes"
-export {SeeBikesOutput} from "./use-cases/SeeBikesOutput"
+export {SeeBikesOutput, SeeBikeOutput} from "./use-cases/SeeBikesOutput"
 
 export {SeeWelcome} from "./use-cases/SeeWelcome"
 
