@@ -12,6 +12,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "skipLibCheck": true
+  },
+  "exclude": [
+    "node_modules"
+  ]
 }
