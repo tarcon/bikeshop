@@ -1,9 +1,9 @@
 {
   "name": "@bikeshop/presentation-web",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@bikeshop/shop": "0.1.1",
+    "@bikeshop/shop": "0.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
