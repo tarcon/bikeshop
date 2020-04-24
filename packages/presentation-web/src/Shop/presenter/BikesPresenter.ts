@@ -1,6 +1,5 @@
-import { DisplaysBikes } from "../boundaries/DisplaysBikes"
-import { SeeBikesOutput } from "../use-cases/SeeBikesOutput"
 import { BikesViewModel } from "./BikesViewModel"
+import { DisplaysBikes, SeeBikesOutput } from "@bikeshop/shop"
 
 export class BikesPresenter implements DisplaysBikes {
    private _renderFn: (viewModel: any) => void

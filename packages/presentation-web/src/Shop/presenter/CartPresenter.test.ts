@@ -1,5 +1,5 @@
 import { CartPresenter } from "./CartPresenter"
-import { CartBikeOutput } from "../use-cases/AddBikeToCartOutput"
+import { CartBikeOutput } from "@bikeshop/shop"
 
 describe("CartPresenter", () => {
    let testRenderFn: () => void

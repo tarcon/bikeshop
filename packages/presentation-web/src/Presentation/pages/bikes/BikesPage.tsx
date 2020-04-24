@@ -3,9 +3,9 @@ import {
    BikeViewModel,
 } from "../../../Shop/presenter/BikesViewModel"
 import React, { useContext, useState } from "react"
-import { AddBikeToCartInput } from "../../../Shop/use-cases/AddBikeToCartInput"
 import { ShopContext } from "../../ShopContext"
 import { InlineProgressIndicator } from "../../components/InlineProgressIndicator"
+import { AddBikeToCartInput } from "@bikeshop/shop"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
    return (

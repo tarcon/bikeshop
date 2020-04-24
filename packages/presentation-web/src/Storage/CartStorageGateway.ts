@@ -1,5 +1,4 @@
-import { StoresCart } from "../Shop/boundaries/StoresCart"
-import {Bike, Cart} from "@bikeshop/shop";
+import { Bike, Cart, StoresCart } from "@bikeshop/shop"
 
 export class CartStorageGateway implements StoresCart {
    private _cart: Cart

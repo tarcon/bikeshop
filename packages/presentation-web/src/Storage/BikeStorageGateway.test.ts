@@ -1,6 +1,6 @@
 import { BikeStorageGateway } from "./BikeStorageGateway"
 import { BikeStorage } from "./BikeStorage"
-import {aBike, Bike} from "@bikeshop/shop";
+import { aBike, Bike } from "@bikeshop/shop"
 
 describe("Bike Storage", () => {
    it("can load available bikes", async () => {

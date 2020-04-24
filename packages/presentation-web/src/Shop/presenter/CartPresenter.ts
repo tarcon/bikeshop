@@ -1,7 +1,5 @@
-import { DisplaysCart } from "../boundaries/DisplaysCart"
-import { AddBikeToCartOutput } from "../use-cases/AddBikeToCartOutput"
 import { CartViewModel } from "./CartViewModel"
-import { DisplaysError } from "../boundaries/DisplaysError"
+import { AddBikeToCartOutput, DisplaysCart, DisplaysError } from "@bikeshop/shop"
 
 export class CartPresenter implements DisplaysCart, DisplaysError {
    private _renderFn: (viewModel: any) => void
