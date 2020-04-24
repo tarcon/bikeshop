@@ -27,8 +27,8 @@ export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
 //overwrite fetch() with a hardcoded response because we don't have a real backend
 function fetch(url: string, ean?: number): Promise<any> {
    const data: any = {
-      "http://api.bikeshop.de/bikes": fetchBikesData(),
-      "http://api.bikeshop.de/bike/": ean ? fetchBikeData(ean) : () => {},
+      "http://api.bikeshop.de/bikes": fakeBikesResponse(),
+      "http://api.bikeshop.de/bike/": ean ? fakeBikeResponse(ean) : () => {},
    }
 
    return new Promise(resolve => {
@@ -38,7 +38,7 @@ function fetch(url: string, ean?: number): Promise<any> {
    })
 }
 
-function fetchBikesData(): Array<StoredBikeDto> {
+function fakeBikesResponse(): Array<StoredBikeDto> {
    return [
       {
          ean: 123908123,
@@ -66,6 +66,6 @@ function fetchBikesData(): Array<StoredBikeDto> {
    ]
 }
 
-function fetchBikeData(ean: number): StoredBikeDto {
-   return fetchBikesData().filter(bike => bike.ean === ean)[0]
+function fakeBikeResponse(ean: number): StoredBikeDto {
+   return fakeBikesResponse().filter(bike => bike.ean === ean)[0]
 }
