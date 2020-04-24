@@ -1,4 +1,4 @@
-import { WelcomeViewModel } from "../../../../../shop/src/presenter/WelcomeViewModel"
+import { WelcomeViewModel } from "../../../../../core/src/presenter/WelcomeViewModel"
 
 import React from "react"
 

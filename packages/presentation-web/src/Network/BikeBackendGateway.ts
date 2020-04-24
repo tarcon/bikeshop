@@ -1,5 +1,5 @@
 import { StoredBikeDto } from "./dto/StoredBikeDto"
-import { Bike, ProvidesBike, ProvidesBikes } from "@bikeshop/shop"
+import { Bike, ProvidesBike, ProvidesBikes } from "@bikeshop/core"
 
 export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
    async fetchPurchasableBikes(): Promise<Array<Bike>> {

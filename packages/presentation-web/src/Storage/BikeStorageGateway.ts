@@ -1,5 +1,5 @@
 import { BikeStorage, StoredBike } from "./BikeStorage"
-import { Bike, ProvidesBikes } from "@bikeshop/shop"
+import { Bike, ProvidesBikes } from "@bikeshop/core"
 
 export class BikeStorageGateway implements ProvidesBikes {
    public fetchPurchasableBikes(): Promise<Array<Bike>> {

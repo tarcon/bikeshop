@@ -1,4 +1,4 @@
-import { DisplaysWelcome, SeeWelcome } from "@bikeshop/shop"
+import { DisplaysWelcome, SeeWelcome } from "@bikeshop/core"
 
 describe("SeeWelcome use case", () => {
    let mockUi: DisplaysWelcome

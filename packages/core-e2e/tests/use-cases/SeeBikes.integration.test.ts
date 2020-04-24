@@ -1,4 +1,4 @@
-import { aBike, DisplaysBikes, ProvidesBikes, SeeBikes } from "@bikeshop/shop"
+import { aBike, DisplaysBikes, ProvidesBikes, SeeBikes } from "@bikeshop/core"
 
 describe("SeeBikes use case", () => {
    let backendWithoutBikes: ProvidesBikes

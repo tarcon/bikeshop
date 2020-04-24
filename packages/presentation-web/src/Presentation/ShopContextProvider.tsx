@@ -8,7 +8,7 @@ import {
    SeeBikes,
    SeeWelcome,
    WelcomePresenter,
-} from "@bikeshop/shop"
+} from "@bikeshop/core"
 
 export type AppViewModel = {
    currentPage: Pages

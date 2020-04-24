@@ -1,4 +1,4 @@
-import { Bike, Cart, StoresCart } from "@bikeshop/shop"
+import { Bike, Cart, StoresCart } from "@bikeshop/core"
 
 export class CartStorageGateway implements StoresCart {
    private _cart: Cart

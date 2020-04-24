@@ -9,7 +9,7 @@
     "declarationDir": "build"
   },
   "include": [
-    "test"
+    "tests"
   ],
   "exclude": [
     "node_modules",

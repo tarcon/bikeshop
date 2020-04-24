@@ -1,4 +1,4 @@
-import { AddBikeToCart, DisplaysCart, DisplaysError } from "@bikeshop/shop"
+import { AddBikeToCart, DisplaysCart, DisplaysError } from "@bikeshop/core"
 import { BikeBackendGateway } from "@bikeshop/presentation-web/src/Network/BikeBackendGateway"
 import { CartStorageGateway } from "@bikeshop/presentation-web/src/Storage/CartStorageGateway"
 

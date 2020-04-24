@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import { ShopContext } from "../../ShopContext"
 import { InlineProgressIndicator } from "../../components/InlineProgressIndicator"
-import { AddBikeToCartInput, BikesViewModel, BikeViewModel } from "@bikeshop/shop"
+import { AddBikeToCartInput, BikesViewModel, BikeViewModel } from "@bikeshop/core"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
    return (
