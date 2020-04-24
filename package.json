@@ -7,7 +7,7 @@
   "scripts": {
     "start": "lerna run start --scope=@bikeshop/presentation-web",
     "build": "lerna run build --stream --since master",
-    "test": "lerna run test CI=true --stream --since master",
+    "test": "CI=true lerna run test --stream --since master",
     "clean": "lerna run clean"
   },
   "devDependencies": {
