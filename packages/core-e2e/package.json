@@ -7,7 +7,7 @@
   "dependencies": {
     "@bikeshop/core": "^0.6.0",
     "@bikeshop/network": "^0.6.0",
-    "@bikeshop/presentation-web": "^0.6.0",
+    "@bikeshop/ui-web": "^0.6.0",
     "@bikeshop/storage": "^0.6.0"
   },
   "devDependencies": {

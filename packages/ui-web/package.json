@@ -1,5 +1,5 @@
 {
-  "name": "@bikeshop/presentation-web",
+  "name": "@bikeshop/ui-web",
   "version": "0.6.0",
   "private": true,
   "dependencies": {

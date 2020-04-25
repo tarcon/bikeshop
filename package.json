@@ -5,7 +5,7 @@
     "packages/*"
   ],
   "scripts": {
-    "start": "lerna run start --scope=@bikeshop/presentation-web",
+    "start": "lerna run start --scope=@bikeshop/ui-web",
     "build": "lerna run build --stream --since master",
     "test": "CI=true lerna run test --stream --since master",
     "clean": "lerna run clean"
