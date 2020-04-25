@@ -5,6 +5,7 @@
   "dependencies": {
     "@bikeshop/core": "^0.5.0",
     "@bikeshop/network": "^0.5.0",
+    "@bikeshop/storage": "^0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -13,7 +14,6 @@
     "start": "react-scripts start",
     "prebuild": "NODE_ENV=production && tsc && yarn build:styles",
     "build": "react-scripts build",
-    "test": "tsc && react-scripts test",
     "eject": "react-scripts eject",
     "build:styles": "postcss src/Presentation/css/tailwind.src.css -o src/Presentation/css/tailwind.css",
     "prettier": "prettier --write {**/*,*}.{ts,js,tsx,jsx}",
