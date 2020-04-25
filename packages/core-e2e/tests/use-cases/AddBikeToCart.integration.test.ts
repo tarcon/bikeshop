@@ -1,6 +1,6 @@
 import { AddBikeToCart, DisplaysCart, DisplaysError } from "@bikeshop/core"
-import { CartStorageGateway } from "@bikeshop/presentation-web/src/Storage/CartStorageGateway"
 import { BikeBackendGateway } from "@bikeshop/network"
+import { CartStorageGateway } from "@bikeshop/storage"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
