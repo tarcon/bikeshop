@@ -1,14 +1,14 @@
 import React, { useContext } from "react"
-import { ShopContext } from "./ShopContext"
+import { ShopContext } from "../ShopContext"
 import { BikesViewModel } from "@bikeshop/core"
 import { WelcomeViewModel } from "@bikeshop/core"
-import { AppViewModel } from "./ShopContextProvider"
-import { BikesPage } from "./pages/bikes/BikesPage"
-import { WelcomePage } from "./pages/welcome/WelcomePage"
-import { Header } from "./frame/Header"
-import { Navigation } from "./frame/Navigation"
+import { AppViewModel } from "../ShopContextProvider"
+import { BikesPage } from "../pages/BikesPage"
+import { WelcomePage } from "../pages/WelcomePage"
+import { Header } from "./Header"
+import { Navigation } from "./Navigation"
 
-import "./css/tailwind.css"
+import "../css/tailwind.css"
 import { ShoppingCart } from "./ShoppingCart"
 
 function App() {

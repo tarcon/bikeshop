@@ -15,7 +15,7 @@
     "prebuild": "NODE_ENV=production && tsc && yarn build:styles",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "build:styles": "postcss src/Presentation/css/tailwind.src.css -o src/Presentation/css/tailwind.css",
+    "build:styles": "postcss src/css/tailwind.src.css -o src/css/tailwind.css",
     "prettier": "prettier --write {**/*,*}.{ts,js,tsx,jsx}",
     "clean": "rm -rf build && find ./src -name \"*.js\" -type f -delete"
   },

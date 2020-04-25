@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext, useState } from "react"
 import { ShopContext } from "../ShopContext"
-import { InlineProgressIndicator } from "../components/InlineProgressIndicator"
+import { InlineProgressIndicator } from "../progress-indicators/InlineProgressIndicator"
 
 export function Navigation() {
    const shopContext = useContext(ShopContext)
