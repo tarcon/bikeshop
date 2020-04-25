@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@bikeshop/core": "^0.4.0",
+    "@bikeshop/network": "0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
