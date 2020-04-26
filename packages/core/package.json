@@ -13,7 +13,7 @@
    },
    "scripts": {
       "build": "yarn clean && yarn compile",
-      "compile": "tsc --listFiles",
+      "compile": "tsc",
       "clean": "rm -rf build && find ./src -name \"*.js\" -type f -delete",
       "test": "jest"
    }

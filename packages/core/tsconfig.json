@@ -1,22 +1,18 @@
 {
    "extends": "../../tsconfig.json",
    "compilerOptions": {
-      "module": "esnext",
+      "module": "commonjs",
       "moduleResolution": "node",
       "outDir": "build",
       "rootDir": "src",
       "declaration": true,
-      "declarationDir": "build",
-      "lib": ["dom", "dom.iterable", "esnext"],
-      "allowJs": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "forceConsistentCasingInFileNames": true,
-      "resolveJsonModule": true,
-      "isolatedModules": true,
-      "noEmit": true,
-      "jsx": "react"
+      "declarationDir": "build"
    },
-   "include": ["src"],
-   "exclude": ["node_modules", "build"]
+   "include": [
+      "src"
+   ],
+   "exclude": [
+      "node_modules",
+      "build"
+   ]
 }
