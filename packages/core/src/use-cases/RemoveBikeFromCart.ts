@@ -39,6 +39,7 @@ export class RemoveBikeFromCart {
 
    private static mapCartBikeOutput(bike: Bike): CartBikeOutput {
       return {
+         ean: bike.ean,
          name: bike.name,
          price: bike.price,
       }

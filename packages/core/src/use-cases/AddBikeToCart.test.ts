@@ -46,6 +46,7 @@ describe("AddBikeToCart", () => {
       expect(ui.displayCart).toHaveBeenCalledWith({
          bikes: [
             {
+               ean: 123,
                name: "Bike",
                price: 1000,
             },

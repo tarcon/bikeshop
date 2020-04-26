@@ -22,10 +22,12 @@ describe("AddBikeToCart", () => {
       expect(ui.displayCart).toHaveBeenCalledWith({
          bikes: [
             {
+               ean: 123908123,
                name: "Carbono R3",
                price: 4499,
             },
             {
+               ean: 123908123,
                name: "Carbono R3",
                price: 4499,
             },
