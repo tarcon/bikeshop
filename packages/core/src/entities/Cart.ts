@@ -1,4 +1,4 @@
-import {Bike} from "./Bike";
+import { Bike } from "./Bike"
 
 export class Cart {
    private _bikes: Array<Bike> = []
@@ -9,5 +9,9 @@ export class Cart {
 
    get bikes(): Array<Bike> {
       return this._bikes
+   }
+
+   removeBikeByEan(ean: number) {
+      this._bikes = this._bikes.filter((bike) => ean !== bike.ean)
    }
 }
