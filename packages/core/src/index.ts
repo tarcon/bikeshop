@@ -12,7 +12,7 @@ export { DisplaysError } from "./boundaries/DisplaysError"
 export { ProvidesBike } from "./boundaries/ProvidesBike"
 export { ProvidesBikes } from "./boundaries/ProvidesBikes"
 
-export { StoresCart } from "./boundaries/StoresCart"
+export * from "./boundaries/StoresCart"
 
 //use cases
 export { AddBikeToCart } from "./use-cases/AddBikeToCart"
