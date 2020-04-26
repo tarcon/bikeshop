@@ -4,6 +4,6 @@
 
 3. ~~Customer: see all selected Bikes from the shopping cart with an overall price to validate to make the purchase decision~~
 
-4. Customer: delete an erroneously selected Bike from a shopping cart to correct an error
+4. ~~Customer: delete an erroneously selected Bike from a shopping cart to correct an error~~
 
 5. Customer: purchase all selected Bikes in the shopping cart to finally recieve them
