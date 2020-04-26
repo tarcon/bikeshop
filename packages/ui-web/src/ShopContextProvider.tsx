@@ -5,6 +5,7 @@ import {
    BikesPresenter,
    CartPresenter,
    CartViewModel,
+   RemoveBikeFromCart,
    SeeBikes,
    SeeWelcome,
    WelcomePresenter,
@@ -59,6 +60,10 @@ export function ShopContextProvider(props: {
          props.bikeBackend,
          props.cartStorage,
          cartPresenter
+      ),
+      RemoveBikeFromCart: new RemoveBikeFromCart(
+         cartPresenter,
+         props.cartStorage
       ),
    }
 
