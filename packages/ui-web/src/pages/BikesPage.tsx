@@ -1,13 +1,17 @@
 import React, { useContext, useState } from "react"
 import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "../progress-indicators/InlineProgressIndicator"
-import { AddBikeToCartInput, BikesViewModel, BikeViewModel } from "@bikeshop/core"
+import {
+   AddBikeToCartInput,
+   BikesViewModel,
+   BikeViewModel,
+} from "@bikeshop/core"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
    return (
       <div>
          <div className="grid grid-flow-col gap-4 top">
-            {props.bikesViewModel.map(bike => (
+            {props.bikesViewModel.map((bike) => (
                <BikeProductCard
                   key={bike.ean}
                   ean={bike.ean}

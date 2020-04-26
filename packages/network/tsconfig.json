@@ -1,14 +1,12 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "build",
-    "rootDir": "src",
-    "declaration": true,
-    "declarationDir": "build"
-  },
-  "include": [
-    "src"
-  ]
+   "extends": "../../tsconfig.json",
+   "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "build",
+      "rootDir": "src",
+      "declaration": true,
+      "declarationDir": "build"
+   },
+   "include": ["src"]
 }

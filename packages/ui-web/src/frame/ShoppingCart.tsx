@@ -8,7 +8,7 @@ export function ShoppingCart() {
 
    if (!shoppingCartViewModel) return null
 
-   const cartBikes = shoppingCartViewModel.bikes.map(bike => (
+   const cartBikes = shoppingCartViewModel.bikes.map((bike) => (
       <div key={bike.name} className="mb-2">
          <b className="mr-3">{bike.name}</b>
          <span className="float-right">{bike.price}</span>

@@ -1,23 +1,23 @@
 {
-  "name": "@bikeshop/storage",
-  "version": "1.0.0",
-  "private": true,
-  "main": "build/index.js",
-  "typings": "build/index.d.ts",
-  "dependencies": {
-    "@bikeshop/core": "^1.0.0"
-  },
-  "devDependencies": {
-    "@types/jest": "^25.2.1",
-    "jest": "^24.9.0",
-    "ts-jest": "^25.4.0",
-    "ts-loader": "^7.0.1",
-    "typescript": "^3.8.3"
-  },
-  "scripts": {
-    "build": "yarn clean && yarn compile",
-    "compile": "tsc --listFiles",
-    "clean": "rm -rf build && find ./src -name \"*.js\" -type f -delete",
-    "test": "jest"
-  }
+   "name": "@bikeshop/storage",
+   "version": "1.0.0",
+   "private": true,
+   "main": "build/index.js",
+   "typings": "build/index.d.ts",
+   "dependencies": {
+      "@bikeshop/core": "^1.0.0"
+   },
+   "devDependencies": {
+      "@types/jest": "^25.2.1",
+      "jest": "^24.9.0",
+      "ts-jest": "^25.4.0",
+      "ts-loader": "^7.0.1",
+      "typescript": "^3.8.3"
+   },
+   "scripts": {
+      "build": "yarn clean && yarn compile",
+      "compile": "tsc --listFiles",
+      "clean": "rm -rf build && find ./src -name \"*.js\" -type f -delete",
+      "test": "jest"
+   }
 }
