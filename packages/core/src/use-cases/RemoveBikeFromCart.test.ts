@@ -1,7 +1,12 @@
-import { aBike, DisplaysCart, DisplaysError } from ".."
+import {
+   aBike,
+   DisplaysCart,
+   DisplaysError,
+   LoadsCartBikes,
+   RemovesCartBikes,
+} from ".."
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
-import { LoadsCartBikes, RemovesCartBikes } from "../boundaries/StoresCart"
 
 describe("AddBikeToCart", () => {
    let cart: RemovesCartBikes & LoadsCartBikes
