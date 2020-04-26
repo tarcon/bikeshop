@@ -7,11 +7,11 @@ export class Cart {
       this._bikes = [...this._bikes, bike]
    }
 
-   get bikes(): ReadonlyArray<Bike> {
-      return this._bikes
+   public removeBikeByEan(ean: number) {
+      this._bikes = this._bikes.filter((bike) => ean !== bike.ean)
    }
 
-   removeBikeByEan(ean: number) {
-      this._bikes = this._bikes.filter((bike) => ean !== bike.ean)
+   get bikes(): ReadonlyArray<Bike> {
+      return this._bikes
    }
 }
