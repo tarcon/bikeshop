@@ -1,13 +1,13 @@
 import { Bike } from "./Bike"
 
 export class Cart {
-   private _bikes: Array<Bike> = []
+   private _bikes: ReadonlyArray<Bike> = []
 
    public addBike(bike: Bike): void {
-      this._bikes.push(bike)
+      this._bikes = [...this._bikes, bike]
    }
 
-   get bikes(): Array<Bike> {
+   get bikes(): ReadonlyArray<Bike> {
       return this._bikes
    }
 
