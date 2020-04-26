@@ -1,5 +1,5 @@
 import { AddBikeToCartInput } from "./AddBikeToCartInput"
-import { StoresCart } from ".."
+import { AddsCartBikes, LoadsCartBikes } from ".."
 import { ProvidesBike } from ".."
 import { DisplaysError } from ".."
 import { DisplaysCart } from ".."
@@ -7,7 +7,7 @@ import { AddBikeToCart } from "./AddBikeToCart"
 import { aBike } from ".."
 
 describe("AddBikeToCart", () => {
-   let cart: StoresCart
+   let cart: AddsCartBikes & LoadsCartBikes
    let backendWithABike: ProvidesBike
    let backendWithoutBikes: ProvidesBike
    let ui: DisplaysError & DisplaysCart
@@ -81,7 +81,7 @@ describe("AddBikeToCart", () => {
       cart = {
          addBike: jest.fn(),
          getBikes: jest.fn().mockReturnValue([aBike({ ean: 123 })]),
-      } as StoresCart
+      }
 
       backendWithABike = {
          fetchBikeByEAN: jest.fn().mockReturnValue(aBike({ ean: 123 })),

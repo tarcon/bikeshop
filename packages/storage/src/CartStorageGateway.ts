@@ -1,8 +1,13 @@
-import { Bike, Cart, StoresCart } from "@bikeshop/core"
-import { LoadsCartBikes, RemovesCartBikes } from "@bikeshop/core"
+import {
+   AddsCartBikes,
+   Bike,
+   Cart,
+   LoadsCartBikes,
+   RemovesCartBikes,
+} from "@bikeshop/core"
 
 export class CartStorageGateway
-   implements StoresCart, RemovesCartBikes, LoadsCartBikes {
+   implements AddsCartBikes, RemovesCartBikes, LoadsCartBikes {
    private _cart: Cart
 
    constructor() {
