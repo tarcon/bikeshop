@@ -4,6 +4,7 @@ export type AddBikeToCartOutput = {
 }
 
 export type CartBikeOutput = {
+   ean: number
    name: string
    price: number
 }

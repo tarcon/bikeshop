@@ -5,6 +5,7 @@ import {
    BikesPresenter,
    CartPresenter,
    CartViewModel,
+   RemoveBikeFromCart,
    SeeBikes,
    SeeWelcome,
    WelcomePresenter,
@@ -26,7 +27,7 @@ export function ShopContextProvider(props: {
       currentPageViewModel: {},
    })
 
-   const welcomePresenter = new WelcomePresenter(welcomeViewModel => {
+   const welcomePresenter = new WelcomePresenter((welcomeViewModel) => {
       const state = {
          ...appViewModel,
          currentPage: Pages.Welcome,
@@ -35,7 +36,7 @@ export function ShopContextProvider(props: {
       setAppViewModel(state)
    })
 
-   const bikesPresenter = new BikesPresenter(bikesViewModel => {
+   const bikesPresenter = new BikesPresenter((bikesViewModel) => {
       const state = {
          ...appViewModel,
          currentPage: Pages.Bikes,
@@ -44,7 +45,7 @@ export function ShopContextProvider(props: {
       setAppViewModel(state)
    })
 
-   const cartPresenter = new CartPresenter(cartViewModel => {
+   const cartPresenter = new CartPresenter((cartViewModel) => {
       const state = {
          ...appViewModel,
          shoppingCartViewModel: cartViewModel,
@@ -59,6 +60,10 @@ export function ShopContextProvider(props: {
          props.bikeBackend,
          props.cartStorage,
          cartPresenter
+      ),
+      RemoveBikeFromCart: new RemoveBikeFromCart(
+         cartPresenter,
+         props.cartStorage
       ),
    }
 

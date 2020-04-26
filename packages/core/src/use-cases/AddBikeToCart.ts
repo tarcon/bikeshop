@@ -1,15 +1,22 @@
 import { AddBikeToCartOutput, CartBikeOutput } from "./AddBikeToCartOutput"
 import { AddBikeToCartInput } from "./AddBikeToCartInput"
-import { Bike, DisplaysCart, DisplaysError, ProvidesBike, StoresCart } from ".."
+import {
+   AddsCartBikes,
+   Bike,
+   DisplaysCart,
+   DisplaysError,
+   LoadsCartBikes,
+   ProvidesBike,
+} from ".."
 
 export class AddBikeToCart {
-   private _cartStorage: StoresCart
+   private _cartStorage: AddsCartBikes & LoadsCartBikes
    private _bikeBackend: ProvidesBike
    private _ui: DisplaysError & DisplaysCart
 
    constructor(
       bikeBackend: ProvidesBike,
-      cartStorage: StoresCart,
+      cartStorage: AddsCartBikes & LoadsCartBikes,
       ui: DisplaysError & DisplaysCart
    ) {
       this._cartStorage = cartStorage
@@ -41,6 +48,7 @@ export class AddBikeToCart {
 
    private static mapCartBikeOutput(bike: Bike): CartBikeOutput {
       return {
+         ean: bike.ean,
          name: bike.name,
          price: bike.price,
       }

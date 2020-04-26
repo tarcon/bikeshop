@@ -1,9 +1,8 @@
 export type CartViewModel = {
-   bikes: Array<CartBikeViewModel>
+   bikes: Array<{
+      ean: number
+      name: string
+      price: string
+   }>
    totalPrice: string
-}
-
-export type CartBikeViewModel = {
-   name: string
-   price: string
 }

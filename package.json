@@ -1,16 +1,24 @@
 {
-  "name": "bikeshop",
-  "private": true,
-  "workspaces": [
-    "packages/*"
-  ],
-  "scripts": {
-    "start": "lerna run start --scope=@bikeshop/ui-web",
-    "build": "lerna run build --stream --since master",
-    "test": "CI=true lerna run test --stream --since master",
-    "clean": "lerna run clean"
-  },
-  "devDependencies": {
-    "lerna": "^3.20.2"
-  }
+   "name": "bikeshop",
+   "private": true,
+   "workspaces": [
+      "packages/*"
+   ],
+   "scripts": {
+      "start": "lerna run start --scope=@bikeshop/ui-web",
+      "build": "lerna run build --stream --since master",
+      "test": "CI=true lerna run test --stream --since master",
+      "clean": "lerna run clean",
+      "prettier": "prettier --write {**/*,*}.{json,ts,tsx}"
+   },
+   "prettier": {
+      "tabWidth": 3,
+      "semi": false,
+      "singleQuote": false,
+      "trailingComma": "es5"
+   },
+   "devDependencies": {
+      "lerna": "^3.20.2",
+      "prettier": "^2.0.4"
+   }
 }

@@ -1,18 +1,13 @@
 {
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "outDir": "build",
-    "rootDir": "test",
-    "declaration": true,
-    "declarationDir": "build"
-  },
-  "include": [
-    "tests"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ]
+   "extends": "../../tsconfig.json",
+   "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "outDir": "build",
+      "rootDir": "test",
+      "declaration": true,
+      "declarationDir": "build"
+   },
+   "include": ["tests"],
+   "exclude": ["node_modules", "build"]
 }
