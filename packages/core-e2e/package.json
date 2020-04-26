@@ -1,14 +1,14 @@
 {
    "name": "@bikeshop/core-e2e",
-   "version": "1.0.0",
+   "version": "2.0.0",
    "private": true,
    "main": "build/index.js",
    "typings": "build/index.d.ts",
    "dependencies": {
-      "@bikeshop/core": "^1.0.0",
-      "@bikeshop/network": "^1.0.0",
-      "@bikeshop/storage": "^1.0.0",
-      "@bikeshop/ui-web": "^1.0.0"
+      "@bikeshop/core": "^2.0.0",
+      "@bikeshop/network": "^2.0.0",
+      "@bikeshop/storage": "^2.0.0",
+      "@bikeshop/ui-web": "^2.0.0"
    },
    "devDependencies": {
       "@types/jest": "^25.2.1",
