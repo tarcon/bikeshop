@@ -9,7 +9,7 @@ import { Header } from "./Header"
 import { Navigation } from "./Navigation"
 
 import "../css/tailwind.css"
-import { ShoppingCart } from "./ShoppingCart"
+import { ShoppingCart } from "../components/ShoppingCart"
 
 function App() {
    const shopContext = useContext(ShopContext)

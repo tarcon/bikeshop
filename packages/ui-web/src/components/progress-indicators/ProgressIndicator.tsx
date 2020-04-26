@@ -1,6 +1,6 @@
 import React from "react"
 
-export function ProgressIndicator(props: any) {
+export function ProgressIndicator() {
    return (
       <div>
          <svg
