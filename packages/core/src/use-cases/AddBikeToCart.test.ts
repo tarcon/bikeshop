@@ -1,4 +1,4 @@
-import { AddBikeToCartInput } from "./AddBikeToCartInput"
+import { AddBikeToCartInput } from "./AddBikeToCart.in"
 import { Cart, LoadsCart, StoresCart } from ".."
 import { ProvidesBike } from ".."
 import { DisplaysError } from ".."

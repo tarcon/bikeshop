@@ -1,4 +1,10 @@
-import { Bike, CartBikeOutput, DisplaysCart, LoadsCart, StoresCart } from ".."
+import {
+   Bike,
+   AddBikeToCartCartBikeOutput,
+   DisplaysCart,
+   LoadsCart,
+   StoresCart,
+} from ".."
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
 import { RemoveBikeFromCartOutput } from "./RemoveBikeFromCart.out"
 
@@ -34,7 +40,7 @@ export class RemoveBikeFromCart {
       }
    }
 
-   private static mapCartBikeOutput(bike: Bike): CartBikeOutput {
+   private static mapCartBikeOutput(bike: Bike): AddBikeToCartCartBikeOutput {
       return {
          ean: bike.ean,
          name: bike.name,

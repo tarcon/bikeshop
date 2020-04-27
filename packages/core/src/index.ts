@@ -16,11 +16,11 @@ export * from "./boundaries/StoresCart"
 
 //use cases
 export { AddBikeToCart } from "./use-cases/AddBikeToCart"
-export { AddBikeToCartInput } from "./use-cases/AddBikeToCartInput"
+export { AddBikeToCartInput } from "./use-cases/AddBikeToCart.in"
 export {
    AddBikeToCartOutput,
-   CartBikeOutput,
-} from "./use-cases/AddBikeToCartOutput"
+   AddBikeToCartCartBikeOutput,
+} from "./use-cases/AddBikeToCart.out"
 
 export { RemoveBikeFromCart } from "./use-cases/RemoveBikeFromCart"
 export * from "./use-cases/RemoveBikeFromCart.in"

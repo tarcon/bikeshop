@@ -1,5 +1,8 @@
-import { AddBikeToCartOutput, CartBikeOutput } from "./AddBikeToCartOutput"
-import { AddBikeToCartInput } from "./AddBikeToCartInput"
+import {
+   AddBikeToCartOutput,
+   AddBikeToCartCartBikeOutput,
+} from "./AddBikeToCart.out"
+import { AddBikeToCartInput } from "./AddBikeToCart.in"
 import {
    Bike,
    DisplaysCart,
@@ -48,7 +51,7 @@ export class AddBikeToCart {
       }
    }
 
-   private static mapCartBikeOutput(bike: Bike): CartBikeOutput {
+   private static mapCartBikeOutput(bike: Bike): AddBikeToCartCartBikeOutput {
       return {
          ean: bike.ean,
          name: bike.name,
