@@ -13,6 +13,7 @@ export { ProvidesBike } from "./boundaries/ProvidesBike"
 export { ProvidesBikes } from "./boundaries/ProvidesBikes"
 
 export * from "./boundaries/StoresCart"
+export * from "./boundaries/LoadsCart"
 
 //use cases
 export { AddBikeToCart } from "./use-cases/AddBikeToCart"
