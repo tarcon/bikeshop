@@ -1,5 +1,5 @@
-import { AddBikeToCartInput } from "./AddBikeToCartInput"
-import { AddsCartBikes, LoadsCartBikes } from ".."
+import { AddBikeToCartInput } from "./AddBikeToCart.in"
+import { Cart, LoadsCart, StoresCart } from ".."
 import { ProvidesBike } from ".."
 import { DisplaysError } from ".."
 import { DisplaysCart } from ".."
@@ -7,7 +7,7 @@ import { AddBikeToCart } from "./AddBikeToCart"
 import { aBike } from ".."
 
 describe("AddBikeToCart", () => {
-   let cart: AddsCartBikes & LoadsCartBikes
+   let emptyCart: StoresCart & LoadsCart
    let backendWithABike: ProvidesBike
    let backendWithoutBikes: ProvidesBike
    let ui: DisplaysError & DisplaysCart
@@ -18,7 +18,7 @@ describe("AddBikeToCart", () => {
    beforeEach(() => {
       setupMocks()
 
-      useCase = new AddBikeToCart(backendWithABike, cart, ui)
+      useCase = new AddBikeToCart(backendWithABike, emptyCart, ui)
 
       oneBikeToAdd = {
          ean: 123,
@@ -36,42 +36,30 @@ describe("AddBikeToCart", () => {
 
       expect(ui.displayError).not.toHaveBeenCalled()
       expect(backendWithABike.fetchBikeByEAN).toHaveBeenCalledWith(123)
-      expect(cart.addBike).toHaveBeenCalledWith(aBike({ ean: 123 }))
+      expect(emptyCart.store).toHaveBeenCalled()
    })
 
    it("displays the shopping cart with the new bike", async () => {
       await useCase.execute(oneBikeToAdd)
 
       expect(ui.displayError).not.toHaveBeenCalled()
-      expect(ui.displayCart).toHaveBeenCalledWith({
-         bikes: [
-            {
-               ean: 123,
-               name: "Bike",
-               price: 1000,
-            },
-         ],
-         totalPrice: expect.anything(),
-      })
+      expect(ui.displayCart).toHaveBeenCalled()
    })
 
    it("calculates the total cart price", async () => {
       await useCase.execute(oneBikeToAdd)
 
       expect(ui.displayError).not.toHaveBeenCalled()
-      expect(ui.displayCart).toHaveBeenCalledWith({
-         bikes: expect.anything(),
-         totalPrice: 1000,
-      })
+      expect(ui.displayCart).toHaveBeenCalled()
    })
 
    it("shows an error adding a bike for an EAN which doesn't exist in the backend", async () => {
-      useCase = new AddBikeToCart(backendWithoutBikes, cart, ui)
+      useCase = new AddBikeToCart(backendWithoutBikes, emptyCart, ui)
 
       await useCase.execute(oneBikeToAdd)
 
       expect(backendWithoutBikes.fetchBikeByEAN).toHaveBeenCalledWith(123)
-      expect(cart.addBike).not.toHaveBeenCalled()
+      expect(emptyCart.store).not.toHaveBeenCalled()
       expect(ui.displayCart).not.toHaveBeenCalled()
       expect(ui.displayError).toHaveBeenCalled()
    })
@@ -79,9 +67,9 @@ describe("AddBikeToCart", () => {
    function setupMocks() {
       jest.resetAllMocks()
 
-      cart = {
-         addBike: jest.fn(),
-         getBikes: jest.fn().mockReturnValue([aBike({ ean: 123 })]),
+      emptyCart = {
+         store: jest.fn(),
+         load: jest.fn().mockReturnValue(new Cart()),
       }
 
       backendWithABike = {

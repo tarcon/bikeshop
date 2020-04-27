@@ -1,9 +1,9 @@
 export type AddBikeToCartOutput = {
-   bikes: Array<CartBikeOutput>
+   bikes: Array<AddBikeToCartCartBikeOutput>
    totalPrice: number
 }
 
-export type CartBikeOutput = {
+export type AddBikeToCartCartBikeOutput = {
    ean: number
    name: string
    price: number

@@ -1,6 +1,11 @@
-import { AddBikeToCart, DisplaysCart, DisplaysError } from "@bikeshop/core"
+import {
+   aBike,
+   AddBikeToCart,
+   DisplaysCart,
+   DisplaysError,
+} from "@bikeshop/core"
 import { BikeBackendGateway } from "@bikeshop/network"
-import { CartStorageGateway } from "@bikeshop/storage"
+import { CartStorageGateway } from "@bikeshop/storage/build/CartStorageGateway"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
@@ -34,6 +39,31 @@ describe("AddBikeToCart", () => {
          ],
          totalPrice: 8998,
       })
+   })
+
+   it("stores the cart after adding a bike", async () => {
+      const backend = new BikeBackendGateway()
+      const cart = new CartStorageGateway()
+      const useCase = new AddBikeToCart(backend, cart, ui)
+      const bikeToAdd = {
+         ean: 123908123,
+      }
+      await useCase.execute(bikeToAdd)
+      expect(cart.load().bikes).toBeEmpty
+
+      const newCart = cart.load()
+
+      expect(newCart.bikes).toBeDefined
+      expect(newCart.bikes).toStrictEqual([
+         aBike({
+            description:
+               "A racing bike with a long heritage of classic race wins. Prefered by dentists.",
+            ean: 123908123,
+            name: "Carbono R3",
+            price: 4499,
+            productImageFileName: "carbono.jpg",
+         }),
+      ])
    })
 
    beforeEach(() => {

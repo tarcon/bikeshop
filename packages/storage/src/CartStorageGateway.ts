@@ -1,28 +1,17 @@
-import {
-   AddsCartBikes,
-   Bike,
-   Cart,
-   LoadsCartBikes,
-   RemovesCartBikes,
-} from "@bikeshop/core"
+import { Cart, LoadsCart, StoresCart } from "@bikeshop/core"
 
-export class CartStorageGateway
-   implements AddsCartBikes, RemovesCartBikes, LoadsCartBikes {
+export class CartStorageGateway implements StoresCart, LoadsCart {
    private _cart: Cart
 
    constructor() {
       this._cart = new Cart()
    }
 
-   addBike(bike: Bike): void {
-      this._cart.addBike(bike)
+   public store(cart: Cart) {
+      this._cart = cart
    }
 
-   removeBikeByEan(ean: number): void {
-      this._cart.removeBikeByEan(ean)
-   }
-
-   getBikes(): ReadonlyArray<Bike> {
-      return Object.freeze([...this._cart.bikes])
+   public load(): Cart {
+      return this._cart
    }
 }
