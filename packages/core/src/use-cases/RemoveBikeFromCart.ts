@@ -1,10 +1,4 @@
-import {
-   Bike,
-   AddBikeToCartCartBikeOutput,
-   DisplaysCart,
-   LoadsCart,
-   StoresCart,
-} from ".."
+import { DisplaysCart, LoadsCart, StoresCart, Cart } from ".."
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
 import { RemoveBikeFromCartOutput } from "./RemoveBikeFromCart.out"
 
@@ -23,33 +17,27 @@ export class RemoveBikeFromCart {
          cart.removeProductByEan(input.ean)
          this._cartStorage.store(cart)
 
-         this._ui.displayCart(
-            RemoveBikeFromCart.createOutputFromCart(cart.products)
-         )
+         this._ui.displayCart(RemoveBikeFromCart.createOutputFromCart(cart))
       } catch (e) {
          console.error("Could not remove bike with ean: " + input.ean)
       }
    }
 
-   private static createOutputFromCart(
-      cartBikes: ReadonlyArray<Bike>
-   ): RemoveBikeFromCartOutput {
+   private static createOutputFromCart(cart: Cart): RemoveBikeFromCartOutput {
       return {
-         bikes: cartBikes.map(RemoveBikeFromCart.mapCartBikeOutput),
-         totalPrice: RemoveBikeFromCart.calculateTotalPrice(cartBikes),
+         bikes: cart.cartProducts.map((cartProduct) => {
+            return {
+               count: cartProduct.count,
+               ean: cartProduct.ean,
+               name: cartProduct.product.name,
+               price: cartProduct.product.price,
+            }
+         }),
+         totalPrice: RemoveBikeFromCart.calculateTotalPrice(cart),
       }
    }
-
-   private static mapCartBikeOutput(bike: Bike): AddBikeToCartCartBikeOutput {
-      return {
-         ean: bike.ean,
-         name: bike.name,
-         price: bike.price,
-      }
-   }
-
-   private static calculateTotalPrice(cartBikes: ReadonlyArray<Bike>) {
-      return cartBikes.reduce<number>((sum, bike) => {
+   private static calculateTotalPrice(cart: Cart) {
+      return cart.products.reduce<number>((sum, bike) => {
          return sum + bike.price
       }, 0)
    }

@@ -1,10 +1,7 @@
-import {
-   AddBikeToCartOutput,
-   AddBikeToCartCartBikeOutput,
-} from "./AddBikeToCart.out"
+import { AddBikeToCartOutput } from "./AddBikeToCart.out"
 import { AddBikeToCartInput } from "./AddBikeToCart.in"
 import {
-   Bike,
+   Cart,
    DisplaysCart,
    DisplaysError,
    LoadsCart,
@@ -35,33 +32,30 @@ export class AddBikeToCart {
          cart.addProduct(bike)
          this._cartStorage.store(cart)
 
-         const output = AddBikeToCart.createOutputFromCart(cart.products)
+         const output = AddBikeToCart.createOutputFromCart(cart)
          this._ui.displayCart(output)
       } catch (e) {
          this._ui.displayError(e.message)
       }
    }
 
-   private static createOutputFromCart(
-      cartBikes: ReadonlyArray<Bike>
-   ): AddBikeToCartOutput {
+   private static createOutputFromCart(cart: Cart): AddBikeToCartOutput {
       return {
-         bikes: cartBikes.map(AddBikeToCart.mapCartBikeOutput),
-         totalPrice: AddBikeToCart.calculateTotalPrice(cartBikes),
+         bikes: cart.cartProducts.map((cartProduct) => {
+            return {
+               count: cartProduct.count,
+               ean: cartProduct.ean,
+               name: cartProduct.product.name,
+               price: cartProduct.product.price,
+            }
+         }),
+         totalPrice: AddBikeToCart.calculateTotalPrice(cart),
       }
    }
 
-   private static mapCartBikeOutput(bike: Bike): AddBikeToCartCartBikeOutput {
-      return {
-         ean: bike.ean,
-         name: bike.name,
-         price: bike.price,
-      }
-   }
-
-   private static calculateTotalPrice(cartBikes: ReadonlyArray<Bike>) {
-      return cartBikes.reduce<number>((sum, bike) => {
-         return sum + bike.price
+   private static calculateTotalPrice(cart: Cart) {
+      return cart.products.reduce<number>((sum, product) => {
+         return sum + product.price * cart.countProduct(product.ean)
       }, 0)
    }
 }

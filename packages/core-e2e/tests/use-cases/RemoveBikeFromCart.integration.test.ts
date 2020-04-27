@@ -23,6 +23,7 @@ describe("RemoveBikeFromCart", () => {
       expect(ui.displayCart).toHaveBeenCalledWith({
          bikes: [
             {
+               count: 1,
                ean: 456,
                name: "Second",
                price: 999,
