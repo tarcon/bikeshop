@@ -1,22 +1,22 @@
 import { AddBikeToCartOutput, CartBikeOutput } from "./AddBikeToCartOutput"
 import { AddBikeToCartInput } from "./AddBikeToCartInput"
 import {
-   AddsCartBikes,
    Bike,
    DisplaysCart,
    DisplaysError,
-   LoadsCartBikes,
+   LoadsCart,
    ProvidesBike,
+   StoresCart,
 } from ".."
 
 export class AddBikeToCart {
-   private _cartStorage: AddsCartBikes & LoadsCartBikes
+   private _cartStorage: StoresCart & LoadsCart
    private _bikeBackend: ProvidesBike
    private _ui: DisplaysError & DisplaysCart
 
    constructor(
       bikeBackend: ProvidesBike,
-      cartStorage: AddsCartBikes & LoadsCartBikes,
+      cartStorage: StoresCart & LoadsCart,
       ui: DisplaysError & DisplaysCart
    ) {
       this._cartStorage = cartStorage
@@ -27,10 +27,12 @@ export class AddBikeToCart {
    async execute(bikeToAdd: AddBikeToCartInput): Promise<void> {
       try {
          const bike = await this._bikeBackend.fetchBikeByEAN(bikeToAdd.ean)
-         this._cartStorage.addBike(bike)
 
-         const allBikesInCart = this._cartStorage.getBikes()
-         const output = AddBikeToCart.createOutputFromCart(allBikesInCart)
+         const cart = this._cartStorage.load()
+         cart.addBike(bike)
+         this._cartStorage.store(cart)
+
+         const output = AddBikeToCart.createOutputFromCart(cart.bikes)
          this._ui.displayCart(output)
       } catch (e) {
          this._ui.displayError(e.message)

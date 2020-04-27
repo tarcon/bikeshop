@@ -1,27 +1,24 @@
-import {
-   Bike,
-   CartBikeOutput,
-   DisplaysCart,
-   LoadsCartBikes,
-   RemovesCartBikes,
-} from ".."
+import { Bike, CartBikeOutput, DisplaysCart, LoadsCart, StoresCart } from ".."
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
 import { RemoveBikeFromCartOutput } from "./RemoveBikeFromCart.out"
 
 export class RemoveBikeFromCart {
    private _ui: DisplaysCart
-   private _cart: RemovesCartBikes & LoadsCartBikes
+   private _cartStorage: LoadsCart & StoresCart
 
-   constructor(ui: DisplaysCart, cart: RemovesCartBikes & LoadsCartBikes) {
+   constructor(ui: DisplaysCart, cart: StoresCart & LoadsCart) {
       this._ui = ui
-      this._cart = cart
+      this._cartStorage = cart
    }
 
    public execute(input: RemoveBikeFromCartInput): void {
       try {
-         this._cart.removeBikeByEan(input.ean)
+         const cart = this._cartStorage.load()
+         cart.removeBikeByEan(input.ean)
+         this._cartStorage.store(cart)
+
          this._ui.displayCart(
-            RemoveBikeFromCart.createOutputFromCart(this._cart.getBikes())
+            RemoveBikeFromCart.createOutputFromCart(cart.bikes)
          )
       } catch (e) {
          console.error("Could not remove bike with ean: " + input.ean)

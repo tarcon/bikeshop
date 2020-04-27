@@ -3,10 +3,10 @@ import ReactDOM from "react-dom"
 import App from "./frame/App"
 import { ShopContextProvider } from "./ShopContextProvider"
 import { BikeBackendGateway } from "@bikeshop/network"
-import { CartStorageGateway } from "@bikeshop/storage"
+import { CartStorageGateway2 } from "@bikeshop/storage"
 
 const bikeBackend = new BikeBackendGateway()
-const cartStorage = new CartStorageGateway()
+const cartStorage = new CartStorageGateway2()
 
 ReactDOM.render(
    <>
