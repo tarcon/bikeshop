@@ -4,12 +4,12 @@ import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
 
 export function BikeProductCard({
-                                   ean,
-                                   name,
-                                   price,
-                                   productImageUrl,
-                                   description,
-                                }: BikeViewModel) {
+   ean,
+   name,
+   price,
+   productImageUrl,
+   description,
+}: BikeViewModel) {
    const shopContext = useContext(ShopContext)
    const [isLoading, setLoading] = useState(false)
 
@@ -43,7 +43,7 @@ export function BikeProductCard({
                className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded"
                onClick={handleAddToCart}
             >
-               Add to cart {isLoading && <InlineProgressIndicator/>}
+               Add to cart {isLoading && <InlineProgressIndicator />}
             </button>
          </div>
       </div>
