@@ -1,11 +1,11 @@
 {
    "name": "@bikeshop/storage",
-   "version": "2.0.0",
+   "version": "2.0.1",
    "private": true,
    "main": "build/index.js",
    "typings": "build/index.d.ts",
    "dependencies": {
-      "@bikeshop/core": "^2.0.0"
+      "@bikeshop/core": "^2.0.1"
    },
    "devDependencies": {
       "@types/jest": "^25.2.1",

@@ -1,11 +1,11 @@
 {
    "name": "@bikeshop/ui-web",
-   "version": "2.0.0",
+   "version": "2.0.1",
    "private": true,
    "dependencies": {
-      "@bikeshop/core": "^2.0.0",
-      "@bikeshop/network": "^2.0.0",
-      "@bikeshop/storage": "^2.0.0",
+      "@bikeshop/core": "^2.0.1",
+      "@bikeshop/network": "^2.0.1",
+      "@bikeshop/storage": "^2.0.1",
       "react": "^16.13.1",
       "react-dom": "^16.13.1"
    },
