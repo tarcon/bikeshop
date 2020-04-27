@@ -6,9 +6,9 @@
    ],
    "scripts": {
       "start": "lerna run start --scope=@bikeshop/ui-web",
-      "build": "lerna run build --stream --since master",
-      "test": "CI=true lerna run test --stream --since master",
+      "build": "lerna run build --stream --since master && CI=true lerna run test --stream --since master",
       "clean": "lerna run clean",
+      "test": "CI=true lerna run test --stream --since master",
       "prettier": "prettier --write {**/*,*}.{json,ts,tsx}"
    },
    "prettier": {
