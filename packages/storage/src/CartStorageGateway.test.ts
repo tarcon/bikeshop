@@ -1,35 +1,57 @@
+import { aBike, Cart } from "@bikeshop/core"
 import { CartStorageGateway } from "./CartStorageGateway"
-import { aBike } from "@bikeshop/core"
 
 describe("CartStorageGateway", () => {
-   it("can add and get a bike", () => {
+   it("can store an empty cart", () => {
       const gateway = new CartStorageGateway()
+      const cart = new Cart()
 
-      gateway.addBike(aBike())
-
-      const bikes = gateway.getBikes()
-
-      expect(bikes).toHaveLength(1)
-
-      expect(bikes[0]).toStrictEqual(aBike())
+      expect(() => {
+         gateway.store(cart)
+      }).not.toThrow()
    })
 
-   it("can get all bikes for an empty cart", () => {
+   it("can load an empty cart", () => {
       const gateway = new CartStorageGateway()
+      const cart = new Cart()
+      gateway.store(cart)
 
-      const bikes = gateway.getBikes()
-
-      expect(bikes).toHaveLength(0)
+      expect(() => {
+         const loadedCart = gateway.load()
+         expect(loadedCart).toBeEmpty
+      }).not.toThrow()
    })
 
-   it("can get all bikes for a cart with two bikes", () => {
+   it("can store a filled cart", () => {
       const gateway = new CartStorageGateway()
+      const cart = new Cart()
+      cart.addBike(aBike())
 
-      gateway.addBike(aBike())
-      gateway.addBike(aBike())
+      expect(() => {
+         gateway.store(cart)
+      }).not.toThrow()
+   })
 
-      const bikes = gateway.getBikes()
+   it("can load a filled cart", () => {
+      const gateway = new CartStorageGateway()
+      const cart = new Cart()
+      cart.addBike(aBike())
+      cart.addBike(aBike())
+      gateway.store(cart)
 
-      expect(bikes).toHaveLength(2)
+      expect(() => {
+         const loadedCart = gateway.load()
+
+         expect(loadedCart.bikes).toBeDefined
+         expect(loadedCart.bikes).toStrictEqual([aBike(), aBike()])
+      }).not.toThrow()
+   })
+
+   it("provides an initial cart before a cart has been stored", () => {
+      const gateway = new CartStorageGateway()
+      expect(() => {
+         const initialCart = gateway.load()
+         expect(initialCart).toStrictEqual(new Cart())
+      }).not.toThrow()
    })
 })

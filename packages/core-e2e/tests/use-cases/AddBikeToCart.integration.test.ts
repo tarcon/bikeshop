@@ -5,14 +5,14 @@ import {
    DisplaysError,
 } from "@bikeshop/core"
 import { BikeBackendGateway } from "@bikeshop/network"
-import { CartStorageGateway2 } from "@bikeshop/storage/build/CartStorageGateway2"
+import { CartStorageGateway } from "@bikeshop/storage/build/CartStorageGateway"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
 
    it("displays the shopping cart with two bike", async () => {
       const backend = new BikeBackendGateway()
-      const cart = new CartStorageGateway2()
+      const cart = new CartStorageGateway()
 
       const useCase = new AddBikeToCart(backend, cart, ui)
 
@@ -43,7 +43,7 @@ describe("AddBikeToCart", () => {
 
    it("stores the cart after adding a bike", async () => {
       const backend = new BikeBackendGateway()
-      const cart = new CartStorageGateway2()
+      const cart = new CartStorageGateway()
       const useCase = new AddBikeToCart(backend, cart, ui)
       const bikeToAdd = {
          ean: 123908123,
