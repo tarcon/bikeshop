@@ -15,9 +15,7 @@
       "typescript": "^3.8.3"
    },
    "scripts": {
-      "build": "yarn clean && yarn compile",
-      "compile": "tsc --listFiles",
-      "clean": "rm -rf build && find ./src -name \"*.js\" -type f -delete",
+      "build": "tsc",
       "test": "jest"
    }
 }
