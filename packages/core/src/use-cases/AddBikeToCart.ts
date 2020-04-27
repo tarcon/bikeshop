@@ -32,10 +32,10 @@ export class AddBikeToCart {
          const bike = await this._bikeBackend.fetchBikeByEAN(bikeToAdd.ean)
 
          const cart = this._cartStorage.load()
-         cart.addBike(bike)
+         cart.addProduct(bike)
          this._cartStorage.store(cart)
 
-         const output = AddBikeToCart.createOutputFromCart(cart.bikes)
+         const output = AddBikeToCart.createOutputFromCart(cart.products)
          this._ui.displayCart(output)
       } catch (e) {
          this._ui.displayError(e.message)

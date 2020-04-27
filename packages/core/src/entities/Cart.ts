@@ -1,17 +1,19 @@
 import { Bike } from "./Bike"
 
+type Product = Bike
+
 export class Cart {
-   private _bikes: ReadonlyArray<Bike> = []
+   private _products: ReadonlyArray<Product> = []
 
-   public addBike(bike: Bike): void {
-      this._bikes = [...this._bikes, bike]
+   public addProduct(product: Product): void {
+      this._products = [...this._products, product]
    }
 
-   public removeBikeByEan(ean: number) {
-      this._bikes = this._bikes.filter((bike) => ean !== bike.ean)
+   public removeProductByEan(ean: number) {
+      this._products = this._products.filter((product) => ean !== product.ean)
    }
 
-   get bikes(): ReadonlyArray<Bike> {
-      return this._bikes
+   get products(): ReadonlyArray<Product> {
+      return this._products
    }
 }

@@ -5,7 +5,7 @@ import {
    DisplaysError,
 } from "@bikeshop/core"
 import { BikeBackendGateway } from "@bikeshop/network"
-import { CartStorageGateway } from "@bikeshop/storage/build/CartStorageGateway"
+import { CartStorageGateway } from "@bikeshop/storage"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
@@ -49,12 +49,12 @@ describe("AddBikeToCart", () => {
          ean: 123908123,
       }
       await useCase.execute(bikeToAdd)
-      expect(cart.load().bikes).toBeEmpty
+      expect(cart.load().products).toBeEmpty
 
       const newCart = cart.load()
 
-      expect(newCart.bikes).toBeDefined
-      expect(newCart.bikes).toStrictEqual([
+      expect(newCart.products).toBeDefined
+      expect(newCart.products).toStrictEqual([
          aBike({
             description:
                "A racing bike with a long heritage of classic race wins. Prefered by dentists.",

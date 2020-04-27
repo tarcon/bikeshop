@@ -11,41 +11,41 @@ describe("Cart", () => {
       const cart = new Cart()
       const bike = aBike()
 
-      cart.addBike(bike)
+      cart.addProduct(bike)
 
-      expect(cart.bikes).toHaveLength(1)
-      expect(cart.bikes[0]).toBe(bike)
+      expect(cart.products).toHaveLength(1)
+      expect(cart.products[0]).toBe(bike)
    })
 
    it("can remove a bike", () => {
       const cart = new Cart()
-      cart.addBike(aBike({ ean: 12345 }))
+      cart.addProduct(aBike({ ean: 12345 }))
 
-      cart.removeBikeByEan(12345)
+      cart.removeProductByEan(12345)
 
-      expect(cart.bikes).toBeEmpty
+      expect(cart.products).toBeEmpty
    })
 
    it("can remove a bike from two bikes", () => {
       const cart = new Cart()
-      cart.addBike(aBike({ ean: 12345 }))
-      cart.addBike(aBike({ ean: 67890 }))
+      cart.addProduct(aBike({ ean: 12345 }))
+      cart.addProduct(aBike({ ean: 67890 }))
 
-      cart.removeBikeByEan(12345)
+      cart.removeProductByEan(12345)
 
-      expect(cart.bikes).toHaveLength(1)
-      expect(cart.bikes[0].ean).toBe(67890)
+      expect(cart.products).toHaveLength(1)
+      expect(cart.products[0].ean).toBe(67890)
    })
 
    it("removing a bike that is not present leaves cart untouched", () => {
       const cart = new Cart()
-      cart.addBike(aBike({ ean: 12345 }))
-      cart.addBike(aBike({ ean: 67890 }))
+      cart.addProduct(aBike({ ean: 12345 }))
+      cart.addProduct(aBike({ ean: 67890 }))
 
-      cart.removeBikeByEan(1337)
+      cart.removeProductByEan(1337)
 
-      expect(cart.bikes).toHaveLength(2)
-      expect(cart.bikes[0].ean).toBe(12345)
-      expect(cart.bikes[1].ean).toBe(67890)
+      expect(cart.products).toHaveLength(2)
+      expect(cart.products[0].ean).toBe(12345)
+      expect(cart.products[1].ean).toBe(67890)
    })
 })
