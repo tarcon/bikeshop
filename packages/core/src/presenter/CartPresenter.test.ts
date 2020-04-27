@@ -26,27 +26,29 @@ describe("CartPresenter", () => {
       const cartOutput = {
          bikes: [
             {
+               count: 2,
                ean: 12345,
                name: "Bike1",
-               price: 1337,
+               price: 500,
             } as AddBikeToCartCartBikeOutput,
             {
+               count: 1,
                ean: 67890,
                name: "Bike2",
-               price: 1338,
+               price: 1000,
             } as AddBikeToCartCartBikeOutput,
          ],
-         totalPrice: 2675,
+         totalPrice: 2000,
       }
 
       presenter.displayCart(cartOutput)
 
       expect(testRenderFn).toHaveBeenCalledWith({
          bikes: [
-            { ean: 12345, name: "Bike1", price: "1.337,00 €" },
-            { ean: 67890, name: "Bike2", price: "1.338,00 €" },
+            { ean: 12345, count: 2, name: "Bike1", price: "500,00 €" },
+            { ean: 67890, count: 1, name: "Bike2", price: "1.000,00 €" },
          ],
-         totalPrice: "2.675,00 €",
+         totalPrice: "2.000,00 €",
       })
    })
 

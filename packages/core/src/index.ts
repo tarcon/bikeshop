@@ -2,6 +2,8 @@
 export { Bike } from "./entities/Bike"
 export { aBike } from "./entities/BikeProvisioning"
 export { Cart } from "./entities/Cart"
+export { Product } from "./entities/Product"
+export { CartProduct } from "./entities/CartProduct"
 
 //boundaries
 export { DisplaysWelcome } from "./boundaries/DisplaysWelcome"

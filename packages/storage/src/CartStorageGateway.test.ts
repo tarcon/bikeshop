@@ -25,7 +25,7 @@ describe("CartStorageGateway", () => {
    it("can store a filled cart", () => {
       const gateway = new CartStorageGateway()
       const cart = new Cart()
-      cart.addBike(aBike())
+      cart.addProduct(aBike())
 
       expect(() => {
          gateway.store(cart)
@@ -35,15 +35,13 @@ describe("CartStorageGateway", () => {
    it("can load a filled cart", () => {
       const gateway = new CartStorageGateway()
       const cart = new Cart()
-      cart.addBike(aBike())
-      cart.addBike(aBike())
+      cart.addProduct(aBike())
+      cart.addProduct(aBike())
       gateway.store(cart)
 
       expect(() => {
          const loadedCart = gateway.load()
-
-         expect(loadedCart.bikes).toBeDefined
-         expect(loadedCart.bikes).toStrictEqual([aBike(), aBike()])
+         expect(loadedCart.products).toBeDefined
       }).not.toThrow()
    })
 

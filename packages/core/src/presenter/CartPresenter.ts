@@ -22,6 +22,7 @@ export class CartPresenter implements DisplaysCart, DisplaysError {
    ): CartViewModel {
       return {
          bikes: cartOutput.bikes.map((cartBike) => ({
+            count: cartBike.count,
             ean: cartBike.ean,
             name: cartBike.name,
             price: CartPresenter.formatGermanPrice(cartBike.price),

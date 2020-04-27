@@ -23,12 +23,13 @@ describe("RemoveBikeFromCart", () => {
       expect(ui.displayCart).toHaveBeenCalledWith({
          bikes: [
             {
+               count: 2,
                ean: 456,
-               name: "Second",
-               price: 999,
+               name: "SomeOtherBrand",
+               price: 300,
             },
          ],
-         totalPrice: 999,
+         totalPrice: 600,
       })
    })
 
@@ -40,12 +41,19 @@ describe("RemoveBikeFromCart", () => {
          displayCart: jest.fn(),
       }
 
-      const cartWithTwoBikes = new Cart()
-      cartWithTwoBikes.addBike(aBike({ name: "First", ean: 123, price: 1337 }))
-      cartWithTwoBikes.addBike(aBike({ name: "Second", ean: 456, price: 999 }))
+      const cartWithThreeBikes = new Cart()
+      cartWithThreeBikes.addProduct(
+         aBike({ name: "SomeBrand", ean: 123, price: 100 })
+      )
+      cartWithThreeBikes.addProduct(
+         aBike({ name: "SomeOtherBrand", ean: 456, price: 300 })
+      )
+      cartWithThreeBikes.addProduct(
+         aBike({ name: "SomeOtherBrand", ean: 456, price: 300 })
+      )
 
       cartStorageGateway = new CartStorageGateway()
-      cartStorageGateway.store(cartWithTwoBikes)
+      cartStorageGateway.store(cartWithThreeBikes)
 
       useCase = new RemoveBikeFromCart(ui, cartStorageGateway)
    })
