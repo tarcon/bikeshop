@@ -39,13 +39,6 @@ describe("AddBikeToCart", () => {
       expect(ui.displayCart).toHaveBeenCalled()
    })
 
-   it("calculates the total cart price", async () => {
-      await useCase.execute(bikeToRemove)
-
-      expect(ui.displayError).not.toHaveBeenCalled()
-      expect(ui.displayCart).toHaveBeenCalled()
-   })
-
    function setupMocks() {
       jest.resetAllMocks()
 

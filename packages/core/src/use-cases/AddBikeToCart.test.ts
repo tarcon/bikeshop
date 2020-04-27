@@ -46,13 +46,6 @@ describe("AddBikeToCart", () => {
       expect(ui.displayCart).toHaveBeenCalled()
    })
 
-   it("calculates the total cart price", async () => {
-      await useCase.execute(oneBikeToAdd)
-
-      expect(ui.displayError).not.toHaveBeenCalled()
-      expect(ui.displayCart).toHaveBeenCalled()
-   })
-
    it("shows an error adding a bike for an EAN which doesn't exist in the backend", async () => {
       useCase = new AddBikeToCart(backendWithoutBikes, emptyCart, ui)
 
