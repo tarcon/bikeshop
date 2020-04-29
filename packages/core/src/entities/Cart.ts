@@ -5,16 +5,19 @@ export class Cart {
    private _cartProducts: Array<CartProduct> = []
 
    public addProduct(product: Product): void {
-      if (this.countProduct(product.ean) === 0) {
+      if (this.hasProduct(product)) {
+         this.changeCount(product.ean, 1)
+      } else {
          const newCartProduct = CartProduct.of(product, 1)
          this._cartProducts = [...this._cartProducts, newCartProduct]
-      } else {
-         this.changeCount(product.ean, 1)
       }
    }
 
-   public removeProductByEan(ean: number) {
-      if (this.countProduct(ean) > 1) {
+   public removeProductByEan(ean: number): void {
+      const cartProduct = this.findCartProduct(ean)
+      if (!cartProduct) return
+
+      if (cartProduct.count > 1) {
          this.changeCount(ean, -1)
       } else {
          this._cartProducts = this._cartProducts.filter(
@@ -35,19 +38,28 @@ export class Cart {
       return cartProduct.count
    }
 
-   get cartProducts(): ReadonlyArray<CartProduct> {
-      return this._cartProducts
+   hasProduct(product: Product) {
+      return this.cartProducts.some(
+         (cartProduct) =>
+            product.ean === cartProduct.ean && cartProduct.count > 0
+      )
    }
 
    isEmpty(): boolean {
       return this.cartProducts.length === 0
    }
 
+   get cartProducts(): ReadonlyArray<CartProduct> {
+      return this._cartProducts
+   }
+
+   private findCartProduct(ean: number): CartProduct | undefined {
+      return this.cartProducts.find((cartProduct) => ean === cartProduct.ean)
+   }
+
    private changeCount(ean: number, offset: number) {
       const newCount = this.countProduct(ean) + offset
-      const cartProduct = this._cartProducts.find(
-         (cartProduct) => ean === cartProduct.ean
-      )
+      const cartProduct = this.findCartProduct(ean)
       if (!cartProduct) {
          return
       }
