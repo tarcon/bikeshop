@@ -1,5 +1,6 @@
 import { Cart } from "./Cart"
 import { aBike } from "./BikeProvisioning"
+import { oneBikeInCart } from "./CountableProductProvisioning"
 
 describe("Cart", () => {
    it("can be created without products", () => {
@@ -13,9 +14,9 @@ describe("Cart", () => {
       cart.addProduct(aBike({ ean: 123 }))
       cart.addProduct(aBike({ ean: 456 }))
 
-      expect(cart.cartProducts).toHaveLength(2)
-      expect(cart.cartProducts[0].product.ean).toBe(123)
-      expect(cart.cartProducts[1].product.ean).toBe(456)
+      expect(cart.products).toHaveLength(2)
+      expect(cart.products[0]).toEqual(oneBikeInCart({ ean: 123 }))
+      expect(cart.products[1]).toEqual(oneBikeInCart({ ean: 456 }))
    })
 
    it("can remove a product", () => {
@@ -34,8 +35,8 @@ describe("Cart", () => {
 
       cart.removeProductByEan(12345)
 
-      expect(cart.cartProducts).toHaveLength(1)
-      expect(cart.cartProducts[0].product.ean).toBe(67890)
+      expect(cart.products).toHaveLength(1)
+      expect(cart.products[0]).toEqual(oneBikeInCart({ ean: 67890 }))
    })
 
    it("removing a product that is not present leaves cart untouched", () => {
@@ -45,30 +46,28 @@ describe("Cart", () => {
 
       cart.removeProductByEan(1337)
 
-      expect(cart.cartProducts).toHaveLength(2)
-      expect(cart.cartProducts[0].product.ean).toBe(12345)
-      expect(cart.cartProducts[1].product.ean).toBe(67890)
+      expect(cart.products).toHaveLength(2)
+      expect(cart.products[0].ean).toBe(12345)
+      expect(cart.products[1].ean).toBe(67890)
    })
 
    it("removes products from the cart if the last one is removed", () => {
       const cart = new Cart()
       cart.addProduct(aBike({ ean: 123 }))
-      expect(cart.cartProducts).toHaveLength(1)
+      expect(cart.products).toHaveLength(1)
 
       cart.removeProductByEan(123)
 
       expect(cart.isEmpty()).toBe(true)
    })
 
-   it("provides the raw cart product including its count", () => {
+   it("provides the product count", () => {
       const cart = new Cart()
       expect(cart.isEmpty()).toBe(true)
 
       cart.addProduct(aBike())
 
-      expect(cart.cartProducts).toHaveLength(1)
-      expect(cart.cartProducts[0]).toHaveProperty("product")
-      expect(cart.cartProducts[0]).toHaveProperty("count")
+      expect(cart.products[0]).toHaveProperty("count")
    })
 
    describe("knows the count of its products", () => {

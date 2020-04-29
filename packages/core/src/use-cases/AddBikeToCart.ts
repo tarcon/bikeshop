@@ -41,12 +41,12 @@ export class AddBikeToCart {
 
    private static createOutputFromCart(cart: Cart): AddBikeToCartOutput {
       return {
-         bikes: cart.cartProducts.map((cartProduct) => {
+         bikes: cart.products.map((product) => {
             return {
-               count: cartProduct.count,
-               ean: cartProduct.ean,
-               name: cartProduct.product.name,
-               price: cartProduct.product.price,
+               count: product.count,
+               ean: product.ean,
+               name: product.name,
+               price: product.price,
             }
          }),
          totalPrice: AddBikeToCart.calculateTotalPrice(cart),
@@ -54,8 +54,8 @@ export class AddBikeToCart {
    }
 
    private static calculateTotalPrice(cart: Cart) {
-      return cart.cartProducts.reduce<number>((sum, cartProduct) => {
-         return sum + cartProduct.product.price * cartProduct.count
+      return cart.products.reduce<number>((sum, product) => {
+         return sum + product.price * product.count
       }, 0)
    }
 }

@@ -1,9 +1,4 @@
-import {
-   AddBikeToCart,
-   CartProduct,
-   DisplaysCart,
-   DisplaysError,
-} from "@bikeshop/core"
+import { AddBikeToCart, DisplaysCart, DisplaysError } from "@bikeshop/core"
 import { BikeBackendGateway } from "@bikeshop/network"
 import { CartStorageGateway } from "@bikeshop/storage"
 
@@ -44,16 +39,13 @@ describe("AddBikeToCart", () => {
       const bikeToAdd = {
          ean: 123908123,
       }
-      expect(cart.load().isEmpty()).toBeTruthy()
+      expect(cart.load().isEmpty())
 
       await useCase.execute(bikeToAdd)
-
       const newCart = cart.load()
 
-      expect(newCart.cartProducts).toBeDefined()
-      expect(newCart.cartProducts).toStrictEqual([
-         CartProduct.of(await backend.fetchBikeByEAN(123908123), 1),
-      ])
+      expect(newCart.products).toBeDefined()
+      expect(newCart.products[0].ean).toEqual(123908123)
    })
 
    beforeEach(() => {

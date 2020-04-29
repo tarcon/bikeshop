@@ -1,69 +1,67 @@
-import { CartProduct } from "./CartProduct"
 import { Product } from "./Product"
+import { CountableProduct } from "./CountableProduct"
 
 export class Cart {
-   private _cartProducts: Array<CartProduct> = []
+   private _products: Array<CountableProduct> = []
 
-   public addProduct(product: Product): void {
-      if (this.hasProduct(product)) {
-         this.changeCount(product.ean, 1)
+   public addProduct(productToAdd: Product): void {
+      if (this.hasProduct(productToAdd)) {
+         this.changeCount(productToAdd.ean, 1)
       } else {
-         const newCartProduct = CartProduct.of(product, 1)
-         this._cartProducts = [...this._cartProducts, newCartProduct]
+         const newProduct = productToAdd as CountableProduct
+         newProduct.count = 1
+         this._products.push(newProduct)
       }
    }
 
    public removeProductByEan(ean: number): void {
-      const cartProduct = this.findCartProduct(ean)
-      if (!cartProduct) return
+      const product = this.findProduct(ean)
+      if (!product) return
 
-      if (cartProduct.count > 1) {
+      if (product.count > 1) {
          this.changeCount(ean, -1)
       } else {
-         this._cartProducts = this._cartProducts.filter(
-            (cartProduct) => ean !== cartProduct.ean
+         this._products = this._products.filter(
+            (countableProduct) => ean !== countableProduct.ean
          )
       }
    }
 
    public countProduct(ean: number): number {
-      const cartProduct = this._cartProducts.find(
-         (cartProduct) => ean === cartProduct.ean
-      )
+      const product = this._products.find((product) => ean === product.ean)
 
-      if (!cartProduct) {
+      if (!product) {
          return 0
       }
 
-      return cartProduct.count
+      return product.count
    }
 
    hasProduct(product: Product) {
-      return this.cartProducts.some(
-         (cartProduct) =>
-            product.ean === cartProduct.ean && cartProduct.count > 0
+      return this._products.some(
+         (existingProduct) => product.ean === existingProduct.ean
       )
    }
 
    isEmpty(): boolean {
-      return this.cartProducts.length === 0
+      return this.products.length === 0
    }
 
-   get cartProducts(): ReadonlyArray<CartProduct> {
-      return this._cartProducts
+   get products(): ReadonlyArray<CountableProduct> {
+      return this._products
    }
 
-   private findCartProduct(ean: number): CartProduct | undefined {
-      return this.cartProducts.find((cartProduct) => ean === cartProduct.ean)
+   private findProduct(ean: number): CountableProduct | undefined {
+      return this._products.find((product) => ean === product.ean)
    }
 
    private changeCount(ean: number, offset: number) {
       const newCount = this.countProduct(ean) + offset
-      const cartProduct = this.findCartProduct(ean)
-      if (!cartProduct) {
+      const product = this.findProduct(ean)
+      if (!product) {
          return
       }
 
-      cartProduct.count = newCount
+      product.count = newCount
    }
 }
