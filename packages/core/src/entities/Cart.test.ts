@@ -50,8 +50,33 @@ describe("Cart", () => {
       expect(cart.products[1].ean).toBe(67890)
    })
 
+   it("removes products from the cart if the last one is removed", () => {
+      const cart = new Cart()
+      cart.addProduct(aBike({ ean: 123 }))
+
+      expect(cart.cartProducts).not.toBeEmpty
+      expect(cart.products).not.toBeEmpty
+
+      cart.removeProductByEan(123)
+
+      expect(cart.cartProducts).toBeEmpty
+      expect(cart.products).toBeEmpty
+   })
+
+   it("provides the raw cart product including its count", () => {
+      const cart = new Cart()
+
+      expect(cart.cartProducts).toBeEmpty
+
+      cart.addProduct(aBike())
+
+      expect(cart.cartProducts).not.toBeEmpty
+      expect(cart.cartProducts[0]).toHaveProperty("product")
+      expect(cart.cartProducts[0]).toHaveProperty("count")
+   })
+
    describe("knows the count of its products", () => {
-      it("knows the count after adding", () => {
+      it("after adding", () => {
          const cart = new Cart()
 
          cart.addProduct(aBike({ ean: 123 }))
@@ -65,7 +90,7 @@ describe("Cart", () => {
          expect(cart.countProduct(456)).toStrictEqual(1)
       })
 
-      it("knows the count after removing", () => {
+      it("after removing", () => {
          const cart = new Cart()
 
          cart.addProduct(aBike({ ean: 123 }))
@@ -93,31 +118,6 @@ describe("Cart", () => {
          const cart = new Cart()
 
          expect(cart.countProduct(39058345)).toStrictEqual(0)
-      })
-
-      it("removes products from the cart if the last one is removed", () => {
-         const cart = new Cart()
-         cart.addProduct(aBike({ ean: 123 }))
-
-         expect(cart.cartProducts).not.toBeEmpty
-         expect(cart.products).not.toBeEmpty
-
-         cart.removeProductByEan(123)
-
-         expect(cart.cartProducts).toBeEmpty
-         expect(cart.products).toBeEmpty
-      })
-
-      it("provides the raw cart product including its count", () => {
-         const cart = new Cart()
-
-         expect(cart.cartProducts).toBeEmpty
-
-         cart.addProduct(aBike())
-
-         expect(cart.cartProducts).not.toBeEmpty
-         expect(cart.cartProducts[0]).toHaveProperty("product")
-         expect(cart.cartProducts[0]).toHaveProperty("count")
       })
    })
 })
