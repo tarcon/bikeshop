@@ -17,9 +17,10 @@ export class RemoveBikeFromCart {
          cart.removeProductByEan(input.ean)
          this._cartStorage.store(cart)
 
-         this._ui.displayCart(RemoveBikeFromCart.createOutputFromCart(cart))
+         const output = RemoveBikeFromCart.createOutputFromCart(cart)
+         this._ui.displayCart(output)
       } catch (e) {
-         console.error("Could not remove bike with ean: " + input.ean)
+         console.error("Could not remove bike with ean: " + input.ean, e)
       }
    }
 

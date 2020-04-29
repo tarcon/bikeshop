@@ -83,12 +83,41 @@ describe("Cart", () => {
          cart.removeProductByEan(123)
          expect(cart.countProduct(123)).toStrictEqual(0)
          expect(cart.countProduct(456)).toStrictEqual(1)
+
+         cart.removeProductByEan(666)
+         expect(cart.countProduct(123)).toStrictEqual(0)
+         expect(cart.countProduct(456)).toStrictEqual(1)
       })
 
       it("counts non-present products as 0", () => {
          const cart = new Cart()
 
          expect(cart.countProduct(39058345)).toStrictEqual(0)
+      })
+
+      it("removes products from the cart if the last one is removed", () => {
+         const cart = new Cart()
+         cart.addProduct(aBike({ ean: 123 }))
+
+         expect(cart.cartProducts).not.toBeEmpty
+         expect(cart.products).not.toBeEmpty
+
+         cart.removeProductByEan(123)
+
+         expect(cart.cartProducts).toBeEmpty
+         expect(cart.products).toBeEmpty
+      })
+
+      it("provides the raw cart product including its count", () => {
+         const cart = new Cart()
+
+         expect(cart.cartProducts).toBeEmpty
+
+         cart.addProduct(aBike())
+
+         expect(cart.cartProducts).not.toBeEmpty
+         expect(cart.cartProducts[0]).toHaveProperty("product")
+         expect(cart.cartProducts[0]).toHaveProperty("count")
       })
    })
 })
