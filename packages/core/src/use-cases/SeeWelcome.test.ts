@@ -1,13 +1,13 @@
 import { DisplaysWelcome, SeeWelcome } from ".."
 
-const ui = {
+const uiSpy = {
    showWelcome: jest.fn(),
 } as DisplaysWelcome
 
 test("SeeBikes fetches bikes from backend", async () => {
-   const useCase = new SeeWelcome(ui)
+   const useCase = new SeeWelcome(uiSpy)
 
    await useCase.execute()
 
-   expect(ui.showWelcome).toHaveBeenCalled()
+   expect(uiSpy.showWelcome).toHaveBeenCalled()
 })

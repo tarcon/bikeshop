@@ -11,7 +11,7 @@ import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
 describe("AddBikeToCart", () => {
    let emptyCartSpy: LoadsCart & StoresCart
    let twoBikesCartSpy: LoadsCart & StoresCart
-   let ui: DisplaysError & DisplaysCart
+   let uiSpy: DisplaysError & DisplaysCart
 
    let bikeToRemove = {
       ean: 123,
@@ -19,28 +19,28 @@ describe("AddBikeToCart", () => {
 
    describe("for an empty cart", () => {
       it("can be executed", async () => {
-         const useCase = new RemoveBikeFromCart(ui, emptyCartSpy)
+         const useCase = new RemoveBikeFromCart(uiSpy, emptyCartSpy)
          expect(async () => {
             await useCase.execute(bikeToRemove)
          }).not.toThrow()
       })
 
       it("attempts to removes the bike from the stored cart", async () => {
-         const useCase = new RemoveBikeFromCart(ui, emptyCartSpy)
+         const useCase = new RemoveBikeFromCart(uiSpy, emptyCartSpy)
 
          await useCase.execute(bikeToRemove)
 
-         expect(ui.displayError).not.toHaveBeenCalled()
+         expect(uiSpy.displayError).not.toHaveBeenCalled()
          expect(emptyCartSpy.store).toHaveBeenCalled()
       })
 
       it("displays an empty shopping cart", async () => {
-         const useCase = new RemoveBikeFromCart(ui, emptyCartSpy)
+         const useCase = new RemoveBikeFromCart(uiSpy, emptyCartSpy)
 
          await useCase.execute(bikeToRemove)
 
-         expect(ui.displayError).not.toHaveBeenCalled()
-         expect(ui.displayCart).toHaveBeenCalledWith({
+         expect(uiSpy.displayError).not.toHaveBeenCalled()
+         expect(uiSpy.displayCart).toHaveBeenCalledWith({
             bikes: [],
             totalPrice: 0,
          })
@@ -49,7 +49,7 @@ describe("AddBikeToCart", () => {
 
    describe("for a filled cart", () => {
       it("can be executed", async () => {
-         const useCase = new RemoveBikeFromCart(ui, twoBikesCartSpy)
+         const useCase = new RemoveBikeFromCart(uiSpy, twoBikesCartSpy)
 
          expect(async () => {
             await useCase.execute(bikeToRemove)
@@ -57,21 +57,21 @@ describe("AddBikeToCart", () => {
       })
 
       it("removes the bike from the stored cart", async () => {
-         const useCase = new RemoveBikeFromCart(ui, twoBikesCartSpy)
+         const useCase = new RemoveBikeFromCart(uiSpy, twoBikesCartSpy)
 
          await useCase.execute(bikeToRemove)
 
-         expect(ui.displayError).not.toHaveBeenCalled()
+         expect(uiSpy.displayError).not.toHaveBeenCalled()
          expect(twoBikesCartSpy.store).toHaveBeenCalled()
       })
 
       it("displays the shopping cart with the remaining bike", async () => {
-         const useCase = new RemoveBikeFromCart(ui, twoBikesCartSpy)
+         const useCase = new RemoveBikeFromCart(uiSpy, twoBikesCartSpy)
 
          await useCase.execute(bikeToRemove)
 
-         expect(ui.displayError).not.toHaveBeenCalled()
-         expect(ui.displayCart).toHaveBeenCalledWith({
+         expect(uiSpy.displayError).not.toHaveBeenCalled()
+         expect(uiSpy.displayCart).toHaveBeenCalledWith({
             bikes: [
                {
                   count: expect.anything(),
@@ -102,7 +102,7 @@ describe("AddBikeToCart", () => {
          load: jest.fn().mockReturnValue(filledCartStub),
       }
 
-      ui = {
+      uiSpy = {
          displayError: jest.fn(),
          displayCart: jest.fn(),
       }

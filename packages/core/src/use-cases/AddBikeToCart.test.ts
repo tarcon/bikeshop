@@ -7,10 +7,10 @@ import { AddBikeToCart } from "./AddBikeToCart"
 import { aBike } from ".."
 
 describe("AddBikeToCart", () => {
-   let emptyCart: StoresCart & LoadsCart
-   let backendWithABike: ProvidesBike
-   let backendWithoutBikes: ProvidesBike
-   let ui: DisplaysError & DisplaysCart
+   let emptyCartSpy: StoresCart & LoadsCart
+   let backendWithABikeSpy: ProvidesBike
+   let backendWithoutBikesSpy: ProvidesBike
+   let uiSpy: DisplaysError & DisplaysCart
 
    let useCase: AddBikeToCart
    let oneBikeToAdd: AddBikeToCartInput
@@ -18,7 +18,7 @@ describe("AddBikeToCart", () => {
    beforeEach(() => {
       setupMocks()
 
-      useCase = new AddBikeToCart(backendWithABike, emptyCart, ui)
+      useCase = new AddBikeToCart(backendWithABikeSpy, emptyCartSpy, uiSpy)
 
       oneBikeToAdd = {
          ean: 123,
@@ -34,48 +34,48 @@ describe("AddBikeToCart", () => {
    it("stores the added bike", async () => {
       await useCase.execute(oneBikeToAdd)
 
-      expect(ui.displayError).not.toHaveBeenCalled()
-      expect(backendWithABike.fetchBikeByEAN).toHaveBeenCalledWith(123)
-      expect(emptyCart.store).toHaveBeenCalled()
+      expect(uiSpy.displayError).not.toHaveBeenCalled()
+      expect(backendWithABikeSpy.fetchBikeByEAN).toHaveBeenCalledWith(123)
+      expect(emptyCartSpy.store).toHaveBeenCalled()
    })
 
    it("displays the shopping cart with the new bike", async () => {
       await useCase.execute(oneBikeToAdd)
 
-      expect(ui.displayError).not.toHaveBeenCalled()
-      expect(ui.displayCart).toHaveBeenCalled()
+      expect(uiSpy.displayError).not.toHaveBeenCalled()
+      expect(uiSpy.displayCart).toHaveBeenCalled()
    })
 
    it("shows an error adding a bike for an EAN which doesn't exist in the backend", async () => {
-      useCase = new AddBikeToCart(backendWithoutBikes, emptyCart, ui)
+      useCase = new AddBikeToCart(backendWithoutBikesSpy, emptyCartSpy, uiSpy)
 
       await useCase.execute(oneBikeToAdd)
 
-      expect(backendWithoutBikes.fetchBikeByEAN).toHaveBeenCalledWith(123)
-      expect(emptyCart.store).not.toHaveBeenCalled()
-      expect(ui.displayCart).not.toHaveBeenCalled()
-      expect(ui.displayError).toHaveBeenCalled()
+      expect(backendWithoutBikesSpy.fetchBikeByEAN).toHaveBeenCalledWith(123)
+      expect(emptyCartSpy.store).not.toHaveBeenCalled()
+      expect(uiSpy.displayCart).not.toHaveBeenCalled()
+      expect(uiSpy.displayError).toHaveBeenCalled()
    })
 
    function setupMocks() {
       jest.resetAllMocks()
 
-      emptyCart = {
+      emptyCartSpy = {
          store: jest.fn(),
          load: jest.fn().mockReturnValue(new Cart()),
       }
 
-      backendWithABike = {
+      backendWithABikeSpy = {
          fetchBikeByEAN: jest.fn().mockReturnValue(aBike({ ean: 123 })),
       }
 
-      backendWithoutBikes = {
+      backendWithoutBikesSpy = {
          fetchBikeByEAN: jest
             .fn()
             .mockRejectedValue("404 - bike not found with ean"),
       }
 
-      ui = {
+      uiSpy = {
          displayError: jest.fn(),
          displayCart: jest.fn(),
       }

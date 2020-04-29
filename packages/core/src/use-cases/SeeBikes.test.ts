@@ -1,32 +1,32 @@
 import { SeeBikes } from "./SeeBikes"
 import { aBike, DisplaysBikes, ProvidesBikes } from ".."
 
-const emptyBackend = {
+const emptyBackendSpy = {
    fetchPurchasableBikes: jest.fn().mockResolvedValue([]),
 } as ProvidesBikes
 
-const backend = {
+const backendSpy = {
    fetchPurchasableBikes: jest.fn().mockResolvedValue([aBike()]),
 } as ProvidesBikes
 
-const ui = {
+const uiSpy = {
    showBikes: jest.fn(),
 } as DisplaysBikes
 
 test("SeeBikes fetches bikes from backend", async () => {
-   const useCase = new SeeBikes(emptyBackend, ui)
+   const useCase = new SeeBikes(emptyBackendSpy, uiSpy)
 
    await useCase.execute()
 
-   expect(emptyBackend.fetchPurchasableBikes).toHaveBeenCalled()
+   expect(emptyBackendSpy.fetchPurchasableBikes).toHaveBeenCalled()
 })
 
 test("SeeBikes outputs to ui", async () => {
-   const useCase = new SeeBikes(backend, ui)
+   const useCase = new SeeBikes(backendSpy, uiSpy)
 
    await useCase.execute()
 
-   expect(ui.showBikes).toHaveBeenCalledWith([
+   expect(uiSpy.showBikes).toHaveBeenCalledWith([
       {
          ean: expect.anything(),
          name: expect.anything(),
@@ -38,9 +38,9 @@ test("SeeBikes outputs to ui", async () => {
 })
 
 test("SeeBikes outputs empty to ui if no bikes present in backend", async () => {
-   const useCase = new SeeBikes(emptyBackend, ui)
+   const useCase = new SeeBikes(emptyBackendSpy, uiSpy)
 
    await useCase.execute()
 
-   expect(ui.showBikes).toHaveBeenCalledWith([])
+   expect(uiSpy.showBikes).toHaveBeenCalledWith([])
 })
