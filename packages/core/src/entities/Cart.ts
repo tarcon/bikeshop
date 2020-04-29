@@ -35,10 +35,6 @@ export class Cart {
       return cartProduct.count
    }
 
-   get products(): ReadonlyArray<Product> {
-      return this._cartProducts.map((cartProduct) => cartProduct.product)
-   }
-
    get cartProducts(): ReadonlyArray<CartProduct> {
       return this._cartProducts
    }

@@ -38,8 +38,8 @@ export class RemoveBikeFromCart {
       }
    }
    private static calculateTotalPrice(cart: Cart) {
-      return cart.products.reduce<number>((sum, product) => {
-         return sum + product.price * cart.countProduct(product.ean)
+      return cart.cartProducts.reduce<number>((sum, cartProduct) => {
+         return sum + cartProduct.product.price * cartProduct.count
       }, 0)
    }
 }

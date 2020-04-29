@@ -13,9 +13,9 @@ describe("Cart", () => {
       cart.addProduct(aBike({ ean: 123 }))
       cart.addProduct(aBike({ ean: 456 }))
 
-      expect(cart.products).toHaveLength(2)
-      expect(cart.products[0].ean).toBe(123)
-      expect(cart.products[1].ean).toBe(456)
+      expect(cart.cartProducts).toHaveLength(2)
+      expect(cart.cartProducts[0].product.ean).toBe(123)
+      expect(cart.cartProducts[1].product.ean).toBe(456)
    })
 
    it("can remove a product", () => {
@@ -24,7 +24,7 @@ describe("Cart", () => {
 
       cart.removeProductByEan(12345)
 
-      expect(cart.products).toBeEmpty
+      expect(cart.cartProducts).toBeEmpty
    })
 
    it("can remove a product from two product", () => {
@@ -34,8 +34,8 @@ describe("Cart", () => {
 
       cart.removeProductByEan(12345)
 
-      expect(cart.products).toHaveLength(1)
-      expect(cart.products[0].ean).toBe(67890)
+      expect(cart.cartProducts).toHaveLength(1)
+      expect(cart.cartProducts[0].product.ean).toBe(67890)
    })
 
    it("removing a product that is not present leaves cart untouched", () => {
@@ -45,9 +45,9 @@ describe("Cart", () => {
 
       cart.removeProductByEan(1337)
 
-      expect(cart.products).toHaveLength(2)
-      expect(cart.products[0].ean).toBe(12345)
-      expect(cart.products[1].ean).toBe(67890)
+      expect(cart.cartProducts).toHaveLength(2)
+      expect(cart.cartProducts[0].product.ean).toBe(12345)
+      expect(cart.cartProducts[1].product.ean).toBe(67890)
    })
 
    it("removes products from the cart if the last one is removed", () => {
@@ -55,12 +55,10 @@ describe("Cart", () => {
       cart.addProduct(aBike({ ean: 123 }))
 
       expect(cart.cartProducts).not.toBeEmpty
-      expect(cart.products).not.toBeEmpty
 
       cart.removeProductByEan(123)
 
       expect(cart.cartProducts).toBeEmpty
-      expect(cart.products).toBeEmpty
    })
 
    it("provides the raw cart product including its count", () => {
