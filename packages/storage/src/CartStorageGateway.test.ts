@@ -18,7 +18,7 @@ describe("CartStorageGateway", () => {
 
       expect(() => {
          const loadedCart = gateway.load()
-         expect(loadedCart).toBeEmpty
+         expect(loadedCart.cartProducts).toStrictEqual([])
       }).not.toThrow()
    })
 
@@ -41,7 +41,7 @@ describe("CartStorageGateway", () => {
 
       expect(() => {
          const loadedCart = gateway.load()
-         expect(loadedCart.products).toBeDefined
+         expect(loadedCart.cartProducts).toBeDefined()
       }).not.toThrow()
    })
 

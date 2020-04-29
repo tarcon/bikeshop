@@ -39,6 +39,10 @@ export class Cart {
       return this._cartProducts
    }
 
+   isEmpty(): boolean {
+      return this.cartProducts.length === 0
+   }
+
    private changeCount(ean: number, offset: number) {
       const newCount = this.countProduct(ean) + offset
       const cartProduct = this._cartProducts.find(

@@ -1,6 +1,6 @@
 import {
-   aBike,
    AddBikeToCart,
+   CartProduct,
    DisplaysCart,
    DisplaysError,
 } from "@bikeshop/core"
@@ -44,21 +44,15 @@ describe("AddBikeToCart", () => {
       const bikeToAdd = {
          ean: 123908123,
       }
+      expect(cart.load().isEmpty()).toBeTruthy()
+
       await useCase.execute(bikeToAdd)
-      expect(cart.load().products).toBeEmpty
 
       const newCart = cart.load()
 
-      expect(newCart.products).toBeDefined
-      expect(newCart.products).toStrictEqual([
-         aBike({
-            description:
-               "A racing bike with a long heritage of classic race wins. Prefered by dentists.",
-            ean: 123908123,
-            name: "Carbono R3",
-            price: 4499,
-            productImageFileName: "carbono.jpg",
-         }),
+      expect(newCart.cartProducts).toBeDefined()
+      expect(newCart.cartProducts).toStrictEqual([
+         CartProduct.of(await backend.fetchBikeByEAN(123908123), 1),
       ])
    })
 

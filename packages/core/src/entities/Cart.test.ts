@@ -24,7 +24,7 @@ describe("Cart", () => {
 
       cart.removeProductByEan(12345)
 
-      expect(cart.cartProducts).toBeEmpty
+      expect(cart.cartProducts).toStrictEqual([])
    })
 
    it("can remove a product from two product", () => {
@@ -53,22 +53,20 @@ describe("Cart", () => {
    it("removes products from the cart if the last one is removed", () => {
       const cart = new Cart()
       cart.addProduct(aBike({ ean: 123 }))
-
-      expect(cart.cartProducts).not.toBeEmpty
+      expect(cart.cartProducts).toHaveLength(1)
 
       cart.removeProductByEan(123)
 
-      expect(cart.cartProducts).toBeEmpty
+      expect(cart.cartProducts).toStrictEqual([])
    })
 
    it("provides the raw cart product including its count", () => {
       const cart = new Cart()
-
-      expect(cart.cartProducts).toBeEmpty
+      expect(cart.cartProducts).toStrictEqual([])
 
       cart.addProduct(aBike())
 
-      expect(cart.cartProducts).not.toBeEmpty
+      expect(cart.cartProducts).toHaveLength(1)
       expect(cart.cartProducts[0]).toHaveProperty("product")
       expect(cart.cartProducts[0]).toHaveProperty("count")
    })
