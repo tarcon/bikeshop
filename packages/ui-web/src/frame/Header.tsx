@@ -1,15 +1,28 @@
 import React from "react"
-import logo from "../assets/logo.svg"
+import { BikeGraphic } from "./BikeGraphic"
+import "../css/header.css"
+import { Logo } from "./Logo"
+
+const HEIGHT = 200
+const LOGO_HEIGHT = 35
 
 export function Header() {
    return (
-      <>
-         <nav className="flex items-center justify-between flex-wrap bg-blue-700 p-6">
-            <div className="flex items-center flex-shrink-0 text-white mr-6">
-               <img src={logo} style={{ width: 220 }} alt="Logo" />
-               <span className="font-semibold text-xl">Online Bikeshop</span>
-            </div>
-         </nav>
-      </>
+      <nav className="header_background p-6" style={{ height: HEIGHT }}>
+         <BikeGraphic
+            className="ml-32"
+            frameColor="white"
+            style={{ height: 300 }}
+         />
+         <Logo
+            color="black"
+            className="absolute invisible md:visible lg:visible hide-mobile"
+            style={{
+               height: LOGO_HEIGHT,
+               right: LOGO_HEIGHT * 2,
+               top: HEIGHT / 2 - LOGO_HEIGHT / 2,
+            }}
+         />
+      </nav>
    )
 }

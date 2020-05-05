@@ -41,15 +41,14 @@ function App() {
    }
 
    return (
-      <>
+      <div style={{}}>
          <Header />
          <Navigation />
-         <hr />
          <div className="grid grid-flow-col gap-4 p-8">
             <section>{content}</section>
             <ShoppingCart />
          </div>
-      </>
+      </div>
    )
 }
 
