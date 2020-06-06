@@ -10,7 +10,7 @@ export function ShoppingCart() {
    if (!shoppingCartViewModel) return null
 
    const cartBikesTableRows = shoppingCartViewModel.bikes.map((bike) => (
-      <tr>
+      <tr key={bike.ean}>
          <td className="border px-4 py-2">{bike.name}</td>
          <td className="border px-4 py-2">{bike.count}</td>
          <td className="border px-4 py-2">{bike.price}</td>
@@ -31,7 +31,7 @@ export function ShoppingCart() {
                      {cartBikesTableRows}
                      <tr>
                         <td className="border px-4 py-2">Total:</td>
-                        <td className="border px-4 py-2"/>
+                        <td className="border px-4 py-2" />
                         <td className="border px-4 py-2">
                            <b>{shoppingCartViewModel.totalPrice}</b>
                         </td>
