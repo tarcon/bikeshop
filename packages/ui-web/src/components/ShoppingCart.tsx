@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useRef, useEffect } from "react"
 import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
 
@@ -10,7 +10,7 @@ export function ShoppingCart() {
    if (!shoppingCartViewModel) return null
 
    const cartBikesTableRows = shoppingCartViewModel.bikes.map((bike) => (
-      <tr>
+      <tr key={bike.ean}>
          <td className="border px-4 py-2">{bike.name}</td>
          <td className="border px-4 py-2">{bike.count}</td>
          <td className="border px-4 py-2">{bike.price}</td>
@@ -31,7 +31,7 @@ export function ShoppingCart() {
                      {cartBikesTableRows}
                      <tr>
                         <td className="border px-4 py-2">Total:</td>
-                        <td className="border px-4 py-2"/>
+                        <td className="border px-4 py-2" />
                         <td className="border px-4 py-2">
                            <b>{shoppingCartViewModel.totalPrice}</b>
                         </td>
@@ -48,17 +48,27 @@ export function ShoppingCart() {
 function RemoveBikeFromCartButton(props: { ean: number }) {
    const [isLoading, setLoading] = useState(false)
    const shopContext = useContext(ShopContext)
+   const isMountedRef = useRef(true)
+
+   useEffect(() => {
+      return () => {
+         isMountedRef.current = false
+      }
+   }, [])
 
    const handleRemove = async () => {
       setLoading(true)
       await shopContext.useCases["RemoveBikeFromCart"].execute({
          ean: props.ean,
       })
-      setLoading(false)
+      if (isMountedRef.current) {
+         setLoading(false)
+      }
    }
 
    return (
       <button
+         disabled={isLoading}
          className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded"
          onClick={handleRemove}
       >
