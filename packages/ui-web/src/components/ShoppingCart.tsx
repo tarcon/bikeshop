@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useState, useRef, useEffect } from "react"
 import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
 
@@ -48,13 +48,22 @@ export function ShoppingCart() {
 function RemoveBikeFromCartButton(props: { ean: number }) {
    const [isLoading, setLoading] = useState(false)
    const shopContext = useContext(ShopContext)
+   const isMountedRef = useRef(true)
+
+   useEffect(() => {
+      return () => {
+         isMountedRef.current = false
+      }
+   }, [])
 
    const handleRemove = async () => {
       setLoading(true)
       await shopContext.useCases["RemoveBikeFromCart"].execute({
          ean: props.ean,
       })
-      setLoading(false)
+      if (isMountedRef.current) {
+         setLoading(false)
+      }
    }
 
    return (
