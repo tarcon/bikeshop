@@ -68,6 +68,7 @@ function RemoveBikeFromCartButton(props: { ean: number }) {
 
    return (
       <button
+         disabled={isLoading}
          className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded"
          onClick={handleRemove}
       >
