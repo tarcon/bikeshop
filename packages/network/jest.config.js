@@ -1,5 +1,3 @@
 module.exports = {
-   preset: "ts-jest",
-   testEnvironment: "node",
-   transformIgnorePatterns: ["^.+\\.js$"],
+   preset: "../../jest.config.base.js",
 }
