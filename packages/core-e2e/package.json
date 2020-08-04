@@ -11,11 +11,8 @@
       "@bikeshop/ui-web": "^2.2.1"
    },
    "devDependencies": {
-      "@types/jest": "^25.2.3",
-      "jest": "^24.9.0",
-      "ts-jest": "^26.1.0",
-      "ts-loader": "^7.0.5",
-      "typescript": "^3.9.5"
+      "ts-loader": "^8.0.2",
+      "typescript": "^3.9.7"
    },
    "scripts": {
       "test": "jest"
