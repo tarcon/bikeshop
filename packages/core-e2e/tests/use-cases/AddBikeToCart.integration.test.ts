@@ -11,7 +11,7 @@ import { CartStorageGateway } from "@bikeshop/storage"
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
 
-   it("displays the shopping cart with two bike", async (done) => {
+   it("displays the shopping cart with two bikes", async (done) => {
       const backend = new BikeBackendGateway()
       const cart = new CartStorageGateway()
       const uiCalls: Array<CartViewModel> = []
