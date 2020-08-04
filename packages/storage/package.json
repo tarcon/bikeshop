@@ -13,6 +13,7 @@
    },
    "scripts": {
       "build": "tsc",
-      "test": "jest"
+      "test": "jest",
+      "clean": "rimraf build"
    }
 }

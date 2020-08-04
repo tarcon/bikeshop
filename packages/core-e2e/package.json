@@ -15,6 +15,7 @@
       "typescript": "^3.9.7"
    },
    "scripts": {
-      "test": "jest"
+      "test": "jest",
+      "clean": "rimraf build"
    }
 }
