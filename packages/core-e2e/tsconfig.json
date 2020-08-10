@@ -1,13 +1,12 @@
 {
-   "extends": "../../tsconfig.json",
+   "extends": "../../tsconfig.base.json",
    "compilerOptions": {
       "module": "commonjs",
+      "lib": ["es2018"],
       "moduleResolution": "node",
       "outDir": "build",
-      "rootDir": "test",
       "declaration": true,
       "declarationDir": "build"
    },
-   "include": ["tests"],
-   "exclude": ["node_modules", "build"]
+   "exclude": ["build", "**/*.test.ts"]
 }
