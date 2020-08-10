@@ -1,11 +1,11 @@
 {
    "name": "@bikeshop/storage",
-   "version": "2.2.3",
+   "version": "2.2.4",
    "private": true,
    "main": "build/index.js",
    "typings": "build/index.d.ts",
    "dependencies": {
-      "@bikeshop/core": "^2.2.3"
+      "@bikeshop/core": "^2.2.4"
    },
    "devDependencies": {
       "ts-loader": "^8.0.2",
