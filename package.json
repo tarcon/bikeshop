@@ -6,7 +6,7 @@
    ],
    "scripts": {
       "start": "yarn build && lerna run start --scope=@bikeshop/ui-web",
-      "build": "yarn clean && lerna run build --stream && yarn test",
+      "build": "yarn clean && lerna run build --stream",
       "clean": "lerna run clean --parallel",
       "test": "lerna run test --stream --ci",
       "prettier": "prettier --write {**/*,*}.{json,ts,tsx}"
