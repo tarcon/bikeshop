@@ -11,7 +11,7 @@ import { CartStorageGateway } from "@bikeshop/storage"
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
 
-   it("displays the shopping cart with two bikes", async (done) => {
+   it("displays the shopping cart with two bikes of the same kind", async (done) => {
       const backend = new BikeBackendGateway()
       const cart = new CartStorageGateway()
       const uiCalls: Array<CartViewModel> = []
@@ -54,6 +54,61 @@ describe("AddBikeToCart", () => {
 
       done()
    })
+
+   it("displays the shopping cart with two different bikes", async (done) => {
+      const backend = new BikeBackendGateway()
+      const cart = new CartStorageGateway()
+      const uiCalls: Array<CartViewModel> = []
+      const ui = new CartPresenter((viewModel: CartViewModel) => {
+         uiCalls.push(viewModel)
+      })
+
+      const useCase = new AddBikeToCart(backend, cart, ui)
+
+      const firstBikeToAdd = {
+         ean: 123908123,
+      }
+
+      const secondBikeToAdd = {
+         ean: 235235235,
+      }
+
+      await useCase.execute(firstBikeToAdd)
+      await useCase.execute(secondBikeToAdd)
+
+      expect(uiCalls[0]).toStrictEqual({
+         bikes: [
+            {
+               count: 1,
+               ean: 123908123,
+               name: "Carbono R3",
+               price: "4.499,00 €",
+            },
+         ],
+         totalPrice: "4.499,00 €",
+      })
+
+      expect(uiCalls[1]).toStrictEqual({
+         bikes: [
+            {
+               count: 1,
+               ean: 123908123,
+               name: "Carbono R3",
+               price: "4.499,00 €",
+            },
+            {
+               count: 1,
+               ean: 235235235,
+               name: "Generalized Asphalt G-Works",
+               price: "7.999,00 €",
+            },
+         ],
+         totalPrice: "12.498,00 €",
+      })
+
+      done()
+   })
+
 
    it("stores the cart after adding a bike", async () => {
       const backend = new BikeBackendGateway()
