@@ -5,18 +5,16 @@ import React from "react"
 export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
    return (
       <div>
-         <div className="flex mb-4">
-            <div className="w-1/2 h-12">
-               <p>{props.welcomeViewModel.welcomeText}</p>
-            </div>
-            <div className="w-1/2 h-12">
-               <div className="flex items-center">
-                  <img
-                     src="./img/cleancode.jpg"
-                     alt="Powered by clean code"
-                     className="m-4 w-1/2"
-                  />
-               </div>
+         <div>
+            <p>{props.welcomeViewModel.welcomeText}</p>
+         </div>
+         <div>
+            <div>
+               <img
+                  src="./img/cleancode.jpg"
+                  width="200"
+                  alt="Powered by clean code"
+               />
             </div>
          </div>
       </div>

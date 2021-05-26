@@ -11,36 +11,36 @@ export function ShoppingCart() {
 
    const cartBikesTableRows = shoppingCartViewModel.bikes.map((bike) => (
       <tr key={bike.ean}>
-         <td className="border px-4 py-2">{bike.name}</td>
-         <td className="border px-4 py-2">{bike.count}</td>
-         <td className="border px-4 py-2">{bike.price}</td>
-         <td className="border px-4 py-2">
+         <td className="">{bike.name}</td>
+         <td className="text-right">{bike.count}</td>
+         <td className="text-right">{bike.price}</td>
+         <td className="">
             <RemoveBikeFromCartButton ean={bike.ean} />
          </td>
       </tr>
    ))
 
    return (
-      <div className="shadow-lg rounded-lg bg-white mx-auto flex p-8 ">
-         <div>
-            <h3 className="text-lg text-blue-700">Shopping cart</h3>
-            <hr className="mt-2 p-4" />
-            <div className="text-sm text-black">
-               <table className="table-auto">
-                  <tbody>
-                     {cartBikesTableRows}
-                     <tr>
-                        <td className="border px-4 py-2">Total:</td>
-                        <td className="border px-4 py-2" />
-                        <td className="border px-4 py-2">
-                           <b>{shoppingCartViewModel.totalPrice}</b>
-                        </td>
-                        <td className="border px-4 py-2" />
-                     </tr>
-                  </tbody>
-               </table>
-            </div>
-         </div>
+      <div className="card">
+         <header>
+            <h4>Shopping cart</h4>
+         </header>
+         <hr />
+         <table className="table-auto">
+            <tbody>
+               {cartBikesTableRows}
+               <tr>
+                  <td>
+                     <b>Total:</b>
+                  </td>
+                  <td />
+                  <td className="text-right">
+                     <b>{shoppingCartViewModel.totalPrice}</b>
+                  </td>
+                  <td />
+               </tr>
+            </tbody>
+         </table>
       </div>
    )
 }
@@ -69,7 +69,7 @@ function RemoveBikeFromCartButton(props: { ean: number }) {
    return (
       <button
          disabled={isLoading}
-         className="px-3 py-1 bg-gray-200 text-sm text-gray-900 font-semibold rounded"
+         className="button icon-only"
          onClick={handleRemove}
       >
          <RemoveFromCartSvgIcon color="steelblue" />

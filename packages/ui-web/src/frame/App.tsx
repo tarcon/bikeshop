@@ -41,12 +41,16 @@ function App() {
    }
 
    return (
-      <div style={{}}>
+      <div>
          <Header />
          <Navigation />
-         <div className="grid grid-flow-col gap-4 p-8">
-            <section>{content}</section>
-            <ShoppingCart />
+         <div className="row">
+            <div className="col-8">
+               <section style={{ padding: "0 24px" }}>{content}</section>
+            </div>
+            <div className="col-4">
+               <ShoppingCart />
+            </div>
          </div>
       </div>
    )

@@ -25,19 +25,13 @@ export function BikeProductCard({
    }
 
    return (
-      <div className="max-w-xs bg-white shadow-lg rounded-lg overflow-hidden my-10 object-top">
-         <div className="px-4 py-2 h-32">
-            <h3 className="text-gray-900 font-bold text-1xl uppercase">
-               {name}
-            </h3>
-            <p className="text-gray-600 text-sm mt-1">{description}</p>
-         </div>
-         <img
-            className="h-56 w-full object-cover mt-2"
-            src={productImageUrl}
-            alt={name}
-         />
-         <div className="flex items-center justify-between px-4 py-2 bg-blue-700">
+      <div className="col-4 card">
+         <header>
+            <h4 className="text-uppercase">{name}</h4>
+         </header>
+         <p>{description}</p>
+         <img src={productImageUrl} alt={name} />
+         <footer>
             <h1 className="text-gray-200 font-bold text-xl">{price}</h1>
             <button
                disabled={isLoading}
@@ -46,7 +40,7 @@ export function BikeProductCard({
             >
                Add to cart {isLoading && <InlineProgressIndicator />}
             </button>
-         </div>
+         </footer>
       </div>
    )
 }

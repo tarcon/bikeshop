@@ -1,6 +1,6 @@
-@import url(chota.css)
+@import url(chota.css);
 
 :root {
-    --color-primary: #da1d50; /* brand color */
-    --grid-maxWidth: 108rem; /* max container width 1080px */
+    --color-primary: #f06209;
+    --grid-maxWidth: 108rem;
 }

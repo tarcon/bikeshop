@@ -14,23 +14,19 @@ export function Navigation() {
    }
 
    return (
-      <ul className="flex border-b pr-6 pl-6" style={{ marginTop: -40 }}>
-         <li className="-mb-px mr-1">
-            <NavigationButton
-               active={shopContext.appViewModel.currentPage === Pages.Welcome}
-               onClick={handleNavigateWelcome}
-            >
-               Welcome
-            </NavigationButton>
-         </li>
-         <li className="-mb-px mr-1">
-            <NavigationButton
-               active={shopContext.appViewModel.currentPage === Pages.Bikes}
-               onClick={handleNavigateBikes}
-            >
-               See Bikes
-            </NavigationButton>
-         </li>
+      <ul className="tabs" style={{ marginTop: -40 }}>
+         <NavigationButton
+            active={shopContext.appViewModel.currentPage === Pages.Welcome}
+            onClick={handleNavigateWelcome}
+         >
+            Welcome
+         </NavigationButton>
+         <NavigationButton
+            active={shopContext.appViewModel.currentPage === Pages.Bikes}
+            onClick={handleNavigateBikes}
+         >
+            See Bikes
+         </NavigationButton>
       </ul>
    )
 }
@@ -42,23 +38,20 @@ function NavigationButton(props: {
 }) {
    const [isLoading, setLoading] = useState(false)
 
-   const handleNavigate = async () => {
+   const handleNavigate = async (event: any) => {
       setLoading(true)
       await props.onClick()
       setLoading(false)
+      event.stopPropagation()
    }
 
    return (
-      <button
-         className={
-            props.active
-               ? "bg-white inline-block border-l border-t border-r rounded-t py-2 px-4 text-blue-700 font-semibold"
-               : "bg-white inline-block py-2 px-4 text-blue-500 hover:text-blue-800 font-semibold"
-         }
+      <a
+         className={props.active ? "button primary active" : "button"}
          onClick={handleNavigate}
       >
          {props.children}
          {isLoading && <InlineProgressIndicator />}
-      </button>
+      </a>
    )
 }
