@@ -8,7 +8,7 @@ import { WelcomePage } from "../pages/WelcomePage"
 import { Header } from "./Header"
 import { Navigation } from "./Navigation"
 
-import "../css/tailwind.css"
+import "../css/main.css"
 import { ShoppingCart } from "../components/ShoppingCart"
 
 function App() {
