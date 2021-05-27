@@ -1,5 +1,7 @@
-import { Bike, ProvidesBike, ProvidesBikes } from "@bikeshop/core"
 import { StoredBikeDto } from "./dto/StoredBikeDto"
+import { ProvidesBikes } from "../boundaries/ProvidesBikes"
+import { ProvidesBike } from "../boundaries/ProvidesBike"
+import { Bike } from "../entities/Bike"
 
 export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {
    async fetchPurchasableBikes(): Promise<Array<Bike>> {
@@ -31,7 +33,7 @@ function fetch(url: string, ean?: number): Promise<any> {
       "http://api.bikeshop.de/bike/": ean ? fakeBikeResponse(ean) : () => {},
    }
 
-   return new Promise(resolve => {
+   return new Promise((resolve) => {
       setTimeout(() => {
          resolve(data[url])
       }, Math.random() * 1000)
@@ -67,5 +69,5 @@ function fakeBikesResponse(): Array<StoredBikeDto> {
 }
 
 function fakeBikeResponse(ean: number): StoredBikeDto {
-   return fakeBikesResponse().filter(bike => bike.ean === ean)[0]
+   return fakeBikesResponse().filter((bike) => bike.ean === ean)[0]
 }

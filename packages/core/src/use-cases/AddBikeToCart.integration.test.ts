@@ -1,12 +1,10 @@
-import {
-   AddBikeToCart,
-   CartPresenter,
-   CartViewModel,
-   DisplaysCart,
-   DisplaysError,
-} from "@bikeshop/core"
-import { BikeBackendGateway } from "@bikeshop/network"
-import { CartStorageGateway } from "@bikeshop/storage"
+import { DisplaysError } from "../boundaries/DisplaysError"
+import { DisplaysCart } from "../boundaries/DisplaysCart"
+import { CartViewModel } from "../presenter/CartViewModel"
+import { CartPresenter } from "../presenter/CartPresenter"
+import { AddBikeToCart } from "./AddBikeToCart"
+import { CartStorageGateway } from "../adapters/CartStorageGateway"
+import { BikeBackendGateway } from "../adapters/BikeBackendGateway"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart
@@ -108,7 +106,6 @@ describe("AddBikeToCart", () => {
 
       done()
    })
-
 
    it("stores the cart after adding a bike", async () => {
       const backend = new BikeBackendGateway()

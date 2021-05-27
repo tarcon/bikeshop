@@ -41,3 +41,8 @@ export * from "./presenter/CartPresenter"
 export * from "./presenter/CartViewModel"
 export * from "./presenter/BikesPresenter"
 export * from "./presenter/BikesViewModel"
+
+//adapters
+export { CartStorageGateway } from "./adapters/CartStorageGateway"
+export { BikeBackendGateway } from "./adapters/BikeBackendGateway"
+export { StoredBikeDto } from "./adapters/dto/StoredBikeDto"

@@ -1,11 +1,9 @@
-import {
-   aBike,
-   Cart,
-   DisplaysCart,
-   DisplaysError,
-   RemoveBikeFromCart,
-} from "@bikeshop/core"
-import { CartStorageGateway } from "@bikeshop/storage"
+import { DisplaysError } from "../boundaries/DisplaysError"
+import { DisplaysCart } from "../boundaries/DisplaysCart"
+import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
+import { Cart } from "../entities/Cart"
+import { aBike } from "../entities/BikeProvisioning"
+import { CartStorageGateway } from "../adapters/CartStorageGateway"
 
 describe("RemoveBikeFromCart", () => {
    let ui: DisplaysError & DisplaysCart

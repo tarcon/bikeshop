@@ -1,4 +1,6 @@
-import { Cart, LoadsCart, StoresCart } from "@bikeshop/core"
+import { StoresCart } from "../boundaries/StoresCart"
+import { LoadsCart } from "../boundaries/LoadsCart"
+import { Cart } from "../entities/Cart"
 
 export class CartStorageGateway implements StoresCart, LoadsCart {
    private _cart: Cart
