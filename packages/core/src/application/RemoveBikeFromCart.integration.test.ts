@@ -1,9 +1,9 @@
-import { DisplaysError } from "../boundaries/DisplaysError"
-import { DisplaysCart } from "../boundaries/DisplaysCart"
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
-import { Cart } from "../entities/Cart"
-import { aBike } from "../entities/BikeProvisioning"
 import { CartStorageGateway } from "../adapters/CartStorageGateway"
+import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { aBike } from "../domain/BikeProvisioning"
+import { DisplaysError } from "./capabilities/DisplaysError"
+import { Cart } from "../domain/Cart"
 
 describe("RemoveBikeFromCart", () => {
    let ui: DisplaysError & DisplaysCart

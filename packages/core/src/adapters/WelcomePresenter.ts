@@ -1,5 +1,5 @@
 import { WelcomeViewModel } from "./WelcomeViewModel"
-import { DisplaysWelcome } from ".."
+import { DisplaysWelcome } from "../index"
 
 export class WelcomePresenter implements DisplaysWelcome {
    private _renderFn: (viewModel: WelcomeViewModel) => void

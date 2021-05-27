@@ -1,5 +1,6 @@
 import { BikesViewModel } from "./BikesViewModel"
-import { DisplaysBikes, SeeBikesOutput } from ".."
+import { SeeBikesOutput } from "../application/SeeBikesOutput"
+import { DisplaysBikes } from "../application/capabilities/DisplaysBikes"
 
 export class BikesPresenter implements DisplaysBikes {
    private _renderFn: (viewModel: any) => void
@@ -14,7 +15,7 @@ export class BikesPresenter implements DisplaysBikes {
    }
 
    private static createBikesViewModel(presentableBikes: SeeBikesOutput) {
-      return presentableBikes.map(bike => ({
+      return presentableBikes.map((bike) => ({
          ean: bike.ean,
          name: bike.name,
          price: bike.price.toLocaleString("de-DE", {

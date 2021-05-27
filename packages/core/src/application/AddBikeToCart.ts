@@ -1,13 +1,11 @@
 import { AddBikeToCartOutput } from "./AddBikeToCart.out"
 import { AddBikeToCartInput } from "./AddBikeToCart.in"
-import {
-   Cart,
-   DisplaysCart,
-   DisplaysError,
-   LoadsCart,
-   ProvidesBike,
-   StoresCart,
-} from ".."
+import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { LoadsCart } from "./capabilities/LoadsCart"
+import { ProvidesBike } from "./capabilities/ProvidesBike"
+import { StoresCart } from "./capabilities/StoresCart"
+import { DisplaysError } from "./capabilities/DisplaysError"
+import { Cart } from "../domain/Cart"
 
 export class AddBikeToCart {
    private _cartStorage: StoresCart & LoadsCart

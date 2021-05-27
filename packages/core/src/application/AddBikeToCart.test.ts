@@ -1,10 +1,12 @@
 import { AddBikeToCartInput } from "./AddBikeToCart.in"
-import { Cart, LoadsCart, StoresCart } from ".."
-import { ProvidesBike } from ".."
-import { DisplaysError } from ".."
-import { DisplaysCart } from ".."
+import { ProvidesBike } from "../index"
+import { DisplaysError } from "../index"
+import { DisplaysCart } from "../index"
 import { AddBikeToCart } from "./AddBikeToCart"
-import { aBike } from ".."
+import { aBike } from "../index"
+import { LoadsCart } from "./capabilities/LoadsCart"
+import { StoresCart } from "./capabilities/StoresCart"
+import { Cart } from "../domain/Cart"
 
 describe("AddBikeToCart", () => {
    let emptyCartSpy: StoresCart & LoadsCart

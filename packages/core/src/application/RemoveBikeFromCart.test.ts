@@ -1,12 +1,10 @@
-import {
-   aBike,
-   Cart,
-   DisplaysCart,
-   DisplaysError,
-   LoadsCart,
-   StoresCart,
-} from ".."
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
+import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { aBike } from "../domain/BikeProvisioning"
+import { LoadsCart } from "./capabilities/LoadsCart"
+import { StoresCart } from "./capabilities/StoresCart"
+import { DisplaysError } from "./capabilities/DisplaysError"
+import { Cart } from "../domain/Cart"
 
 describe("AddBikeToCart", () => {
    let emptyCartSpy: LoadsCart & StoresCart

@@ -1,10 +1,10 @@
-import { DisplaysError } from "../boundaries/DisplaysError"
-import { DisplaysCart } from "../boundaries/DisplaysCart"
-import { CartViewModel } from "../presenter/CartViewModel"
-import { CartPresenter } from "../presenter/CartPresenter"
+import { CartViewModel } from "../adapters/CartViewModel"
+import { CartPresenter } from "../adapters/CartPresenter"
 import { AddBikeToCart } from "./AddBikeToCart"
 import { CartStorageGateway } from "../adapters/CartStorageGateway"
 import { BikeBackendGateway } from "../adapters/BikeBackendGateway"
+import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { DisplaysError } from "./capabilities/DisplaysError"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart

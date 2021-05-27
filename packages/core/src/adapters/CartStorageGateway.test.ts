@@ -1,6 +1,6 @@
 import { CartStorageGateway } from "./CartStorageGateway"
-import { Cart } from "../entities/Cart"
-import { aBike } from "../entities/BikeProvisioning"
+import { aBike } from "../domain/BikeProvisioning"
+import { Cart } from "../domain/Cart"
 
 describe("CartStorageGateway", () => {
    it("can store an empty cart", () => {

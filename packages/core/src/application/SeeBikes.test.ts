@@ -1,5 +1,7 @@
 import { SeeBikes } from "./SeeBikes"
-import { aBike, DisplaysBikes, ProvidesBikes } from ".."
+import { aBike } from "../domain/BikeProvisioning"
+import { DisplaysBikes } from "./capabilities/DisplaysBikes"
+import { ProvidesBikes } from "./capabilities/ProvidesBikes"
 
 const emptyBackendSpy = {
    fetchPurchasableBikes: jest.fn().mockResolvedValue([]),

@@ -1,5 +1,7 @@
 import { SeeBikeOutput, SeeBikesOutput } from "./SeeBikesOutput"
-import { Bike, DisplaysBikes, ProvidesBikes } from ".."
+import { DisplaysBikes } from "./capabilities/DisplaysBikes"
+import { ProvidesBikes } from "./capabilities/ProvidesBikes"
+import { Bike } from "../domain/Bike"
 
 export class SeeBikes {
    private _bikeBackend: ProvidesBikes

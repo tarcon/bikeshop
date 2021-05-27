@@ -1,6 +1,9 @@
-import { DisplaysCart, LoadsCart, StoresCart, Cart } from ".."
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
 import { RemoveBikeFromCartOutput } from "./RemoveBikeFromCart.out"
+import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { LoadsCart } from "./capabilities/LoadsCart"
+import { StoresCart } from "./capabilities/StoresCart"
+import { Cart } from "../domain/Cart"
 
 export class RemoveBikeFromCart {
    private _ui: DisplaysCart

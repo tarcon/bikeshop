@@ -1,46 +1,46 @@
 //entities
-export { Bike } from "./entities/Bike"
-export { aBike } from "./entities/BikeProvisioning"
-export { Cart } from "./entities/Cart"
-export { Product } from "./entities/Product"
-export { oneBikeInCart } from "./entities/CountableProductProvisioning"
+export { Bike } from "./domain/Bike"
+export { aBike } from "./domain/BikeProvisioning"
+export { Cart } from "./domain/Cart"
+export { Product } from "./domain/Product"
+export { oneBikeInCart } from "./domain/CountableProductProvisioning"
 
-//boundaries
-export { DisplaysWelcome } from "./boundaries/DisplaysWelcome"
-export { DisplaysBikes } from "./boundaries/DisplaysBikes"
-export { DisplaysCart } from "./boundaries/DisplaysCart"
-export { DisplaysError } from "./boundaries/DisplaysError"
+//capabilities
+export { DisplaysWelcome } from "./application/capabilities/DisplaysWelcome"
+export { DisplaysBikes } from "./application/capabilities/DisplaysBikes"
+export { DisplaysCart } from "./application/capabilities/DisplaysCart"
+export { DisplaysError } from "./application/capabilities/DisplaysError"
 
-export { ProvidesBike } from "./boundaries/ProvidesBike"
-export { ProvidesBikes } from "./boundaries/ProvidesBikes"
+export { ProvidesBike } from "./application/capabilities/ProvidesBike"
+export { ProvidesBikes } from "./application/capabilities/ProvidesBikes"
 
-export * from "./boundaries/StoresCart"
-export * from "./boundaries/LoadsCart"
+export * from "./application/capabilities/StoresCart"
+export * from "./application/capabilities/LoadsCart"
 
 //use cases
-export { AddBikeToCart } from "./use-cases/AddBikeToCart"
-export { AddBikeToCartInput } from "./use-cases/AddBikeToCart.in"
+export { AddBikeToCart } from "./application/AddBikeToCart"
+export { AddBikeToCartInput } from "./application/AddBikeToCart.in"
 export {
    AddBikeToCartOutput,
    AddBikeToCartCartBikeOutput,
-} from "./use-cases/AddBikeToCart.out"
+} from "./application/AddBikeToCart.out"
 
-export { RemoveBikeFromCart } from "./use-cases/RemoveBikeFromCart"
-export * from "./use-cases/RemoveBikeFromCart.in"
-export * from "./use-cases/RemoveBikeFromCart.out"
+export { RemoveBikeFromCart } from "./application/RemoveBikeFromCart"
+export * from "./application/RemoveBikeFromCart.in"
+export * from "./application/RemoveBikeFromCart.out"
 
-export { SeeBikes } from "./use-cases/SeeBikes"
-export { SeeBikesOutput, SeeBikeOutput } from "./use-cases/SeeBikesOutput"
+export { SeeBikes } from "./application/SeeBikes"
+export { SeeBikesOutput, SeeBikeOutput } from "./application/SeeBikesOutput"
 
-export { SeeWelcome } from "./use-cases/SeeWelcome"
+export { SeeWelcome } from "./application/SeeWelcome"
 
 //presenter
-export * from "./presenter/WelcomePresenter"
-export * from "./presenter/WelcomeViewModel"
-export * from "./presenter/CartPresenter"
-export * from "./presenter/CartViewModel"
-export * from "./presenter/BikesPresenter"
-export * from "./presenter/BikesViewModel"
+export * from "./adapters/WelcomePresenter"
+export * from "./adapters/WelcomeViewModel"
+export * from "./adapters/CartPresenter"
+export * from "./adapters/CartViewModel"
+export * from "./adapters/BikesPresenter"
+export * from "./adapters/BikesViewModel"
 
 //adapters
 export { CartStorageGateway } from "./adapters/CartStorageGateway"

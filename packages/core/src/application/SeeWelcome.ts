@@ -1,4 +1,4 @@
-import { DisplaysWelcome } from ".."
+import { DisplaysWelcome } from "./capabilities/DisplaysWelcome"
 
 export class SeeWelcome {
    private _ui: DisplaysWelcome

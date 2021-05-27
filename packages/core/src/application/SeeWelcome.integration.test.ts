@@ -1,5 +1,5 @@
-import { DisplaysWelcome } from "../boundaries/DisplaysWelcome"
 import { SeeWelcome } from "./SeeWelcome"
+import { DisplaysWelcome } from "./capabilities/DisplaysWelcome"
 
 describe("SeeWelcome use case", () => {
    let mockUi: DisplaysWelcome
