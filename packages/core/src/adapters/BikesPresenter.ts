@@ -1,6 +1,6 @@
 import { BikesViewModel } from "./BikesViewModel"
-import { SeeBikesOutput } from "../application/SeeBikesOutput"
 import { DisplaysBikes } from "../application/capabilities/DisplaysBikes"
+import { PresentableBikes } from "../application/SeeBikes"
 
 export class BikesPresenter implements DisplaysBikes {
    private _renderFn: (viewModel: any) => void
@@ -9,12 +9,12 @@ export class BikesPresenter implements DisplaysBikes {
       this._renderFn = renderFn
    }
 
-   public showBikes(presentableBikes: SeeBikesOutput) {
+   public showBikes(presentableBikes: PresentableBikes) {
       const viewModel = BikesPresenter.createBikesViewModel(presentableBikes)
       this._renderFn(viewModel)
    }
 
-   private static createBikesViewModel(presentableBikes: SeeBikesOutput) {
+   private static createBikesViewModel(presentableBikes: PresentableBikes) {
       return presentableBikes.map((bike) => ({
          ean: bike.ean,
          name: bike.name,

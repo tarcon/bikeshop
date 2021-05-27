@@ -30,7 +30,6 @@ export * from "./application/RemoveBikeFromCart.in"
 export * from "./application/RemoveBikeFromCart.out"
 
 export { SeeBikes } from "./application/SeeBikes"
-export { SeeBikesOutput, SeeBikeOutput } from "./application/SeeBikesOutput"
 
 export { SeeWelcome } from "./application/SeeWelcome"
 
@@ -46,3 +45,5 @@ export * from "./adapters/BikesViewModel"
 export { CartStorageGateway } from "./adapters/CartStorageGateway"
 export { BikeBackendGateway } from "./adapters/BikeBackendGateway"
 export { StoredBikeDto } from "./adapters/dto/StoredBikeDto"
+export { PresentableBike } from "./application/SeeBikes"
+export { PresentableBikes } from "./application/SeeBikes"

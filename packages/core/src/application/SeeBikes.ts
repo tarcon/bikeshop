@@ -1,7 +1,15 @@
-import { SeeBikeOutput, SeeBikesOutput } from "./SeeBikesOutput"
 import { DisplaysBikes } from "./capabilities/DisplaysBikes"
 import { ProvidesBikes } from "./capabilities/ProvidesBikes"
 import { Bike } from "../domain/Bike"
+
+export type PresentableBikes = Array<PresentableBike>
+export type PresentableBike = {
+   ean: number
+   name: string
+   price: number
+   productImageFileName: string
+   description: string
+}
 
 export class SeeBikes {
    private _bikeBackend: ProvidesBikes
@@ -15,15 +23,15 @@ export class SeeBikes {
    public async execute(): Promise<void> {
       const fetchedBikes = await this._bikeBackend.fetchPurchasableBikes()
 
-      const bikesOutput = SeeBikes.mapToOutput(fetchedBikes)
-      this._ui.showBikes(bikesOutput)
+      const presentableBikes = SeeBikes.createPresentableBikes(fetchedBikes)
+      this._ui.showBikes(presentableBikes)
    }
 
-   private static mapToOutput(bikes: Array<Bike>): SeeBikesOutput {
-      return bikes.map(SeeBikes.mapBikeToBikeOutput)
+   private static createPresentableBikes(bikes: Array<Bike>): PresentableBikes {
+      return bikes.map(SeeBikes.createPresentableBike)
    }
 
-   private static mapBikeToBikeOutput(bike: Bike): SeeBikeOutput {
+   private static createPresentableBike(bike: Bike): PresentableBike {
       return {
          ean: bike.ean,
          name: bike.name,
