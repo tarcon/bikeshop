@@ -1,5 +1,5 @@
 import { SeeBikes } from "./SeeBikes"
-import { aBike } from "../domain/BikeProvisioning"
+import { aBike } from "../domain/Bike.fixture"
 import { DisplaysBikes } from "./interfaces/DisplaysBikes"
 import { ProvidesBikes } from "./interfaces/ProvidesBikes"
 

@@ -1,7 +1,7 @@
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
 import { CartStorageGateway } from "../adapters/CartStorageGateway"
 import { DisplaysCart } from "./interfaces/DisplaysCart"
-import { aBike } from "../domain/BikeProvisioning"
+import { aBike } from "../domain/Bike.fixture"
 import { DisplaysError } from "./interfaces/DisplaysError"
 import { Cart } from "../domain/Cart"
 

@@ -1,9 +1,9 @@
 //entities
 export { Bike } from "./domain/Bike"
-export { aBike } from "./domain/BikeProvisioning"
+export { aBike } from "./domain/Bike.fixture"
 export { Cart } from "./domain/Cart"
 export { Product } from "./domain/Product"
-export { oneBikeInCart } from "./domain/CountableProductProvisioning"
+export { oneBikeInCart } from "./domain/CountableProduct.fixture"
 
 //capabilities
 export { DisplaysWelcome } from "./application/interfaces/DisplaysWelcome"

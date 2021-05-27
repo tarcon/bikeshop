@@ -1,6 +1,6 @@
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
 import { DisplaysCart } from "./interfaces/DisplaysCart"
-import { aBike } from "../domain/BikeProvisioning"
+import { aBike } from "../domain/Bike.fixture"
 import { LoadsCart } from "./interfaces/LoadsCart"
 import { StoresCart } from "./interfaces/StoresCart"
 import { DisplaysError } from "./interfaces/DisplaysError"

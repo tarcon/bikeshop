@@ -1,6 +1,6 @@
 import { Cart } from "./Cart"
-import { aBike } from "./BikeProvisioning"
-import { oneBikeInCart } from "./CountableProductProvisioning"
+import { aBike } from "./Bike.fixture"
+import { oneBikeInCart } from "./CountableProduct.fixture"
 
 describe("Cart", () => {
    it("can be created without products", () => {

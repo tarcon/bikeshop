@@ -1,5 +1,5 @@
 import { CartStorageGateway } from "./CartStorageGateway"
-import { aBike } from "../domain/BikeProvisioning"
+import { aBike } from "../domain/Bike.fixture"
 import { Cart } from "../domain/Cart"
 
 describe("CartStorageGateway", () => {
