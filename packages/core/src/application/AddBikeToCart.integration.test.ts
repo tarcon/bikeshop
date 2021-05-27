@@ -3,8 +3,8 @@ import { CartPresenter } from "../adapters/CartPresenter"
 import { AddBikeToCart } from "./AddBikeToCart"
 import { CartStorageGateway } from "../adapters/CartStorageGateway"
 import { BikeBackendGateway } from "../adapters/BikeBackendGateway"
-import { DisplaysCart } from "./capabilities/DisplaysCart"
-import { DisplaysError } from "./capabilities/DisplaysError"
+import { DisplaysCart } from "./interfaces/DisplaysCart"
+import { DisplaysError } from "./interfaces/DisplaysError"
 
 describe("AddBikeToCart", () => {
    let ui: DisplaysError & DisplaysCart

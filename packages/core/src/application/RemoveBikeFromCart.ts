@@ -1,8 +1,8 @@
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
 import { RemoveBikeFromCartOutput } from "./RemoveBikeFromCart.out"
-import { DisplaysCart } from "./capabilities/DisplaysCart"
-import { LoadsCart } from "./capabilities/LoadsCart"
-import { StoresCart } from "./capabilities/StoresCart"
+import { DisplaysCart } from "./interfaces/DisplaysCart"
+import { LoadsCart } from "./interfaces/LoadsCart"
+import { StoresCart } from "./interfaces/StoresCart"
 import { Cart } from "../domain/Cart"
 
 export class RemoveBikeFromCart {

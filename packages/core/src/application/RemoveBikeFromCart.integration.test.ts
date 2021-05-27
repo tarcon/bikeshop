@@ -1,8 +1,8 @@
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
 import { CartStorageGateway } from "../adapters/CartStorageGateway"
-import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { DisplaysCart } from "./interfaces/DisplaysCart"
 import { aBike } from "../domain/BikeProvisioning"
-import { DisplaysError } from "./capabilities/DisplaysError"
+import { DisplaysError } from "./interfaces/DisplaysError"
 import { Cart } from "../domain/Cart"
 
 describe("RemoveBikeFromCart", () => {

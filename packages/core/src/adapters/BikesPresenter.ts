@@ -1,5 +1,5 @@
 import { BikesViewModel } from "./BikesViewModel"
-import { DisplaysBikes } from "../application/capabilities/DisplaysBikes"
+import { DisplaysBikes } from "../application/interfaces/DisplaysBikes"
 import { PresentableBikes } from "../application/SeeBikes"
 
 export class BikesPresenter implements DisplaysBikes {

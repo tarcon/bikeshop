@@ -1,5 +1,5 @@
-import { DisplaysBikes } from "./capabilities/DisplaysBikes"
-import { ProvidesBikes } from "./capabilities/ProvidesBikes"
+import { DisplaysBikes } from "./interfaces/DisplaysBikes"
+import { ProvidesBikes } from "./interfaces/ProvidesBikes"
 import { Bike } from "../domain/Bike"
 
 export type PresentableBikes = Array<PresentableBike>

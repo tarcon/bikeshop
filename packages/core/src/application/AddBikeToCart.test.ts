@@ -4,8 +4,8 @@ import { DisplaysError } from "../index"
 import { DisplaysCart } from "../index"
 import { AddBikeToCart } from "./AddBikeToCart"
 import { aBike } from "../index"
-import { LoadsCart } from "./capabilities/LoadsCart"
-import { StoresCart } from "./capabilities/StoresCart"
+import { LoadsCart } from "./interfaces/LoadsCart"
+import { StoresCart } from "./interfaces/StoresCart"
 import { Cart } from "../domain/Cart"
 
 describe("AddBikeToCart", () => {

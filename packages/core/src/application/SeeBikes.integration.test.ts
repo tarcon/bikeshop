@@ -1,7 +1,7 @@
-import { DisplaysBikes } from "./capabilities/DisplaysBikes"
+import { DisplaysBikes } from "./interfaces/DisplaysBikes"
 import { aBike } from "../domain/BikeProvisioning"
 import { SeeBikes } from "./SeeBikes"
-import { ProvidesBikes } from "./capabilities/ProvidesBikes"
+import { ProvidesBikes } from "./interfaces/ProvidesBikes"
 
 describe("SeeBikes use case", () => {
    let backendWithoutBikes: ProvidesBikes

@@ -1,6 +1,6 @@
 import { StoredBikeDto } from "./dto/StoredBikeDto"
-import { ProvidesBike } from "../application/capabilities/ProvidesBike"
-import { ProvidesBikes } from "../application/capabilities/ProvidesBikes"
+import { ProvidesBike } from "../application/interfaces/ProvidesBike"
+import { ProvidesBikes } from "../application/interfaces/ProvidesBikes"
 import { Bike } from "../domain/Bike"
 
 export class BikeBackendGateway implements ProvidesBikes, ProvidesBike {

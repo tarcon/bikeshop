@@ -1,5 +1,5 @@
 import { SeeWelcome } from "./SeeWelcome"
-import { DisplaysWelcome } from "./capabilities/DisplaysWelcome"
+import { DisplaysWelcome } from "./interfaces/DisplaysWelcome"
 
 const uiSpy = {
    showWelcome: jest.fn(),

@@ -1,10 +1,10 @@
 import { AddBikeToCartOutput } from "./AddBikeToCart.out"
 import { AddBikeToCartInput } from "./AddBikeToCart.in"
-import { DisplaysCart } from "./capabilities/DisplaysCart"
-import { LoadsCart } from "./capabilities/LoadsCart"
-import { ProvidesBike } from "./capabilities/ProvidesBike"
-import { StoresCart } from "./capabilities/StoresCart"
-import { DisplaysError } from "./capabilities/DisplaysError"
+import { DisplaysCart } from "./interfaces/DisplaysCart"
+import { LoadsCart } from "./interfaces/LoadsCart"
+import { ProvidesBike } from "./interfaces/ProvidesBike"
+import { StoresCart } from "./interfaces/StoresCart"
+import { DisplaysError } from "./interfaces/DisplaysError"
 import { Cart } from "../domain/Cart"
 
 export class AddBikeToCart {

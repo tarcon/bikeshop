@@ -1,9 +1,9 @@
 import { RemoveBikeFromCart } from "./RemoveBikeFromCart"
-import { DisplaysCart } from "./capabilities/DisplaysCart"
+import { DisplaysCart } from "./interfaces/DisplaysCart"
 import { aBike } from "../domain/BikeProvisioning"
-import { LoadsCart } from "./capabilities/LoadsCart"
-import { StoresCart } from "./capabilities/StoresCart"
-import { DisplaysError } from "./capabilities/DisplaysError"
+import { LoadsCart } from "./interfaces/LoadsCart"
+import { StoresCart } from "./interfaces/StoresCart"
+import { DisplaysError } from "./interfaces/DisplaysError"
 import { Cart } from "../domain/Cart"
 
 describe("AddBikeToCart", () => {

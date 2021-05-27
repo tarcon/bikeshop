@@ -6,16 +6,16 @@ export { Product } from "./domain/Product"
 export { oneBikeInCart } from "./domain/CountableProductProvisioning"
 
 //capabilities
-export { DisplaysWelcome } from "./application/capabilities/DisplaysWelcome"
-export { DisplaysBikes } from "./application/capabilities/DisplaysBikes"
-export { DisplaysCart } from "./application/capabilities/DisplaysCart"
-export { DisplaysError } from "./application/capabilities/DisplaysError"
+export { DisplaysWelcome } from "./application/interfaces/DisplaysWelcome"
+export { DisplaysBikes } from "./application/interfaces/DisplaysBikes"
+export { DisplaysCart } from "./application/interfaces/DisplaysCart"
+export { DisplaysError } from "./application/interfaces/DisplaysError"
 
-export { ProvidesBike } from "./application/capabilities/ProvidesBike"
-export { ProvidesBikes } from "./application/capabilities/ProvidesBikes"
+export { ProvidesBike } from "./application/interfaces/ProvidesBike"
+export { ProvidesBikes } from "./application/interfaces/ProvidesBikes"
 
-export * from "./application/capabilities/StoresCart"
-export * from "./application/capabilities/LoadsCart"
+export * from "./application/interfaces/StoresCart"
+export * from "./application/interfaces/LoadsCart"
 
 //use cases
 export { AddBikeToCart } from "./application/AddBikeToCart"
