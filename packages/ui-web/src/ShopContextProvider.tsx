@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react"
 import { Pages, ShopContext } from "./ShopContext"
 import {
    AddBikeToCart,
+   BikeBackendGateway,
    BikesPresenter,
    CartPresenter,
+   CartStorageGateway,
    CartViewModel,
    RemoveBikeFromCart,
    SeeBikes,
@@ -17,11 +19,10 @@ export type AppViewModel = {
    currentPageViewModel: object
 }
 
-export function ShopContextProvider(props: {
-   bikeBackend: any
-   cartStorage: any
-   children: React.ReactNode
-}) {
+export function ShopContextProvider(props: { children: React.ReactNode }) {
+   const bikeBackend = new BikeBackendGateway()
+   const cartStorage = new CartStorageGateway()
+
    let [appViewModel, setAppViewModel] = useState<AppViewModel>({
       currentPage: Pages.Empty,
       currentPageViewModel: {},
@@ -55,16 +56,9 @@ export function ShopContextProvider(props: {
 
    const useCases = {
       SeeWelcome: new SeeWelcome(welcomePresenter),
-      SeeBikes: new SeeBikes(props.bikeBackend, bikesPresenter),
-      AddBikeToCart: new AddBikeToCart(
-         props.bikeBackend,
-         props.cartStorage,
-         cartPresenter
-      ),
-      RemoveBikeFromCart: new RemoveBikeFromCart(
-         cartPresenter,
-         props.cartStorage
-      ),
+      SeeBikes: new SeeBikes(bikeBackend, bikesPresenter),
+      AddBikeToCart: new AddBikeToCart(bikeBackend, cartStorage, cartPresenter),
+      RemoveBikeFromCart: new RemoveBikeFromCart(cartPresenter, cartStorage),
    }
 
    useEffect(() => {

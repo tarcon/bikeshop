@@ -1,15 +1,15 @@
 import React, { useContext } from "react"
-import { ShopContext } from "../ShopContext"
+import { ShopContext } from "./ShopContext"
 import { BikesViewModel } from "@bikeshop/core"
 import { WelcomeViewModel } from "@bikeshop/core"
-import { AppViewModel } from "../ShopContextProvider"
-import { BikesPage } from "../pages/BikesPage"
-import { WelcomePage } from "../pages/WelcomePage"
-import { Header } from "./Header"
-import { Navigation } from "./Navigation"
+import { AppViewModel } from "./ShopContextProvider"
+import { BikesPage } from "./pages/BikesPage"
+import { WelcomePage } from "./pages/WelcomePage"
+import { Header } from "./components/Header"
+import { Navigation } from "./components/Navigation"
 
-import "../css/main.css"
-import { ShoppingCart } from "../components/ShoppingCart"
+import "./css/main.css"
+import { ShoppingCart } from "./components/ShoppingCart"
 
 function App() {
    const shopContext = useContext(ShopContext)
