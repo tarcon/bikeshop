@@ -30,14 +30,14 @@ export class AddBikeToCart {
          cart.addProduct(bike)
          this._cartStorage.store(cart)
 
-         const output = AddBikeToCart.createOutputFromCart(cart)
-         this._ui.displayCart(output)
+         const presentableCart = AddBikeToCart.createPresentableCart(cart)
+         this._ui.displayCart(presentableCart)
       } catch (e) {
          this._ui.displayError(e.message)
       }
    }
 
-   private static createOutputFromCart(cart: Cart): AddBikeToCartOutput {
+   private static createPresentableCart(cart: Cart): AddBikeToCartOutput {
       return {
          bikes: cart.products.map((product) => {
             return {
