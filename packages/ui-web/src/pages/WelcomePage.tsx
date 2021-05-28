@@ -1,6 +1,5 @@
-import { WelcomeViewModel } from "@bikeshop/core/build/presenter/WelcomeViewModel"
-
 import React from "react"
+import { WelcomeViewModel } from "@bikeshop/core"
 
 export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
    return (
