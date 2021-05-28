@@ -10,7 +10,10 @@ export function Header() {
    return (
       <nav
          className="header_background"
-         style={{ height: HEIGHT, padding: 18 }}
+         style={{
+            height: HEIGHT,
+            padding: 18,
+         }}
       >
          <BikeGraphic frameColor="white" style={{ height: 300 }} />
          <Logo

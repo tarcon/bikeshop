@@ -14,7 +14,7 @@ export function Navigation() {
    }
 
    return (
-      <ul className="tabs" style={{ marginTop: -40 }}>
+      <ul className="is-horizontal-align" style={{ marginTop: -20 }}>
          <NavigationButton
             active={shopContext.appViewModel.currentPage === Pages.Welcome}
             onClick={handleNavigateWelcome}
@@ -47,7 +47,7 @@ function NavigationButton(props: {
 
    return (
       <a
-         className={props.active ? "button primary active" : "button"}
+         className={props.active ? "button primary" : "button"}
          onClick={handleNavigate}
       >
          {props.children}
