@@ -21,8 +21,8 @@ describe("SeeBikes use case", () => {
 
       await useCase.execute()
 
-      expect(ui.showBikes).toHaveBeenCalled()
-      expect(ui.showBikes).toHaveBeenCalledWith([])
+      expect(ui.displayBikes).toHaveBeenCalled()
+      expect(ui.displayBikes).toHaveBeenCalledWith([])
    })
 
    it("outputs bikes to the presenter", async () => {
@@ -30,8 +30,8 @@ describe("SeeBikes use case", () => {
 
       await useCase.execute()
 
-      expect(ui.showBikes).toHaveBeenCalled()
-      expect(ui.showBikes).toHaveBeenCalledWith([
+      expect(ui.displayBikes).toHaveBeenCalled()
+      expect(ui.displayBikes).toHaveBeenCalledWith([
          {
             ean: 123,
             name: "Bike",
@@ -54,7 +54,7 @@ describe("SeeBikes use case", () => {
       }
 
       ui = {
-         showBikes: jest.fn(),
+         displayBikes: jest.fn(),
       }
    })
 })

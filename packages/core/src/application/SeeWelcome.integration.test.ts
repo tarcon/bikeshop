@@ -17,13 +17,13 @@ describe("SeeWelcome use case", () => {
 
       useCase.execute()
 
-      expect(mockUi.showWelcome).toHaveBeenCalled()
+      expect(mockUi.displayWelcome).toHaveBeenCalled()
    })
 
    beforeAll(() => {
       jest.resetAllMocks()
       mockUi = {
-         showWelcome: jest.fn(),
+         displayWelcome: jest.fn(),
       }
    })
 })

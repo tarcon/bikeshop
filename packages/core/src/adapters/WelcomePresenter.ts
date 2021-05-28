@@ -8,7 +8,7 @@ export class WelcomePresenter implements DisplaysWelcome {
       this._renderFn = renderFn
    }
 
-   showWelcome(): any {
+   displayWelcome(): any {
       const viewModel = {
          welcomeText: WelcomePresenter.createWelcomeText(),
       }

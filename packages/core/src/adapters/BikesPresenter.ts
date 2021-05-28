@@ -9,7 +9,7 @@ export class BikesPresenter implements DisplaysBikes {
       this._renderFn = renderFn
    }
 
-   public showBikes(presentableBikes: PresentableBikes) {
+   public displayBikes(presentableBikes: PresentableBikes) {
       const viewModel = BikesPresenter.createBikesViewModel(presentableBikes)
       this._renderFn(viewModel)
    }

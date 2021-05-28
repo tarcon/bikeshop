@@ -1,5 +1,5 @@
 import { PresentableBikes } from "../../index"
 
 export interface DisplaysBikes {
-   showBikes(presentableBikes: PresentableBikes): any
+   displayBikes(presentableBikes: PresentableBikes): any
 }

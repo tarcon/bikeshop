@@ -7,7 +7,7 @@ describe("Bike presenter", () => {
       const sut = new BikesPresenter(testRenderFn)
 
       //when
-      sut.showBikes([])
+      sut.displayBikes([])
 
       //then
       expect(testRenderFn).toHaveBeenCalledWith([])
@@ -19,7 +19,7 @@ describe("Bike presenter", () => {
       const sut = new BikesPresenter(testRenderFn)
 
       //when
-      sut.showBikes([
+      sut.displayBikes([
          {
             ean: 123,
             name: "Bike1",

@@ -6,7 +6,7 @@ describe("welcome presenter", () => {
    it("generates a view model which contains the welcome string", () => {
       const sut = new WelcomePresenter(testRenderFn)
 
-      sut.showWelcome()
+      sut.displayWelcome()
 
       expect(testRenderFn).toHaveBeenCalledWith({
          welcomeText: expect.any(String),

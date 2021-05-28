@@ -2,7 +2,7 @@ import { SeeWelcome } from "./SeeWelcome"
 import { DisplaysWelcome } from "./interfaces/DisplaysWelcome"
 
 const uiSpy = {
-   showWelcome: jest.fn(),
+   displayWelcome: jest.fn(),
 } as DisplaysWelcome
 
 test("SeeBikes fetches bikes from backend", async () => {
@@ -10,5 +10,5 @@ test("SeeBikes fetches bikes from backend", async () => {
 
    await useCase.execute()
 
-   expect(uiSpy.showWelcome).toHaveBeenCalled()
+   expect(uiSpy.displayWelcome).toHaveBeenCalled()
 })

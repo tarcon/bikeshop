@@ -8,6 +8,6 @@ export class SeeWelcome {
    }
 
    execute() {
-      this._ui.showWelcome()
+      this._ui.displayWelcome()
    }
 }

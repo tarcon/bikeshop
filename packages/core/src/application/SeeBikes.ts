@@ -24,7 +24,7 @@ export class SeeBikes {
       const fetchedBikes = await this._bikeBackend.fetchPurchasableBikes()
 
       const presentableBikes = SeeBikes.createPresentableBikes(fetchedBikes)
-      this._ui.showBikes(presentableBikes)
+      this._ui.displayBikes(presentableBikes)
    }
 
    private static createPresentableBikes(bikes: Array<Bike>): PresentableBikes {

@@ -1,3 +1,3 @@
 export interface DisplaysWelcome {
-    showWelcome(): any
+   displayWelcome(): any
 }

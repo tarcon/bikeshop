@@ -12,7 +12,7 @@ const backendSpy = {
 } as ProvidesBikes
 
 const uiSpy = {
-   showBikes: jest.fn(),
+   displayBikes: jest.fn(),
 } as DisplaysBikes
 
 test("SeeBikes fetches bikes from backend", async () => {
@@ -28,7 +28,7 @@ test("SeeBikes outputs to ui", async () => {
 
    await useCase.execute()
 
-   expect(uiSpy.showBikes).toHaveBeenCalledWith([
+   expect(uiSpy.displayBikes).toHaveBeenCalledWith([
       {
          ean: expect.anything(),
          name: expect.anything(),
@@ -44,5 +44,5 @@ test("SeeBikes outputs empty to ui if no bikes present in backend", async () => 
 
    await useCase.execute()
 
-   expect(uiSpy.showBikes).toHaveBeenCalledWith([])
+   expect(uiSpy.displayBikes).toHaveBeenCalledWith([])
 })
