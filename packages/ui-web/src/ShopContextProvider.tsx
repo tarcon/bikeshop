@@ -19,10 +19,10 @@ export type AppViewModel = {
    currentPageViewModel: object
 }
 
-export function ShopContextProvider(props: { children: React.ReactNode }) {
-   const bikeBackend = new BikeBackendGateway()
-   const cartStorage = new CartStorageGateway()
+const bikeBackend = new BikeBackendGateway()
+const cartStorage = new CartStorageGateway()
 
+export function ShopContextProvider(props: { children: React.ReactNode }) {
    let [appViewModel, setAppViewModel] = useState<AppViewModel>({
       currentPage: Pages.Empty,
       currentPageViewModel: {},
