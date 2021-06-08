@@ -7,9 +7,16 @@ import { DisplaysCart } from "./interfaces/DisplaysCart"
 import { DisplaysError } from "./interfaces/DisplaysError"
 
 describe("AddBikeToCart", () => {
-   let ui: DisplaysError & DisplaysCart
+   let ui: DisplaysError & DisplaysCart =      {
+      displayError: jest.fn(),
+      displayCart: jest.fn(),
+   }
 
-   it("displays the shopping cart with two bikes of the same kind", async (done) => {
+   beforeEach(() => {
+      jest.clearAllMocks()
+   })
+
+   it("displays the shopping cart with two bikes of the same kind", async () => {
       const backend = new BikeBackendGateway()
       const cart = new CartStorageGateway()
       const uiCalls: Array<CartViewModel> = []
@@ -49,11 +56,9 @@ describe("AddBikeToCart", () => {
          ],
          totalPrice: "8.998,00 €",
       })
-
-      done()
    })
 
-   it("displays the shopping cart with two different bikes", async (done) => {
+   it("displays the shopping cart with two different bikes", async () => {
       const backend = new BikeBackendGateway()
       const cart = new CartStorageGateway()
       const uiCalls: Array<CartViewModel> = []
@@ -104,7 +109,6 @@ describe("AddBikeToCart", () => {
          totalPrice: "12.498,00 €",
       })
 
-      done()
    })
 
    it("stores the cart after adding a bike", async () => {
@@ -121,14 +125,5 @@ describe("AddBikeToCart", () => {
 
       expect(newCart.products).toBeDefined()
       expect(newCart.products[0].ean).toEqual(123908123)
-   })
-
-   beforeEach(() => {
-      jest.resetAllMocks()
-
-      ui = {
-         displayError: jest.fn(),
-         displayCart: jest.fn(),
-      }
    })
 })

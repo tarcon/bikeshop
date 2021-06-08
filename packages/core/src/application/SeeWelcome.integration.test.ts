@@ -2,7 +2,13 @@ import { SeeWelcome } from "./SeeWelcome"
 import { DisplaysWelcome } from "./interfaces/DisplaysWelcome"
 
 describe("SeeWelcome use case", () => {
-   let mockUi: DisplaysWelcome
+   let mockUi: DisplaysWelcome = {
+      displayWelcome: jest.fn(),
+   }
+
+   beforeAll(() => {
+      jest.clearAllMocks()
+   })
 
    it("can be executed", () => {
       const useCase = new SeeWelcome(mockUi)
@@ -20,10 +26,4 @@ describe("SeeWelcome use case", () => {
       expect(mockUi.displayWelcome).toHaveBeenCalled()
    })
 
-   beforeAll(() => {
-      jest.resetAllMocks()
-      mockUi = {
-         displayWelcome: jest.fn(),
-      }
-   })
 })

@@ -4,9 +4,20 @@ import { SeeBikes } from "./SeeBikes"
 import { ProvidesBikes } from "./interfaces/ProvidesBikes"
 
 describe("SeeBikes use case", () => {
-   let backendWithoutBikes: ProvidesBikes
-   let backendWithABike: ProvidesBikes
-   let ui: DisplaysBikes
+   let backendWithoutBikes: ProvidesBikes = {
+      fetchPurchasableBikes: jest.fn().mockReturnValue([]),
+   }
+
+   let backendWithABike: ProvidesBikes = {
+      fetchPurchasableBikes: jest.fn().mockReturnValue([aBike()]),
+   }
+   let ui: DisplaysBikes = {
+      displayBikes: jest.fn(),
+   }
+
+   beforeEach(() => {
+      jest.clearAllMocks()
+   })
 
    it("can be executed", () => {
       const useCase = new SeeBikes(backendWithoutBikes, ui)
@@ -40,21 +51,5 @@ describe("SeeBikes use case", () => {
             description: "nice Bike",
          },
       ])
-   })
-
-   beforeEach(() => {
-      jest.resetAllMocks()
-
-      backendWithoutBikes = {
-         fetchPurchasableBikes: jest.fn().mockReturnValue([]),
-      }
-
-      backendWithABike = {
-         fetchPurchasableBikes: jest.fn().mockReturnValue([aBike()]),
-      }
-
-      ui = {
-         displayBikes: jest.fn(),
-      }
    })
 })

@@ -10,6 +10,27 @@ describe("RemoveBikeFromCart", () => {
    let cartStorageGateway: CartStorageGateway
    let useCase: RemoveBikeFromCart
 
+   ui = {
+      displayError: jest.fn(),
+      displayCart: jest.fn(),
+   }
+
+   const cartWithThreeBikes = new Cart()
+   cartWithThreeBikes.addProduct(
+       aBike({ name: "SomeBrand", ean: 123, price: 100 })
+   )
+   cartWithThreeBikes.addProduct(
+       aBike({ name: "SomeOtherBrand", ean: 456, price: 300 })
+   )
+   cartWithThreeBikes.addProduct(
+       aBike({ name: "SomeOtherBrand", ean: 456, price: 300 })
+   )
+
+   cartStorageGateway = new CartStorageGateway()
+   cartStorageGateway.store(cartWithThreeBikes)
+
+   useCase = new RemoveBikeFromCart(ui, cartStorageGateway)
+
    it("displays the shopping cart with one remaining bike after removing another one", async () => {
       const bikeToRemove = {
          ean: 123,
@@ -31,28 +52,5 @@ describe("RemoveBikeFromCart", () => {
       })
    })
 
-   beforeEach(() => {
-      jest.resetAllMocks()
 
-      ui = {
-         displayError: jest.fn(),
-         displayCart: jest.fn(),
-      }
-
-      const cartWithThreeBikes = new Cart()
-      cartWithThreeBikes.addProduct(
-         aBike({ name: "SomeBrand", ean: 123, price: 100 })
-      )
-      cartWithThreeBikes.addProduct(
-         aBike({ name: "SomeOtherBrand", ean: 456, price: 300 })
-      )
-      cartWithThreeBikes.addProduct(
-         aBike({ name: "SomeOtherBrand", ean: 456, price: 300 })
-      )
-
-      cartStorageGateway = new CartStorageGateway()
-      cartStorageGateway.store(cartWithThreeBikes)
-
-      useCase = new RemoveBikeFromCart(ui, cartStorageGateway)
-   })
 })
