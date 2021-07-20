@@ -2,11 +2,8 @@ import { CartViewModel } from "./CartViewModel"
 import { AddBikeToCartOutput, DisplaysCart, DisplaysError } from "../index"
 
 export class CartPresenter implements DisplaysCart, DisplaysError {
-   private _renderFn: (viewModel: any) => void
 
-   constructor(renderFn: (viewModel: CartViewModel) => void) {
-      this._renderFn = renderFn
-   }
+   constructor(private _renderFn: (viewModel: CartViewModel) => void) {}
 
    displayCart(cartOutput: AddBikeToCartOutput): void {
       const viewModel = CartPresenter.createCartViewModel(cartOutput)
