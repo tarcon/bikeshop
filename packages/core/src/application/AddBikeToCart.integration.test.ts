@@ -114,10 +114,12 @@ describe("AddBikeToCart", () => {
       const backend = new BikeBackendGateway()
       const cart = new CartStorageGateway()
       const useCase = new AddBikeToCart(backend, cart, ui)
+
+      expect(cart.load().isEmpty()).toStrictEqual(true)
+
       const bikeToAdd = {
          ean: 123908123,
       }
-      expect(cart.load().isEmpty())
 
       await useCase.execute(bikeToAdd)
       const newCart = cart.load()
