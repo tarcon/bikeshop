@@ -1,6 +1,6 @@
 import { BikesViewModel } from "./BikesViewModel"
 import { DisplaysBikes } from "../application/interfaces/DisplaysBikes"
-import { PresentableBikes } from "../application/SeeBikes"
+import { PresentableBikes } from "../application/models/PresentableBikes"
 
 export class BikesPresenter implements DisplaysBikes {
    private _renderFn: (viewModel: any) => void

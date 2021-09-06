@@ -1,5 +1,5 @@
-import { AddBikeToCartOutput } from "../../index"
+import { PresentableCart } from "../models/PresentableCart"
 
 export interface DisplaysCart {
-   displayCart(cartOutput: AddBikeToCartOutput): void
+   displayCart(cartOutput: PresentableCart): void
 }

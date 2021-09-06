@@ -1,5 +1,5 @@
 import { CartPresenter } from "./CartPresenter"
-import { AddBikeToCartCartBikeOutput } from "../application/AddBikeToCart.out"
+import { PresentableCartBike } from "../application/models/PresentableCart"
 
 describe("CartPresenter", () => {
    let testRenderFn: () => void
@@ -30,13 +30,13 @@ describe("CartPresenter", () => {
                ean: 12345,
                name: "Bike1",
                price: 500,
-            } as AddBikeToCartCartBikeOutput,
+            } as PresentableCartBike,
             {
                count: 1,
                ean: 67890,
                name: "Bike2",
                price: 1000,
-            } as AddBikeToCartCartBikeOutput,
+            } as PresentableCartBike,
          ],
          totalPrice: 2000,
       }

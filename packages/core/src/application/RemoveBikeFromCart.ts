@@ -1,9 +1,9 @@
 import { RemoveBikeFromCartInput } from "./RemoveBikeFromCart.in"
-import { RemoveBikeFromCartOutput } from "./RemoveBikeFromCart.out"
 import { DisplaysCart } from "./interfaces/DisplaysCart"
 import { LoadsCart } from "./interfaces/LoadsCart"
 import { StoresCart } from "./interfaces/StoresCart"
 import { Cart } from "../domain/Cart"
+import { PresentableCart } from "./models/PresentableCart"
 
 export class RemoveBikeFromCart {
    private _ui: DisplaysCart
@@ -27,7 +27,7 @@ export class RemoveBikeFromCart {
       }
    }
 
-   private static createOutputFromCart(cart: Cart): RemoveBikeFromCartOutput {
+   private static createOutputFromCart(cart: Cart): PresentableCart {
       return {
          bikes: cart.products.map((product) => {
             return {

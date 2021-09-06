@@ -1,15 +1,7 @@
 import { DisplaysBikes } from "./interfaces/DisplaysBikes"
 import { ProvidesBikes } from "./interfaces/ProvidesBikes"
 import { Bike } from "../domain/Bike"
-
-export type PresentableBikes = Array<PresentableBike>
-export type PresentableBike = {
-   ean: number
-   name: string
-   price: number
-   productImageFileName: string
-   description: string
-}
+import { PresentableBike, PresentableBikes } from "./models/PresentableBikes"
 
 export class SeeBikes {
    private _bikeBackend: ProvidesBikes

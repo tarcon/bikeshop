@@ -1,11 +1,12 @@
 import { CartViewModel } from "./CartViewModel"
-import { AddBikeToCartOutput, DisplaysCart, DisplaysError } from "../index"
+import { DisplaysCart } from "../application/interfaces/DisplaysCart"
+import { DisplaysError } from "../application/interfaces/DisplaysError"
+import { PresentableCart } from "../application/models/PresentableCart"
 
 export class CartPresenter implements DisplaysCart, DisplaysError {
-
    constructor(private _renderFn: (viewModel: CartViewModel) => void) {}
 
-   displayCart(cartOutput: AddBikeToCartOutput): void {
+   displayCart(cartOutput: PresentableCart): void {
       const viewModel = CartPresenter.createCartViewModel(cartOutput)
       this._renderFn(viewModel)
    }
@@ -15,7 +16,7 @@ export class CartPresenter implements DisplaysCart, DisplaysError {
    }
 
    private static createCartViewModel(
-      cartOutput: AddBikeToCartOutput
+      cartOutput: PresentableCart
    ): CartViewModel {
       return {
          bikes: cartOutput.bikes.map((cartBike) => ({

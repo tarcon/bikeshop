@@ -20,14 +20,8 @@ export * from "./application/interfaces/LoadsCart"
 //use cases
 export { AddBikeToCart } from "./application/AddBikeToCart"
 export { AddBikeToCartInput } from "./application/AddBikeToCart.in"
-export {
-   AddBikeToCartOutput,
-   AddBikeToCartCartBikeOutput,
-} from "./application/AddBikeToCart.out"
-
 export { RemoveBikeFromCart } from "./application/RemoveBikeFromCart"
 export * from "./application/RemoveBikeFromCart.in"
-export * from "./application/RemoveBikeFromCart.out"
 
 export { SeeBikes } from "./application/SeeBikes"
 
@@ -45,5 +39,5 @@ export * from "./adapters/BikesViewModel"
 export { CartStorageGateway } from "./adapters/CartStorageGateway"
 export { BikeBackendGateway } from "./adapters/BikeBackendGateway"
 export { StoredBikeDto } from "./adapters/dto/StoredBikeDto"
-export { PresentableBike } from "./application/SeeBikes"
-export { PresentableBikes } from "./application/SeeBikes"
+export { PresentableBike } from "./application/models/PresentableBikes"
+export { PresentableBikes } from "./application/models/PresentableBikes"
