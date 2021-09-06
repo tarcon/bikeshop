@@ -14,7 +14,7 @@ export function Navigation() {
    }
 
    return (
-      <ul className="is-horizontal-align" style={{ marginTop: -20 }}>
+      <ul style={{ marginTop: -30 }}>
          <NavigationButton
             active={shopContext.appViewModel.currentPage === Pages.Welcome}
             onClick={handleNavigateWelcome}

@@ -43,13 +43,15 @@ function App() {
    return (
       <div>
          <Header />
-         <Navigation />
-         <div className="row">
-            <div className="col-8">
-               <section style={{ padding: "0 24px" }}>{content}</section>
-            </div>
-            <div className="col-4">
-               <ShoppingCart />
+         <div className="card">
+            <Navigation />
+            <div className="row">
+               <div className="col-8">
+                  <section style={{ padding: "0 24px" }}>{content}</section>
+               </div>
+               <div className="col-4">
+                  <ShoppingCart />
+               </div>
             </div>
          </div>
       </div>
