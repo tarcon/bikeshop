@@ -45,7 +45,7 @@ function fakeBikesResponse(): Array<StoredBikeDto> {
       {
          ean: 123908123,
          name: "Carbono R3",
-         price: 4499,
+         price: 1000,
          productImageFileName: "carbono.jpg",
          description:
             "A racing bike with a long heritage of classic race wins. Prefered by dentists.",
@@ -53,7 +53,7 @@ function fakeBikesResponse(): Array<StoredBikeDto> {
       {
          ean: 235235235,
          name: "Generalized Asphalt G-Works",
-         price: 7999,
+         price: 2000,
          productImageFileName: "gworks.jpg",
          description:
             "An even racier bike used by most of the professional riders. Made in china, but priced like artisan work from the USA.",
@@ -61,7 +61,7 @@ function fakeBikesResponse(): Array<StoredBikeDto> {
       {
          ean: 435643357,
          name: "Dungeon Ultra SLX",
-         price: 5699,
+         price: 3000,
          productImageFileName: "dungeon.jpg",
          description: "German engineered racing bike with nice looks.",
       },

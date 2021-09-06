@@ -7,7 +7,7 @@ import { DisplaysCart } from "./interfaces/DisplaysCart"
 import { DisplaysError } from "./interfaces/DisplaysError"
 
 describe("AddBikeToCart", () => {
-   let ui: DisplaysError & DisplaysCart =      {
+   let ui: DisplaysError & DisplaysCart = {
       displayError: jest.fn(),
       displayCart: jest.fn(),
    }
@@ -39,10 +39,10 @@ describe("AddBikeToCart", () => {
                count: 1,
                ean: 123908123,
                name: "Carbono R3",
-               price: "4.499,00 €",
+               price: "1.000,00 €",
             },
          ],
-         totalPrice: "4.499,00 €",
+         totalPrice: "1.000,00 €",
       })
 
       expect(uiCalls[1]).toStrictEqual({
@@ -51,10 +51,10 @@ describe("AddBikeToCart", () => {
                count: 2,
                ean: 123908123,
                name: "Carbono R3",
-               price: "4.499,00 €",
+               price: "1.000,00 €",
             },
          ],
-         totalPrice: "8.998,00 €",
+         totalPrice: "2.000,00 €",
       })
    })
 
@@ -85,10 +85,10 @@ describe("AddBikeToCart", () => {
                count: 1,
                ean: 123908123,
                name: "Carbono R3",
-               price: "4.499,00 €",
+               price: "1.000,00 €",
             },
          ],
-         totalPrice: "4.499,00 €",
+         totalPrice: "1.000,00 €",
       })
 
       expect(uiCalls[1]).toStrictEqual({
@@ -97,18 +97,17 @@ describe("AddBikeToCart", () => {
                count: 1,
                ean: 123908123,
                name: "Carbono R3",
-               price: "4.499,00 €",
+               price: "1.000,00 €",
             },
             {
                count: 1,
                ean: 235235235,
                name: "Generalized Asphalt G-Works",
-               price: "7.999,00 €",
+               price: "2.000,00 €",
             },
          ],
-         totalPrice: "12.498,00 €",
+         totalPrice: "3.000,00 €",
       })
-
    })
 
    it("stores the cart after adding a bike", async () => {
