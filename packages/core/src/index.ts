@@ -19,9 +19,9 @@ export * from "./application/interfaces/LoadsCart"
 
 //use cases
 export { AddBikeToCart } from "./application/AddBikeToCart"
-export { AddBikeToCartInput } from "./application/AddBikeToCart.in"
+export { AddBikeToCartInput } from "./application/AddBikeToCart.input"
 export { RemoveBikeFromCart } from "./application/RemoveBikeFromCart"
-export * from "./application/RemoveBikeFromCart.in"
+export { RemoveBikeFromCartInput } from "./application/RemoveBikeFromCart.input"
 
 export { SeeBikes } from "./application/SeeBikes"
 

@@ -1,4 +1,3 @@
-import { AddBikeToCartInput } from "./AddBikeToCart.in"
 import { DisplaysCart } from "./interfaces/DisplaysCart"
 import { LoadsCart } from "./interfaces/LoadsCart"
 import { ProvidesBike } from "./interfaces/ProvidesBike"
@@ -6,6 +5,7 @@ import { StoresCart } from "./interfaces/StoresCart"
 import { DisplaysError } from "./interfaces/DisplaysError"
 import { Cart } from "../domain/Cart"
 import { PresentableCart } from "./models/PresentableCart"
+import { AddBikeToCartInput } from "./AddBikeToCart.input"
 
 export class AddBikeToCart {
    private _cartStorage: StoresCart & LoadsCart
