@@ -1,9 +1,11 @@
-1. ~~Customer: see all Bikes available in the shop so that I can plan my purchase~~
+1. ~~Als Kunde möchte ich alle verfügbaren Fahrräder sehen um meinen Kauf planen zu können~~
 
-2. ~~Customer: select a Bike for purchase and see in shopping cart to cross the product from my purchase list and continue~~
+2. ~~Als Kunde möchte ichein Fahrrad für den Kauf auswählen um die Einkaufliste abzuarbeiten~~
 
-3. ~~Customer: see all selected Bikes from the shopping cart with an overall price to validate to make the purchase decision~~
+3. ~~Als Kunde möchte ich alle ausgewählten Fahrräder im Warenkorb mit einem Gesamtpreis sehen um die Kaufentscheidung zu treffen~~
 
-4. ~~Customer: delete an erroneously selected Bike from a shopping cart to correct an error~~
+4. ~~Als Kunde möchte ich ausgewählte Fahrräder aus dem Warenkorb löschen um sich umentscheiden zu können~~
 
-5. Customer: purchase all selected Bikes in the shopping cart to finally recieve them
+5. Als Geschäftsführer möchte ich einen Rabatt von 10% auf die Gesamtsumme beim Kauf von mindestens zwei Fahrrädern gewähren um den Umsatz anzukurbeln
+
+6. Als Kunde möchte ich den Warenkorb bezahlen können um die Fahrräder zu erhalten
