@@ -32,8 +32,8 @@ export class AddBikeToCart {
 
          const presentableCart = AddBikeToCart.createPresentableCart(cart)
          this._ui.displayCart(presentableCart)
-      } catch (e) {
-         this._ui.displayError(e.message)
+      } catch (e: any) {
+         this._ui.displayError(e?.message)
       }
    }
 
