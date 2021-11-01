@@ -6,6 +6,6 @@
 
 4. ~~Als Kunde möchte ich ausgewählte Fahrräder aus dem Warenkorb löschen um sich umentscheiden zu können~~
 
-5. Als Geschäftsführer möchte ich einen Rabatt von 10% auf die Gesamtsumme beim Kauf von mindestens zwei Fahrrädern gewähren um den Umsatz anzukurbeln
+5. Als Geschäftsführer möchte ich einen Rabatt von 10% auf die Gesamtsumme beim Kauf von mindestens zwei Fahrrädern gewähren, um den Umsatz anzukurbeln
 
-6. Als Kunde möchte ich den Warenkorb bezahlen können um die Fahrräder zu erhalten
+6. Als Kunde möchte ich den Warenkorb bezahlen können, um die Fahrräder zu erhalten
