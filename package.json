@@ -5,10 +5,10 @@
       "packages/*"
    ],
    "scripts": {
-      "start": "yarn build && lerna run start --scope=@bikeshop/ui-web",
-      "build": "yarn clean && lerna run build --stream",
-      "clean": "lerna run clean --parallel",
-      "test": "lerna run test --stream --ci",
+      "start": "npm run build && npm run start --workspace=@bikeshop/ui-web",
+      "build": "npm run clean --workspaces --if-present && npm run build --workspaces --if-present",
+      "clean": "npm run clean --workspaces --if-present",
+      "test": "npm run test --workspaces --if-present -- --ci",
       "prettier": "prettier --write {**/*,*}.{json,ts,tsx}"
    },
    "prettier": {
@@ -21,7 +21,6 @@
       "jest": "26.6.0",
       "ts-jest": "^26.5.6",
       "@types/jest": "^26.0.23",
-      "lerna": "^4.0.0",
       "prettier": "^2.4.1",
       "rimraf": "^3.0.2"
    },
