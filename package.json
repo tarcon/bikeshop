@@ -5,7 +5,7 @@
       "packages/*"
    ],
    "scripts": {
-      "start": "npm run build && npm run start --workspace=@bikeshop/ui-web",
+      "start": "npm run build && concurrently 'npm run watch --workspaces' 'npm run start --workspace=@bikeshop/ui-web'",
       "build": "npm run clean --workspaces --if-present && npm run build --workspaces --if-present",
       "clean": "npm run clean --workspaces --if-present",
       "test": "npm run test --workspaces --if-present -- --ci",
@@ -22,7 +22,8 @@
       "ts-jest": "^28.0.1",
       "@types/jest": "^27.5.0",
       "prettier": "^2.6.2",
-      "rimraf": "^3.0.2"
+      "rimraf": "^3.0.2",
+      "concurrently": "^7.1.0"
    },
    "engines": {
       "node": ">=13.0.0"
