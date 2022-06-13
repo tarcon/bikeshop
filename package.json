@@ -18,14 +18,14 @@
       "trailingComma": "es5"
    },
    "devDependencies": {
-      "jest": "28.0.3",
-      "ts-jest": "^28.0.1",
-      "@types/jest": "^27.5.0",
+      "jest": "28.1.1",
+      "ts-jest": "28.0.4",
+      "@types/jest": "28.1.1",
       "prettier": "^2.6.2",
       "rimraf": "^3.0.2",
-      "concurrently": "^7.1.0"
+      "concurrently": "7.2.1"
    },
    "engines": {
-      "node": ">=13.0.0"
+      "node": ">=16.0.0"
    }
 }
