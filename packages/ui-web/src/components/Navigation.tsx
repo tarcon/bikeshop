@@ -46,12 +46,12 @@ function NavigationButton(props: {
    }
 
    return (
-      <a
+      <button
          className={props.active ? "button primary" : "button"}
          onClick={handleNavigate}
       >
          {props.children}
          {isLoading && <InlineProgressIndicator />}
-      </a>
+      </button>
    )
 }
