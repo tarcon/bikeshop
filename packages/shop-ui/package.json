@@ -1,6 +1,6 @@
 {
-   "name": "@bikeshop/ui-web",
-   "version": "2.2.4",
+   "name": "@bikeshop/shop-ui",
+   "version": "3.0.0",
    "private": true,
    "scripts": {
       "start": "vite",
@@ -8,20 +8,8 @@
       "preview": "vite preview",
       "clean": "rimraf build"
    },
-   "browserslist": {
-      "production": [
-         ">0.2%",
-         "not dead",
-         "not op_mini all"
-      ],
-      "development": [
-         "last 1 chrome version",
-         "last 1 firefox version",
-         "last 1 safari version"
-      ]
-   },
    "dependencies": {
-      "@bikeshop/core": "^2.2.4",
+      "@bikeshop/shop": "3.0.0",
       "react": "18.2.0",
       "react-dom": "18.2.0"
    },

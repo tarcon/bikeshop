@@ -1,6 +1,6 @@
 {
    "name": "@bikeshop/shop",
-   "version": "2.2.4",
+   "version": "3.0.0",
    "private": true,
    "main": "build/index.js",
    "typings": "build/index.d.ts",

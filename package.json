@@ -6,7 +6,7 @@
       "packages/shop-ui"
    ],
    "scripts": {
-      "start": "npm run build && concurrently 'npm run watch --workspaces' 'npm run start --workspace=@bikeshop/ui-web'",
+      "start": "npm run build && concurrently 'npm run watch --workspaces' 'npm run start --workspace=@bikeshop/shop-ui'",
       "build": "npm run clean --workspaces --if-present && npm run build --workspaces --if-present",
       "clean": "npm run clean --workspaces --if-present",
       "test": "npm run test --workspaces --if-present -- --ci",
