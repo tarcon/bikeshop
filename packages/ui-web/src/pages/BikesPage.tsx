@@ -12,7 +12,7 @@ export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
                   ean={bike.ean}
                   name={bike.name}
                   price={bike.price}
-                  productImageUrl={bike.productImageUrl}
+                  productImageFileName={bike.productImageFileName}
                   description={bike.description}
                />
             ))}

@@ -4,6 +4,6 @@ export type BikeViewModel = {
    ean: number
    name: string
    price: string
-   productImageUrl: string
+   productImageFileName: string
    description: string
 }

@@ -10,7 +10,7 @@ export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
 
          <div className="col-3-md">
             <img
-               src="./img/cleancode.jpg"
+               src="/images/cleancode.jpg"
                width="100"
                alt="Powered by clean code"
             />

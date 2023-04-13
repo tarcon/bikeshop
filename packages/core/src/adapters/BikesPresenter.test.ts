@@ -35,7 +35,7 @@ describe("Bike presenter", () => {
             ean: 123,
             name: "Bike1",
             price: "1.337,00 €",
-            productImageUrl: "./img/file.jpg",
+            productImageFileName: "file.jpg",
             description: "Description 1",
          },
       ])
