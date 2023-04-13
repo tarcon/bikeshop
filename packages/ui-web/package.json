@@ -2,11 +2,6 @@
    "name": "@bikeshop/ui-web",
    "version": "2.2.4",
    "private": true,
-   "dependencies": {
-      "@bikeshop/core": "^2.2.4",
-      "react": "^18.1.0",
-      "react-dom": "^18.1.0"
-   },
    "scripts": {
       "start": "react-scripts start",
       "eject": "react-scripts eject",
@@ -27,10 +22,15 @@
          "last 1 safari version"
       ]
    },
+   "dependencies": {
+      "@bikeshop/core": "^2.2.4",
+      "react": "18.2.0",
+      "react-dom": "18.2.0"
+   },
    "devDependencies": {
-      "@types/react": "18.0.12",
-      "@types/react-dom": "^18.0.5",
+      "@types/react": "18.0.35",
+      "@types/react-dom": "18.0.11",
       "react-scripts": "5.0.1",
-      "typescript": "^4.7.3"
+      "typescript": "5.0.4"
    }
 }
