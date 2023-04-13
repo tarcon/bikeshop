@@ -2,7 +2,8 @@
    "name": "bikeshop",
    "private": true,
    "workspaces": [
-      "packages/*"
+      "packages/shop",
+      "packages/shop-ui"
    ],
    "scripts": {
       "start": "npm run build && concurrently 'npm run watch --workspaces' 'npm run start --workspace=@bikeshop/ui-web'",
