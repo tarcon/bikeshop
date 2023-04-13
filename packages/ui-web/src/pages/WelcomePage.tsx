@@ -1,5 +1,5 @@
 import React from "react"
-import { WelcomeViewModel } from "@bikeshop/core"
+import { WelcomeViewModel } from "@bikeshop/shop"
 
 export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
    return (

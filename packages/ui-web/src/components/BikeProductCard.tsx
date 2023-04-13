@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { AddBikeToCartInput, BikeViewModel } from "@bikeshop/core"
+import { AddBikeToCartInput, BikeViewModel } from "@bikeshop/shop"
 import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
 

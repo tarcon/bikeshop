@@ -1,5 +1,5 @@
 import React from "react"
-import { BikesViewModel, BikeViewModel } from "@bikeshop/core"
+import { BikesViewModel, BikeViewModel } from "@bikeshop/shop"
 import { BikeProductCard } from "../components/BikeProductCard"
 
 export function BikesPage(props: { bikesViewModel: BikesViewModel }) {

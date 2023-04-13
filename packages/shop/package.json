@@ -1,5 +1,5 @@
 {
-   "name": "@bikeshop/core",
+   "name": "@bikeshop/shop",
    "version": "2.2.4",
    "private": true,
    "main": "build/index.js",
