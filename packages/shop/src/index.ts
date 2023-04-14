@@ -1,22 +1,3 @@
-//entities
-export { Bike } from "./domain/Bike"
-export { aBike } from "./domain/Bike.fixture"
-export { Cart } from "./domain/Cart"
-export { Product } from "./domain/Product"
-export { oneBikeInCart } from "./domain/CountableProduct.fixture"
-
-//capabilities
-export { DisplaysWelcome } from "./application/interfaces/DisplaysWelcome"
-export { DisplaysBikes } from "./application/interfaces/DisplaysBikes"
-export { DisplaysCart } from "./application/interfaces/DisplaysCart"
-export { DisplaysError } from "./application/interfaces/DisplaysError"
-
-export { ProvidesBike } from "./application/interfaces/ProvidesBike"
-export { ProvidesBikes } from "./application/interfaces/ProvidesBikes"
-
-export * from "./application/interfaces/StoresCart"
-export * from "./application/interfaces/LoadsCart"
-
 //use cases
 export { AddBikeToCart } from "./application/AddBikeToCart"
 export { AddBikeToCartInput } from "./application/AddBikeToCart.input"
@@ -24,7 +5,6 @@ export { RemoveBikeFromCart } from "./application/RemoveBikeFromCart"
 export { RemoveBikeFromCartInput } from "./application/RemoveBikeFromCart.input"
 
 export { SeeBikes } from "./application/SeeBikes"
-
 export { SeeWelcome } from "./application/SeeWelcome"
 
 //presenter

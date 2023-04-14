@@ -1,4 +1,4 @@
-import { Bike } from "../../index"
+import { Bike } from "../../domain/Bike"
 
 export interface ProvidesBike {
    fetchBikeByEAN(ean: number): Promise<Bike>
