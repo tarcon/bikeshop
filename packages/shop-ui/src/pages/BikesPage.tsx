@@ -1,12 +1,12 @@
 import React from "react"
-import { BikesViewModel, BikeViewModel } from "@bikeshop/shop"
+import { BikesPageViewModel, BikeViewModel } from "@bikeshop/shop"
 import { BikeProductCard } from "../components/BikeProductCard"
 
-export function BikesPage(props: { bikesViewModel: BikesViewModel }) {
+export function BikesPage(props: { viewModel: BikesPageViewModel }) {
    return (
       <div>
          <div className="row">
-            {props.bikesViewModel.map((bike: BikeViewModel) => (
+            {props.viewModel.bikes.map((bike: BikeViewModel) => (
                <BikeProductCard
                   key={bike.ean}
                   ean={bike.ean}

@@ -1,28 +1,33 @@
 import React, { ReactNode, useContext, useState } from "react"
-import { Pages, ShopContext } from "../ShopContext"
+import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
+import { UseCaseDefinitions } from "@bikeshop/shop"
 
 export function Navigation() {
    const shopContext = useContext(ShopContext)
 
    const handleNavigateWelcome = async () => {
-      await shopContext.useCases["SeeWelcome"].execute()
+      await shopContext.controller?.executeUseCase(
+         UseCaseDefinitions.SeeWelcome.name
+      )
    }
 
    const handleNavigateBikes = async () => {
-      await shopContext.useCases["SeeBikes"].execute()
+      await shopContext.controller?.executeUseCase(
+         UseCaseDefinitions.SeeBikes.name
+      )
    }
 
    return (
       <ul style={{ marginTop: -30 }}>
          <NavigationButton
-            active={shopContext.appViewModel.currentPage === Pages.Welcome}
+            active={!!shopContext.shopViewModel.welcomePage}
             onClick={handleNavigateWelcome}
          >
             Welcome
          </NavigationButton>
          <NavigationButton
-            active={shopContext.appViewModel.currentPage === Pages.Bikes}
+            active={!!shopContext.shopViewModel.bikesPage}
             onClick={handleNavigateBikes}
          >
             See Bikes

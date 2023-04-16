@@ -6,24 +6,21 @@ import { DisplaysError } from "./interfaces/DisplaysError"
 import { Cart } from "../domain/Cart"
 import { PresentableCart } from "./models/PresentableCart"
 import { AddBikeToCartInput } from "./AddBikeToCart.input"
+import { AbstractUseCase } from "./UseCase"
+import { DisplaysLoading } from "./interfaces/DisplaysLoading"
 
-export class AddBikeToCart {
-   private _cartStorage: StoresCart & LoadsCart
-   private _bikeBackend: ProvidesBike
-   private _ui: DisplaysError & DisplaysCart
-
+export class AddBikeToCart extends AbstractUseCase {
    constructor(
-      bikeBackend: ProvidesBike,
-      cartStorage: StoresCart & LoadsCart,
-      ui: DisplaysError & DisplaysCart
+      private _bikeBackend: ProvidesBike,
+      private _cartStorage: StoresCart & LoadsCart,
+      private _ui: DisplaysError & DisplaysCart & DisplaysLoading
    ) {
-      this._cartStorage = cartStorage
-      this._bikeBackend = bikeBackend
-      this._ui = ui
+      super()
    }
 
-   async execute(bikeToAdd: AddBikeToCartInput): Promise<void> {
+   async execute(bikeToAdd: AddBikeToCartInput) {
       try {
+         this._ui.startLoading()
          const bike = await this._bikeBackend.fetchBikeByEAN(bikeToAdd.ean)
 
          const cart = this._cartStorage.load()
@@ -32,6 +29,7 @@ export class AddBikeToCart {
 
          const presentableCart = AddBikeToCart.createPresentableCart(cart)
          this._ui.displayCart(presentableCart)
+         this._ui.finishLoading()
       } catch (e: any) {
          this._ui.displayError(e?.message)
       }

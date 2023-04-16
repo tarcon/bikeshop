@@ -1,7 +1,8 @@
 import { SeeBikes } from "./SeeBikes"
 import { aBike } from "../domain/Bike.fixture"
-import { DisplaysBikes } from "./interfaces/DisplaysBikes"
 import { ProvidesBikes } from "./interfaces/ProvidesBikes"
+import { DisplaysBikes } from "./interfaces/DisplaysBikes"
+import { DisplaysLoading } from "./interfaces/DisplaysLoading"
 
 const emptyBackendSpy = {
    fetchPurchasableBikes: jest.fn().mockResolvedValue([]),
@@ -13,7 +14,9 @@ const backendSpy = {
 
 const uiSpy = {
    displayBikes: jest.fn(),
-} as DisplaysBikes
+   startLoading: jest.fn(),
+   finishLoading: jest.fn(),
+} as DisplaysBikes & DisplaysLoading
 
 test("SeeBikes fetches bikes from backend", async () => {
    const useCase = new SeeBikes(emptyBackendSpy, uiSpy)

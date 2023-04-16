@@ -1,4 +1,4 @@
-import { StoredBikeDto } from "./dto/StoredBikeDto"
+import { StoredBikeDto } from "./StoredBikeDto"
 import { ProvidesBike } from "../application/interfaces/ProvidesBike"
 import { ProvidesBikes } from "../application/interfaces/ProvidesBikes"
 import { Bike } from "../domain/Bike"
