@@ -1,7 +1,7 @@
 import { ShopPresenter } from "./adapters/output/ShopPresenter"
 import { main } from "./main"
 
-describe("Shop package provides an api which", () => {
+describe("Shop package api", () => {
    const renderSpy = jest.fn()
 
    describe("on the input side", () => {
@@ -26,7 +26,7 @@ describe("Shop package provides an api which", () => {
 
          expect(() => {
             uiCalls[0].welcomePage = {
-               content: "Attemping to mutate you",
+               content: "Attempting to mutate you",
             }
          }).toThrowErrorMatchingInlineSnapshot(
             `"Cannot assign to read only property 'welcomePage' of object '#<Object>'"`
