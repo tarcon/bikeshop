@@ -1,78 +1,39 @@
 import React, { useEffect, useState } from "react"
-import { Pages, ShopContext } from "./ShopContext"
-import {
-   AddBikeToCart,
-   BikeBackendGateway,
-   BikesPresenter,
-   CartPresenter,
-   CartStorageGateway,
-   CartViewModel,
-   RemoveBikeFromCart,
-   SeeBikes,
-   SeeWelcome,
-   WelcomePresenter,
-} from "@bikeshop/shop"
-
-export type AppViewModel = {
-   currentPage: Pages
-   shoppingCartViewModel?: CartViewModel
-   currentPageViewModel: object
-}
-
-const bikeBackend = new BikeBackendGateway()
-const cartStorage = new CartStorageGateway()
+import { ShopContext, ShopContextType } from "./ShopContext"
+import { main, ViewModel, UseCaseDefinitions } from "@bikeshop/shop"
 
 export function ShopContextProvider(props: { children: React.ReactNode }) {
-   let [appViewModel, setAppViewModel] = useState<AppViewModel>({
-      currentPage: Pages.Empty,
-      currentPageViewModel: {},
+   const [context, setContext] = useState<ShopContextType>({
+      shopViewModel: {
+         global: {
+            isLoading: true,
+         },
+      },
+      controller: null,
    })
 
-   const welcomePresenter = new WelcomePresenter((welcomeViewModel) => {
-      const state = {
-         ...appViewModel,
-         currentPage: Pages.Welcome,
-         currentPageViewModel: welcomeViewModel,
-      }
-      setAppViewModel(state)
-   })
-
-   const bikesPresenter = new BikesPresenter((bikesViewModel) => {
-      const state = {
-         ...appViewModel,
-         currentPage: Pages.Bikes,
-         currentPageViewModel: bikesViewModel,
-      }
-      setAppViewModel(state)
-   })
-
-   const cartPresenter = new CartPresenter((cartViewModel) => {
-      const state = {
-         ...appViewModel,
-         shoppingCartViewModel: cartViewModel,
-      }
-      setAppViewModel(state)
-   })
-
-   const useCases = {
-      SeeWelcome: new SeeWelcome(welcomePresenter),
-      SeeBikes: new SeeBikes(bikeBackend, bikesPresenter),
-      AddBikeToCart: new AddBikeToCart(bikeBackend, cartStorage, cartPresenter),
-      RemoveBikeFromCart: new RemoveBikeFromCart(cartPresenter, cartStorage),
+   const renderFn = (viewModel: Readonly<ViewModel>) => {
+      setContext((prevState) => {
+         return {
+            ...prevState,
+            shopViewModel: viewModel,
+         }
+      })
    }
 
    useEffect(() => {
-      useCases["SeeWelcome"].execute()
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+      const { controller } = main({ renderFn })
+      setContext((prevState) => {
+         return {
+            ...prevState,
+            controller: controller,
+         }
+      })
+      controller.executeUseCase(UseCaseDefinitions.SeeWelcome.name)
    }, [])
 
    return (
-      <ShopContext.Provider
-         value={{
-            appViewModel: appViewModel,
-            useCases: useCases,
-         }}
-      >
+      <ShopContext.Provider value={context}>
          {props.children}
       </ShopContext.Provider>
    )

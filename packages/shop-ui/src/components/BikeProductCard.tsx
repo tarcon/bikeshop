@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react"
-import { AddBikeToCartInput, BikeViewModel } from "@bikeshop/shop"
+import { BikeViewModel, UseCaseDefinitions } from "@bikeshop/shop"
 import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
 
@@ -16,11 +16,12 @@ export function BikeProductCard({
    const handleAddToCart = async () => {
       setLoading(true)
 
-      const addBikeToCartInput: AddBikeToCartInput = {
-         ean: ean,
-      }
-
-      await shopContext.useCases["AddBikeToCart"].execute(addBikeToCartInput)
+      await shopContext.controller?.executeUseCase(
+         UseCaseDefinitions.AddBikeToCart.name,
+         {
+            ean,
+         }
+      )
       setLoading(false)
    }
 

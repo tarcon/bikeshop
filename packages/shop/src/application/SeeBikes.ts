@@ -2,21 +2,21 @@ import { DisplaysBikes } from "./interfaces/DisplaysBikes"
 import { ProvidesBikes } from "./interfaces/ProvidesBikes"
 import { Bike } from "../domain/Bike"
 import { PresentableBike, PresentableBikes } from "./models/PresentableBikes"
+import { DisplaysLoading } from "./interfaces/DisplaysLoading"
 
 export class SeeBikes {
-   private _bikeBackend: ProvidesBikes
-   private _ui: DisplaysBikes
-
-   constructor(bikeBackend: ProvidesBikes, ui: DisplaysBikes) {
-      this._bikeBackend = bikeBackend
-      this._ui = ui
-   }
+   constructor(
+      private readonly _bikeBackend: ProvidesBikes,
+      private readonly _ui: DisplaysBikes & DisplaysLoading
+   ) {}
 
    public async execute(): Promise<void> {
+      this._ui.startLoading()
       const fetchedBikes = await this._bikeBackend.fetchPurchasableBikes()
 
       const presentableBikes = SeeBikes.createPresentableBikes(fetchedBikes)
       this._ui.displayBikes(presentableBikes)
+      this._ui.finishLoading()
    }
 
    private static createPresentableBikes(bikes: Array<Bike>): PresentableBikes {
