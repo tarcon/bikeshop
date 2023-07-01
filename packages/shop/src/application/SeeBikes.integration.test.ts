@@ -5,7 +5,7 @@ import { ShopPresenter } from "../adapters/output/ShopPresenter"
 
 describe("SeeBikes use case", () => {
    let renderSpy = jest.fn()
-   let presenter
+   let presenter: ShopPresenter
 
    beforeEach(() => {
       jest.clearAllMocks()
