@@ -15,6 +15,7 @@ export type ViewModel = {
    }
    welcomePage?: WelcomePageViewModel
    bikesPage?: BikesPageViewModel
+   emptyPage?: any
 }
 
 export type WelcomePageViewModel = {
