@@ -1,29 +1,45 @@
 import { SeeWelcome } from "./SeeWelcome"
-import { DisplaysWelcome } from "./interfaces/DisplaysWelcome"
+import { ShopPresenter } from "../adapters/output/ShopPresenter"
 
 describe("SeeWelcome use case", () => {
-   let mockUi: DisplaysWelcome = {
-      displayWelcome: jest.fn(),
-   }
-
-   beforeAll(() => {
-      jest.clearAllMocks()
-   })
-
    it("can be executed", () => {
-      const useCase = new SeeWelcome(mockUi)
+      const presenter: ShopPresenter = new ShopPresenter(jest.fn())
+      const useCase = new SeeWelcome(presenter)
 
       expect(() => {
          useCase.execute()
       }).not.toThrow()
    })
 
-   it("outputs welcome text to the presenter", () => {
-      const useCase = new SeeWelcome(mockUi)
+   it("displays welcome text after visualizing a loading state", () => {
+      const renderSpy = jest.fn()
+      const presenter: ShopPresenter = new ShopPresenter(renderSpy)
+      const sut = new SeeWelcome(presenter)
 
-      useCase.execute()
+      sut.execute()
 
-      expect(mockUi.displayWelcome).toHaveBeenCalled()
+      expect(renderSpy.mock.calls).toStrictEqual([
+         [
+            {
+               global: { isLoading: true },
+            },
+         ],
+         [
+            {
+               global: { isLoading: true },
+               welcomePage: {
+                  content: expect.stringContaining("Welcome"),
+               },
+            },
+         ],
+         [
+            {
+               global: { isLoading: false },
+               welcomePage: {
+                  content: expect.stringContaining("Welcome"),
+               },
+            },
+         ],
+      ])
    })
-
 })

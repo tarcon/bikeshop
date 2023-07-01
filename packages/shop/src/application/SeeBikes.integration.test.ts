@@ -1,9 +1,17 @@
-import { DisplaysBikes } from "./interfaces/DisplaysBikes"
 import { aBike } from "../domain/Bike.fixture"
 import { SeeBikes } from "./SeeBikes"
 import { ProvidesBikes } from "./interfaces/ProvidesBikes"
+import { ShopPresenter } from "../adapters/output/ShopPresenter"
 
 describe("SeeBikes use case", () => {
+   let renderSpy = jest.fn()
+   let presenter
+
+   beforeEach(() => {
+      jest.clearAllMocks()
+      presenter = new ShopPresenter(renderSpy)
+   })
+
    let backendWithoutBikes: ProvidesBikes = {
       fetchPurchasableBikes: jest.fn().mockReturnValue([]),
    }
@@ -11,45 +19,102 @@ describe("SeeBikes use case", () => {
    let backendWithABike: ProvidesBikes = {
       fetchPurchasableBikes: jest.fn().mockReturnValue([aBike()]),
    }
-   let ui: DisplaysBikes = {
-      displayBikes: jest.fn(),
-   }
 
    beforeEach(() => {
       jest.clearAllMocks()
    })
 
-   it("can be executed", () => {
-      const useCase = new SeeBikes(backendWithoutBikes, ui)
+   it("can be executed", async () => {
+      const useCase = new SeeBikes(backendWithoutBikes, presenter)
 
-      expect(() => {
-         useCase.execute()
-      }).not.toThrow()
+      await expect(() => useCase.execute()).not.toThrow()
    })
 
    it("outputs no bikes to the presenter for an empty Storage", async () => {
-      const useCase = new SeeBikes(backendWithoutBikes, ui)
+      const useCase = new SeeBikes(backendWithoutBikes, presenter)
 
       await useCase.execute()
 
-      expect(ui.displayBikes).toHaveBeenCalled()
-      expect(ui.displayBikes).toHaveBeenCalledWith([])
+      expect(renderSpy.mock.calls).toStrictEqual([
+         [
+            {
+               global: {
+                  isLoading: true,
+               },
+            },
+         ],
+         [
+            {
+               global: {
+                  isLoading: true,
+               },
+               bikesPage: {
+                  bikes: [],
+               },
+            },
+         ],
+         [
+            {
+               global: {
+                  isLoading: false,
+               },
+               bikesPage: {
+                  bikes: [],
+               },
+            },
+         ],
+      ])
    })
 
    it("outputs bikes to the presenter", async () => {
-      const useCase = new SeeBikes(backendWithABike, ui)
+      const useCase = new SeeBikes(backendWithABike, presenter)
 
       await useCase.execute()
 
-      expect(ui.displayBikes).toHaveBeenCalled()
-      expect(ui.displayBikes).toHaveBeenCalledWith([
-         {
-            ean: 123,
-            name: "Bike",
-            price: 1000,
-            productImageFileName: "pic.jpg",
-            description: "nice Bike",
-         },
+      expect(renderSpy.mock.calls).toStrictEqual([
+         [
+            {
+               global: {
+                  isLoading: true,
+               },
+            },
+         ],
+         [
+            {
+               global: {
+                  isLoading: true,
+               },
+               bikesPage: {
+                  bikes: [
+                     {
+                        description: "nice Bike",
+                        ean: 123,
+                        name: "Bike",
+                        price: "1.000,00 €",
+                        productImageFileName: "pic.jpg",
+                     },
+                  ],
+               },
+            },
+         ],
+         [
+            {
+               global: {
+                  isLoading: false,
+               },
+               bikesPage: {
+                  bikes: [
+                     {
+                        description: "nice Bike",
+                        ean: 123,
+                        name: "Bike",
+                        price: "1.000,00 €",
+                        productImageFileName: "pic.jpg",
+                     },
+                  ],
+               },
+            },
+         ],
       ])
    })
 })

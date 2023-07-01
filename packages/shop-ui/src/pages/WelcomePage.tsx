@@ -1,11 +1,11 @@
 import React from "react"
-import { WelcomeViewModel } from "@bikeshop/shop"
+import { WelcomePageViewModel } from "@bikeshop/shop"
 
-export function WelcomePage(props: { welcomeViewModel: WelcomeViewModel }) {
+export function WelcomePage(props: { viewModel: WelcomePageViewModel }) {
    return (
       <div className="row">
          <div className="col-6-md">
-            <p>{props.welcomeViewModel.welcomeText}</p>
+            <p>{props.viewModel.content}</p>
          </div>
 
          <div className="col-3-md">

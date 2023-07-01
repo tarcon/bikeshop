@@ -1,15 +1,10 @@
 import React, { useContext, useState, useRef, useEffect } from "react"
 import { ShopContext } from "../ShopContext"
 import { InlineProgressIndicator } from "./progress-indicators/InlineProgressIndicator"
+import { CartViewModel, UseCaseDefinitions } from "@bikeshop/shop"
 
-export function ShoppingCart() {
-   const shopContext = useContext(ShopContext)
-
-   const shoppingCartViewModel = shopContext.appViewModel.shoppingCartViewModel
-
-   if (!shoppingCartViewModel) return null
-
-   const cartBikesTableRows = shoppingCartViewModel.bikes.map((bike) => (
+export function ShoppingCart({ viewModel }: { viewModel: CartViewModel }) {
+   const cartBikesTableRows = viewModel.bikes.map((bike) => (
       <tr key={bike.ean}>
          <td className="">{bike.name}</td>
          <td className="text-right">{bike.count}</td>
@@ -35,7 +30,7 @@ export function ShoppingCart() {
                   </td>
                   <td />
                   <td className="text-right">
-                     <b>{shoppingCartViewModel.totalPrice}</b>
+                     <b>{viewModel.totalPrice}</b>
                   </td>
                   <td />
                </tr>
@@ -58,9 +53,12 @@ function RemoveBikeFromCartButton(props: { ean: number }) {
 
    const handleRemove = async () => {
       setLoading(true)
-      await shopContext.useCases["RemoveBikeFromCart"].execute({
-         ean: props.ean,
-      })
+      await shopContext.controller?.executeUseCase(
+         UseCaseDefinitions.RemoveBikeFromCart.name,
+         {
+            ean: props.ean,
+         }
+      )
       if (isMountedRef.current) {
          setLoading(false)
       }
