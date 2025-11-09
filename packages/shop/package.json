@@ -5,7 +5,7 @@
    "main": "build/index.js",
    "typings": "build/index.d.ts",
    "devDependencies": {
-      "typescript": "5.2.2"
+      "typescript": "^5.9.3"
    },
    "scripts": {
       "watch": "tsc --watch",
